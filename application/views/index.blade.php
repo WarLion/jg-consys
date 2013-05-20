@@ -4,22 +4,10 @@
 
 <div class="container">
 
-		<div class="row"> 
-			
-			<!-- Breadcrumb and Title -->
-			<div class="span12">
-
-				<h1 class="no-margin">Perfeto</h1>
-				<p class="lead">it's just a site templates</p>
-
-			</div>
-
-	</div>
-
 		<!-- Slider -->
 		<div class="slides">
 
-			<div><a href="#"><img src="img/example-slide-1.jpg" alt="Photo" /></a>
+			<div><a href="#">{{ HTML::image('img/slide1.jpg') }}</a>
 				
 				<div class="detail">
 
@@ -30,7 +18,7 @@
 		 
 			</div>
 
-			<div><a href="#"><img src="img/example-slide-2.jpg" alt="Photo" /></a>
+			<div><a href="#">{{ HTML::image('img/slide2.jpg') }}</a>
 				
 				<div class="detail">
 					
@@ -43,7 +31,7 @@
 			
 			</div>
 			
-			<div><a href="#"><img src="img/example-slide-3.jpg" alt="Photo" /></a>
+			<div><a href="#">{{ HTML::image('img/slide3.jpg') }}</a>
 				
 				<div class="detail">
 					
@@ -56,7 +44,7 @@
 		 
 			</div>
 			
-			<div><a href="#"><img src="img/example-slide-4.jpg" alt="Photo" /></a>
+			<div><a href="#">{{ HTML::image('img/slide4.jpg') }}</a>
 				
 				<div class="detail">
 					
@@ -75,25 +63,6 @@
 
 </div>
 
-<!-- Wide Banner -->
-<div class="wide-bg">
-	<div class="container">
-		<div class="row">
-			<div class="span3">
-				<h1 class="no-margin">Perfeto</h1>
-				<p class="lead no-margin">it's just a site templates</p>
-			</div>
-			<div class="span6"><em>Lorem ipsum dolor sit amet, <a href="#">consectetuer adipiscing</a> elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.<br />
-				<br />
-				Duis autem vel eum iriure <strong>dolor in hendrerit</strong> in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit.</em></div>
-			<div class="span3"><a href="#" class="btn btn-large btn-primary margin">Buy it</a></div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-
-		<hr />
-		
 <div class="section">
 
   <div class="container">
@@ -103,142 +72,52 @@
 
 			<div class="span12">
 
-				<p class="lead">Latest Works</p>
+				<hr />
+
+				<!-- Services List -->
 				<ul class="thumbnails">
-					<li class="span3">
-						
-						<div class="thumbnail"><a href="img/example-slide-1.jpg" title="Box Boutique" rel="thumbnails" class="thumb fancybox"><img src="img/example-slide-1.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-							
-							<div class="caption">
-								<h3><a href="#">Cyril Hahn</a></h3>
-								<em>April 20th, 2013</em>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <strong>nonummy nibh euismod</strong>.</p>
-								<a class="btn" href="#">View</a>
 
-							</div>
+				  <li class="span3">
 
-						</div>
+				    <div class="text-center"><img src="img/ico-forum.png" /><br />
+				      <a href="#" class="btn half-margin">Foro</a>
+				      <p class="caption">Ingresa al foro de la comunidad, y participa en temas y encuestas.</p>
+				    </div>
 
-					</li>
+				  </li>
 
-					<li class="span3">
-						
-						<div class="thumbnail"><a href="img/example-slide-2.jpg" title="Box Boutique" rel="thumbnails" class="thumb fancybox"><img src="img/example-slide-2.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-							
-							<div class="caption">
+				  <li class="span3">
 
-								<h3><a href="#">Cyril Hahn</a></h3>
-								<em>April 20th, 2013</em>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <strong>nonummy nibh euismod</strong>.</p>
-								<a class="btn" href="#">View</a>
+				    <div class="text-center"><img src="img/ico-publicity.png" /><br />
 
-							</div>
+				      <a href="#" class="btn half-margin">Publicidad</a>
+				      <p class="caption">Vecino ¿Te gustaría publicar algún servicio que ofreces? entra e informate como puedes hacerlo a través de nuestra página de publicidad.</p>
+				    
+				    </div>
 
-						</div>
+				  </li>
 
-					</li>
+				  <li class="span3">
 
-					<li class="span3">
-						
-						<div class="thumbnail"><a href="img/example-slide-3.jpg" title="Box Boutique" rel="thumbnails" class="thumb fancybox"><img src="img/example-slide-3.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-							
-							<div class="caption">
+				    <div class="text-center"><img src="img/ico-vig-big.png" /><br />
+				      
+				      <a href="#" class="btn half-margin">Sugerencias</a>
+				      <p class="caption">Para nosotros, tu opinión es importante.</p>
+				    
+				    </div>
 
-								<h3><a href="#">Cyril Hahn</a></h3>
-								<em>April 20th, 2013</em>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <strong>nonummy nibh euismod</strong>.</p>
-								<a class="btn" href="#">View</a>
+				  </li>
 
-							</div>
-						
-						</div>
+				  <li class="span3">
 
-					</li>
+				    <div class="text-center"><img src="img/ico-contact.png" /><br />
 
-					<li class="span3">
+				      <a href="#" class="btn half-margin">Contacto</a>
+				      <p class="caption">Si desea saber más información o quiere comunicarse con nosotros, diríjase a nuestro formulario de contacto que con gusto le estaremos repondiendo a la brevedad posible.</p>
+				    
+				    </div>
 
-						<div class="thumbnail"><a href="img/example-slide-4.jpg" title="Box Boutique" rel="thumbnails" class="thumb fancybox"><img src="img/example-slide-4.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-						 
-							<div class="caption">
-
-								<h3><a href="#">Cyril Hahn</a></h3>
-								<em>April 20th, 2013</em>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <strong>nonummy nibh euismod</strong>.</p>
-								<a class="btn" href="#">View</a>
-
-							</div>
-
-						</div>
-
-					</li>
-
-				</ul>
-
-			</div>
-
-		</div>
-
-		<hr />
-
-		<div class="row"> 
-			
-			<!-- Featured Posts -->
-			<div class="span4">
-
-				<h3 class="margin">Featured Posts</h3>
-				<ul class="media-list">
-					
-					<li class="media simple"><a href="img/example-slide-1.jpg" title="Box Boutique" rel="recent" class="pull-left thumb fancybox"><img src="img/example-slide-1.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-						
-						<div class="media-body">
-							<h4 class="media-heading half-margin"><a href="#">Scelerisque ante sollicitudin commodo</a></h4>
-							<a href="#" class="btn btn-small">View</a>
-
-						</div>
-
-					</li>
-
-				</ul>
-
-			</div>
-
-			<div class="span4">
-
-				<h3 class="margin">Featured Posts</h3>
-
-				<ul class="media-list">
-
-					<li class="media simple"><a href="img/example-slide-2.jpg" title="Box Boutique" rel="recent" class="pull-left thumb fancybox"><img src="img/example-slide-2.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-						
-						<div class="media-body">
-
-							<h4 class="media-heading half-margin"><a href="#">Scelerisque ante sollicitudin commodo</a></h4>
-							<a href="#" class="btn btn-small">View</a>
-
-						</div>
-
-					</li>
-
-				</ul>
-
-			</div>
-
-			<div class="span4">
-
-				<h3 class="margin">Most Commented</h3>
-
-				<ul class="media-list">
-
-					<li class="media simple"><a href="img/example-slide-3.jpg" title="Box Boutique" rel="recent" class="pull-left thumb fancybox"><img src="img/example-slide-3.jpg" alt="Photo" /> <span class="view"><i class="icon-search icon-white"></i></span></a>
-						
-						<div class="media-body">
-							
-							<h4 class="media-heading half-margin"><a href="#">Scelerisque ante sollicitudin commodo</a></h4>
-							<a href="#" class="btn btn-small">View</a>
-
-						</div>
-
-					</li>
+				  </li>
 
 				</ul>
 
