@@ -21,7 +21,7 @@
 
 			<div class="span6">
 
-				<p class="logo"><a href="#"><span>Perfetto</span></a></p>
+				<p class="logo"><a href="{{ URL::to('/') }}"> {{ HTML::image('img/index/logo.png') }} </a></p>
 
 			</div>
 
@@ -57,9 +57,9 @@
 						
 						<ul class="nav">
 							
-							<li class="dropdown active">{{ HTML::link('index','Inicio',array('title' => 'Inicio')) }} <b class="caret"></b> <span>Página principal</span></li>
+							<li class="dropdown active">{{ HTML::link('index','Inicio',array('title' => 'Inicio')) }} <span>Página principal</span></li>
 
-							<li class="dropdown active">{{ HTML::link('nosotros/index','La urbanización',array('title' => 'La urbanización')) }}<b class="caret"></b> <span>Villas de Aragua</span>
+							<li class="dropdown">{{ HTML::link('nosotros/index','La urbanización',array('title' => 'La urbanización')) }}<b class="caret"></b> <span>Villas de Aragua</span>
 								
 								<ul>
 									
@@ -72,7 +72,7 @@
 							
 							</li>              
 						 
-							<li>{{ HTML::link('/','Información',array('title' => 'Información')) }} <span>--</span>
+							<li class="dropdown">{{ HTML::link('/','Información',array('title' => 'Información')) }} <b class="caret"></b><span>Programaciones</span>
 
 								<ul>
 									
@@ -85,9 +85,9 @@
 
 							</li>
 							
-							<li class="dropdown">{{ HTML::link('foro/index','Foro',array('title' => 'Foro')) }}<b class="caret"></b> <span>Comunidad</span></li>
+							<li class="dropdown">{{ HTML::link('foro/index','Foro',array('title' => 'Foro')) }} <span>Comunidad</span></li>
 
-							<li class="dropdown">{{ HTML::link('contacto/index','Contacto',array('title' => 'Contacto')) }}<b class="caret"></b> <span>Comuníquese con nosotros</span></li>            
+							<li class="dropdown">{{ HTML::link('contacto/index','Contacto',array('title' => 'Contacto')) }} <span>Comuníquese con nosotros</span></li>            
 						</ul>
 					
 					</div>
@@ -97,8 +97,6 @@
 			</div>
 		
 		</div>
-		
-		<hr />
 	
 	</div>
 
