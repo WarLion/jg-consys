@@ -12,7 +12,7 @@ class Base_Controller extends Controller {
 		Asset::add('masonry','css/masonry.css');
 		Asset::add('fancybox','css/fancybox.css');
 		Asset::add('custom','css/colors/custom.css');
-		Asset::add('water','css/colors/water.css');
+		Asset::add('water','css/colors/green.css');
 		Asset::add('font_oswald','css/fonts/font_oswald.css');
 
 		// Javascripts files
