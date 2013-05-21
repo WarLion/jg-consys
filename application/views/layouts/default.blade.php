@@ -30,11 +30,9 @@
 				<div class="top-header text-right"><em>call us (123) 456 7890 - <a href="#">my@mail.com</a></em>
 
 					<div class="social">
-						<a href="#" class="ico-rss"><img src="img/rss-icon.png" alt="Rss" /></a> 
-						<a href="#" class="ico-flickr"><img src="img/flickr-icon.png" alt="Flickr" /></a> 
-						<a href="#" class="ico-google-plus"><img src="img/google-plus-icon.png" alt="Google Plus" /></a> 
-						<a href="#" class="ico-twitter"><img src="img/twitter-icon.png" alt="Twitter" /></a> 
-						<a href="#" class="ico-facebook"><img src="img/facebook-icon.png" alt="Facebook" /></a>
+						<a href="#" class="ico-twitter">{{ HTML::image('img/twitter-icon.png') }}</a> 
+						<a href="#" class="ico-facebook">{{ HTML::image('img/facebook-icon.png') }}</a>
+						<a href="#" class="ico-google-plus">{{ HTML::image('img/rss-icon.png') }}</a>
 					</div>
 
 				</div>
@@ -87,9 +85,12 @@
 							
 							<li class="dropdown">{{ HTML::link('foro/index','Foro',array('title' => 'Foro')) }} <span>Comunidad</span></li>
 
-							<li class="dropdown">{{ HTML::link('contacto/index','Contacto',array('title' => 'Contacto')) }} <span>Comuníquese con nosotros</span></li>            
+							<li class="dropdown">{{ HTML::link('contacto/index','Contacto',array('title' => 'Contacto')) }} <span>Comuníquese con nosotros</span></li>
+
+							<li class="dropdown">{{ HTML::link('login','Iniciar sesión',array('title' => 'Iniciar sesión')) }} <span>Ingrese a su cuenta</span></li>
+						
 						</ul>
-					
+
 					</div>
 				
 				</div>
