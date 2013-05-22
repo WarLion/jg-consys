@@ -47,6 +47,9 @@ Route::get('login','login@index');
 Route::post('dashboard','dashboard@index');
 Route::get('dashboard','dashboard@index');
 
+// Register
+Route::post('register','register@index');
+Route::get('register','register@index');
 
 /*
 |--------------------------------------------------------------------------
