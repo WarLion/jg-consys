@@ -39,6 +39,15 @@
 
 Route::get('/','index@index');
 
+// authentication
+Route::post('login','login@index');
+Route::get('login','login@index');
+
+// dashboard
+Route::post('dashboard','dashboard@index');
+Route::get('dashboard','dashboard@index');
+
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
