@@ -1,13 +1,33 @@
 
+.align-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Admin-Login */
 .login-center {
 	width: 450px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 #login-title-center {
 	width: 100px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* Register */
+
+#register-title-center {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.register-form {
+	overflow: auto;
+	width: 1150px;
+}
+
+.register-btn-primary {
+	width: 550px;
 }
