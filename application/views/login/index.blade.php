@@ -34,7 +34,7 @@
 
 		    </div>
 
-		    <div class="control-group no-margin">
+		    <div class="control-group">
 		      
 		      <div class="controls">
 
@@ -43,6 +43,26 @@
 		      </div>
 
 		    </div>
+
+		    <div class="control-group no-margin">
+		      
+		      <div class="controls">
+
+		      	<p>{{ HTML::link('user/password_recovery','¿Olvidaste tu contraseña?') }}</p>
+
+		      </div>
+
+		    </div>		    
+
+		    <div class="control-group no-margin">
+		      
+		      <div class="controls">
+
+		      	<p>{{ HTML::link('register','¿No tiene una cuenta? Regístrate') }}</p>
+
+		      </div>
+
+		    </div>		    
 
 		</form>
 
