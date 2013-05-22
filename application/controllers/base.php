@@ -14,6 +14,7 @@ class Base_Controller extends Controller {
 		Asset::add('custom','css/colors/custom.css');
 		Asset::add('water','css/colors/green.css');
 		Asset::add('font_oswald','css/fonts/font_oswald.css');
+		Asset::add('style_custom','css/style_custom.css');
 
 		// Javascripts files
 		Asset::add('jquery','js/jquery.js');
