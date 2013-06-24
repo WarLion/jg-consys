@@ -37,19 +37,33 @@
 	return View::make('home.index');
 });*/
 
-Route::get('/','index@index');
 
-// authentication
-Route::post('login','login@index');
-Route::get('login','login@index');
+Route::group(array('before' => 'consulta'), function()
+{
+	Route::get('/','index@index');
 
-// dashboard
-Route::post('dashboard','dashboard@index');
-Route::get('dashboard','dashboard@index');
+	// authentication
+	Route::post('login','login@index');
+	Route::get('login','login@index');
 
-// Register
-Route::post('register','register@index');
-Route::get('register','register@index');
+	// dashboard
+	Route::post('dashboard','dashboard@index');
+	Route::get('dashboard','dashboard@index');
+
+	// Register
+	Route::post('register','register@index');
+	Route::get('register','register@index');
+
+});
+
+Route::group(array('before' => 'admin'), function()
+{
+	/*++ Administration ++*/
+
+	// index
+	Route::post('condominio','administration@index');
+	Route::get('condominio','administration@index');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -123,4 +137,41 @@ Route::filter('csrf', function()
 Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
+});
+
+
+Route::filter('consulta', function()
+{
+	// Styles
+	Asset::add('bootstrap','css/bootstrap.min.css');
+	Asset::add('bootstrap-responsive','css/bootstrap-responsive.min.css');
+	Asset::add('styles','css/style.css');
+	Asset::add('slides','css/slides.css');
+	Asset::add('masonry','css/masonry.css');
+	Asset::add('fancybox','css/fancybox.css');
+	Asset::add('custom','css/colors/custom.css');
+	Asset::add('water','css/colors/green.css');
+	Asset::add('font_oswald','css/fonts/font_oswald.css');
+	Asset::add('style_custom','css/style_custom.css');
+
+	// Javascripts files
+	Asset::add('jquery','js/jquery.js');
+	Asset::add('bootstrap','js/bootstrap.min.js');
+	Asset::add('slides','js/slides.min.js');
+	Asset::add('masonry','js/masonry.min.js');
+	Asset::add('fancybox','js/fancybox.js');
+	Asset::add('functions','js/functions.js');
+});
+
+Route::filter('admin', function()
+{
+	// Styles
+	Asset::add('bootstrap','css/bootstrap.min.css');
+	Asset::add('bootstrap-responsive','css/bootstrap-responsive.min.css');
+	Asset::add('style_custom','css/style_custom.css');
+	//Asset::add('docs','css/docs.css');
+
+	// Javascripts files
+	Asset::add('jquery','js/jquery.js');
+	Asset::add('bootstrap','js/bootstrap.min.js');
 });
