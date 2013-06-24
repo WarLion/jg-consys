@@ -61,8 +61,8 @@ Route::group(array('before' => 'admin'), function()
 	/*++ Administration ++*/
 
 	// index
-	Route::post('condominio','administration@index');
-	Route::get('condominio','administration@index');
+	Route::post('condominio','administracion@index');
+	Route::get('condominio','administracion@index');
 });
 
 /*
