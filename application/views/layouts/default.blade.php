@@ -115,7 +115,18 @@
 
 						<hr />
 
-						<p class="text-center">&copy; 2013 <strong>Sigcon - {{ HTML::mailto('juliet.garcia@outlook.com','Juliet Garcia' ) }}</strong><br />Todos los derechos reservados.</p>
+						<div class="row show-grid">
+							
+							<div class="span5" data-original-title="" title="">
+								&copy; 2013 <strong>Junta de Propietarios de Villas de Aragua
+								<br />Todos los derechos reservados.
+							</div>
+
+							<div class="span7" data-original-title="" title="">
+								<div class="text-right">Sitio Web Desarrollado por: <strong>{{ HTML::mailto('juliet.garcia@outlook.com','Juliet Garcia' ) }}</strong></div>
+							</div>
+							
+						</div>
 
 					</div>
 
