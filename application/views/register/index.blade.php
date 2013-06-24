@@ -16,7 +16,7 @@
 
 </div>
 
-<form action="#" class="form-horizontal no-margin">
+{{ Form::open('register','POST', array('class' => 'form-horizontal no-margin'))}}
 
 <h3 class="half-margin" id="register-title-center" align>Datos de usuario</h3>
 
@@ -32,7 +32,7 @@
 
 				<div class="controls">
 
-					<input type="text" id="user" placeholder="Usuario" />
+					<input type="text" id="user" name="user" placeholder="Usuario" />
 
 				</div>
 
@@ -44,7 +44,7 @@
 
 				<div class="controls">
 
-					<input type="password" id="password" placeholder="Contraseña" />
+					<input type="password" id="password" name="password" placeholder="Contraseña" />
 
 				</div>
 
@@ -60,7 +60,7 @@
 
 				<div class="controls">
 
-					<input type="email" id="email" placeholder="Correo electrónico" />
+					<input type="email" id="email" name="email" placeholder="Correo electrónico" />
 
 				</div>
 
@@ -72,7 +72,7 @@
 
 				<div class="controls">
 
-					<input type="password" id="repeat_password" placeholder="Repita contraseña" />
+					<input type="password" id="repeat_password" name="repeat_password" placeholder="Repita contraseña" />
 
 				</div>
 
@@ -98,7 +98,7 @@
 
 				<div class="controls">
 
-					<input type="text" id="cedula" placeholder="Cédula" />
+					<input type="text" id="cedula" name="cedula" placeholder="Cédula" />
 
 				</div>
 
@@ -110,7 +110,7 @@
 
 				<div class="controls">
 
-					<input type="text" id="number_property" placeholder="Nro. casa" />
+					<input type="text" id="number_property" name="number_property" placeholder="Nro. casa" />
 
 				</div>
 
@@ -122,7 +122,7 @@
 
 				<div class="controls">
 
-					<input type="text" id="phone_property" placeholder="Tlf. casa" />
+					<input type="text" id="phone_property" name="phone_property" placeholder="Tlf. casa" />
 
 				</div>
 
@@ -134,7 +134,7 @@
 
 				<div class="controls">
 
-					<input type="text" id="phone_cell" placeholder="Tlf. celular" />
+					<input type="text" id="phone_cell" name="phone_cell" placeholder="Tlf. celular" />
 
 				</div>
 
@@ -239,7 +239,7 @@
 	  
 		<div class="controls">
 
-		<button type="submit" class="btn btn-primary">Registrarse</button>
+		<button type="submit" name="" class="btn btn-primary">Registrarse</button>
 
 		</div>
 
@@ -247,6 +247,6 @@
 
 </div>
 
-</form>
+{{ Form::close(); }}
 
 @endsection
