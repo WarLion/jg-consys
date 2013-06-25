@@ -1,5 +1,5 @@
 <?php
-class Administracion_Controller extends Base_Controller {
+class Admin_Administracion_Controller extends Base_Controller {
 
 	public $restful = true;
 
@@ -10,7 +10,7 @@ class Administracion_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		return View::make('administracion.index')->with('title','Sistema Administrativo');
+		return View::make('administracion.index')->with('title','Sistema Administrativo JG-Sigcon');
 	}
 
 	public function post_index()
