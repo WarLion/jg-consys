@@ -28,7 +28,7 @@
 						<span class="icon-bar"></span>
 					</a>
 
-					<a class="brand" href="#" name="top">Sigcon</a>
+					<a class="brand" href="{{ URL::to('condominio'); }}" name="top">JG-Sigcon</a>
 
 					<div class="nav-collapse in collapse" style="height: auto;">
 
@@ -36,29 +36,29 @@
 
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/admin.png') }} Administración <b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Cuentas por Cobrar</a></li>
-									<li><a href="#">Cuentas por Pagar</a></li>
-									<li><a href="#">Recibos</a></li>
-									<li><a href="#">Conceptos</a></li>
-									<li><a href="#">Reportes</a></li>
-									<li><a href="#">Estadísticas</a></li>
+									<li>{{ HTML::link('admin/ctasxcobrar','Cuentas por Cobrar') }}</li>
+									<li>{{ HTML::link('admin/ctasxpagar','Cuentas por Pagar') }}</li>
+									<li>{{ HTML::link('admin/recibos','Recibos') }}</li>
+									<li>{{ HTML::link('admin/conceptos','Conceptos') }}</li>
+									<li>{{ HTML::link('admin/reportes','Reportes') }}</li>
+									<li>{{ HTML::link('admin/estadisticas','Estadísticas') }}</li>
 								</ul>
 							</li>
 
 							<li class="divider-vertical"></li>
-							<li><a href="#"><i class="icon-home"></i> Parcelas</a></li>
+							<li><a href="{{ URL::to('admin/parcelas'); }}"><i class="icon-home"></i> Parcelas</a></li>
 
 							<li class="divider-vertical"></li>
-							<li><a href="#">{{ HTML::image('img/propietarios.png') }} Propietarios</a></li>
+							<li><a href="{{ URL::to('admin/propietarios'); }}">{{ HTML::image('img/propietarios.png') }} Propietarios</a></li>
 
 							<li class="divider-vertical"></li>
-							<li><a href="#"><i class="icon-user"></i> Usuarios</a></li>
+							<li><a href="{{ URL::to('admin/usuarios'); }}"><i class="icon-user"></i> Usuarios</a></li>
 
 							<li class="divider-vertical"></li>
-							<li><a href="#"><i class="icon-briefcase"></i> Personal</a></li>
+							<li><a href="{{ URL::to('admin/personal'); }}"><i class="icon-briefcase"></i> Personal</a></li>
 
 							<li class="divider-vertical"></li>
-							<li><a href="#">{{ HTML::image('img/proveedores.png') }} Proveedores</a></li>
+							<li><a href="{{ URL::to('admin/proveedores'); }}">{{ HTML::image('img/proveedores.png') }} Proveedores</a></li>
 
 						</ul>
 
@@ -94,7 +94,7 @@
 							</div>
 
 							<div class="span7" data-original-title="" title="">
-								<div class="text-right">Sitema Desarrollado por: <strong>{{ HTML::mailto('juliet.garcia@outlook.com','Juliet Garcia' ) }}</strong></div>
+								<div class="text-right">Sistema Desarrollado por: <strong>{{ HTML::mailto('juliet.garcia@outlook.com','Juliet Garcia' ) }}</strong></div>
 							</div>
 							
 						</div>
