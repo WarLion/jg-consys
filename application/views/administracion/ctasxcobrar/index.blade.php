@@ -10,8 +10,8 @@
 
 			<div class="btn-toolbar">
 
-			    <a href="{{ URL::to('admin/ctasxcobrar/agregar'); }}" class="btn">Agregar</a>
-			    <a href="{{ URL::to('admin/ctasxcobrar'); }}" class="btn">Ver</a>
+			    <a href="{{ URL::to('admin/ctasxcobrar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
+			    <a href="{{ URL::to('admin/ctasxcobrar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
 			    
 			</div>
 
@@ -36,24 +36,11 @@
 		          <td>36</td>
 		          <td>JULIA DUQUE</td>
 		          <td>360,00</td>
-		          <td>{{ HTML::link('administracion/ctasxcobrar/detalle','Detalle') }}</td>
+		          <td>{{ HTML::link('admin/ctasxcobrar/detalle','Detalle') }}</td>
 		        </tr>			        
 		      </tbody>
 
-		    </table>			
-
-			<div class="pagination">
-
-			    <ul>
-			        <li><a href="#">Prev</a></li>
-			        <li><a href="#">1</a></li>
-			        <li><a href="#">2</a></li>
-			        <li><a href="#">3</a></li>
-			        <li><a href="#">4</a></li>
-			        <li><a href="#">Next</a></li>
-			    </ul>
-
-			</div>
+		    </table>
 
 		</div>
 
