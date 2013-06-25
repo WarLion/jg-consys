@@ -61,8 +61,23 @@ Route::group(array('before' => 'admin'), function()
 	/*++ Administration ++*/
 
 	// index
-	Route::post('condominio','administracion@index');
-	Route::get('condominio','administracion@index');
+	Route::post('condominio','admin/administracion@index');
+	Route::get('condominio','admin/administracion@index');
+
+	// CtasXCobrar
+	Route::post('admin/ctasxcobrar','admin/ctasxcobrar@index');
+	Route::get('admin/ctasxcobrar','admin/ctasxcobrar@index');
+
+	Route::post('admin/ctasxcobrar/agregar','admin/ctasxcobrar@agregar');
+	Route::get('admin/ctasxcobrar/agregar','admin/ctasxcobrar@agregar');
+	
+	Route::post('admin/ctasxcobrar/detalle','admin/ctasxcobrar@detalle');
+	Route::get('admin/ctasxcobrar/detalle','admin/ctasxcobrar@detalle');
+
+	// CtasXPagar
+	Route::post('admin/ctasxpagar/','admin/ctasxpagar@index');
+	Route::get('admin/ctasxpagar','admin/ctasxpagar@index');
+
 });
 
 /*
