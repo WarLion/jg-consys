@@ -31,3 +31,27 @@
 .register-btn-primary {
 	width: 550px;
 }
+
+/*++ Administration System ++*/
+
+.form-modules .control-label {
+	float: left;
+	padding-top: 5px;
+}
+
+.form-modules .control-label-right {
+	float: left;
+	padding-top: 5px;
+	width: 160px;
+	text-align: right;
+}
+
+.form-modules .controls input, select {
+	margin-left: 10px;
+	margin-bottom: 7px;
+}
+
+.form-modules .btn {
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
