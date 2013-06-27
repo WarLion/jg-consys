@@ -94,9 +94,9 @@
 						</div>
 
 					<div class="control-group">
-						<label class="control-label-right" for="inputEmail">Monto</label>
+						<label class="control-label-right" for="inputMonto">Monto</label>
 						<div class="controls">
-							<input type="text" id="inputEmail" class="input-small" readonly>
+							<input type="text" id="monto" name="monto" class="input-small" readonly>
 						</div>
 					</div>
 
@@ -105,6 +105,8 @@
 				</div>
 
 			</div>
+
+			<a href="{{ URL::to('#'); }}" class="btn btn-primary">Agregar</a>
 
 			</form>
 
