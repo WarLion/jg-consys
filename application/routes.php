@@ -78,6 +78,23 @@ Route::group(array('before' => 'admin'), function()
 	Route::post('admin/ctasxpagar/','admin/ctasxpagar@index');
 	Route::get('admin/ctasxpagar','admin/ctasxpagar@index');
 
+	Route::post('admin/ctasxpagar/agregar','admin/ctasxpagar@agregar');
+	Route::get('admin/ctasxpagar/agregar','admin/ctasxpagar@agregar');
+
+	Route::post('admin/ctasxpagar/detalle','admin/ctasxpagar@detalle');
+	Route::get('admin/ctasxpagar/detalle','admin/ctasxpagar@detalle');
+
+	Route::post('admin/ctasxpagar/documento','admin/ctasxpagar@documento');
+	Route::get('admin/ctasxpagar/documento','admin/ctasxpagar@documento');
+
+	Route::post('admin/ctasxpagar/pagos','admin/ctasxpagar@pagos');
+	Route::get('admin/ctasxpagar/pagos','admin/ctasxpagar@pagos');
+
+	Route::post('admin/ctasxpagar/pagos/detalle','admin/ctasxpagar@detallePagos');
+	Route::get('admin/ctasxpagar/pagos/detalle','admin/ctasxpagar@detallePagos');
+
+	Route::post('admin/ctasxpagar/pagos/registro','admin/ctasxpagar@pagar');
+	Route::get('admin/ctasxpagar/pagos/registro','admin/ctasxpagar@pagar');
 });
 
 /*
