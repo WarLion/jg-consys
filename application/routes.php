@@ -95,6 +95,28 @@ Route::group(array('before' => 'admin'), function()
 
 	Route::post('admin/ctasxpagar/pagos/registro','admin/ctasxpagar@pagar');
 	Route::get('admin/ctasxpagar/pagos/registro','admin/ctasxpagar@pagar');
+
+	// Recibos
+	Route::post('admin/recibos','admin/recibos@index');
+	Route::get('admin/recibos','admin/recibos@index');
+
+	Route::post('admin/recibos/generar','admin/recibos@generar');
+	Route::get('admin/recibos/generar','admin/recibos@generar');
+
+	Route::post('admin/recibos/detalle','admin/recibos@detalle');
+	Route::get('admin/recibos/detalle','admin/recibos@detalle');
+
+		Route::post('admin/recibos/generar/2','admin/recibos@generar_pago');
+		Route::get('admin/recibos/generar/2','admin/recibos@generar_pago');
+
+		Route::post('admin/recibos/generar/3','admin/recibos@generar_imprimir');
+		Route::get('admin/recibos/generar/3','admin/recibos@generar_imprimir');
+
+	Route::post('admin/recibos/bancos','admin/recibos@bancos');
+	Route::get('admin/recibos/bancos','admin/recibos@bancos');
+
+	Route::post('admin/recibos/formaspay','admin/recibos@formaspay');
+	Route::get('admin/recibos/formaspay','admin/recibos@formaspay');
 });
 
 /*
