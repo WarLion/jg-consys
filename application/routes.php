@@ -117,6 +117,10 @@ Route::group(array('before' => 'admin'), function()
 
 	Route::post('admin/recibos/formaspay','admin/recibos@formaspay');
 	Route::get('admin/recibos/formaspay','admin/recibos@formaspay');
+
+	// Conceptos
+	Route::post('admin/conceptos','admin/conceptos@index');
+	Route::get('admin/conceptos','admin/conceptos@index');
 });
 
 /*
