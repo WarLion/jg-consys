@@ -19,20 +19,6 @@
 
 			<form class="form-modules">
 
-				<div class="control-group">
-
-					<label class="control-label" for="inputParcela"><strong>Parcela</strong></label>
-					<div class="controls">
-
-						<input type="text" id="inputParcela" placeholder="Parcela">
-						<button type="submit" class="btn">Buscar</button>
-
-					</div>
-
-				</div>
-
-				<hr class="bs-docs-separator">
-
 			<div class="row-fluid">
 
 				<div class="span6">
@@ -67,8 +53,6 @@
 				</div>
 
 			</div>
-
-			</form>
 
 			<strong>Deudas</strong>
 
@@ -120,6 +104,8 @@
 			</div>
 
 		</div>
+
+		</form>
 
 	</div>
 
