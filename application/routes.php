@@ -121,6 +121,16 @@ Route::group(array('before' => 'admin'), function()
 	// Conceptos
 	Route::post('admin/conceptos','admin/conceptos@index');
 	Route::get('admin/conceptos','admin/conceptos@index');
+
+	// Propietarios
+	Route::post('admin/propietarios','admin/propietarios@index');
+	Route::get('admin/propietarios','admin/propietarios@index');
+
+	Route::post('admin/propietarios/detalle','admin/propietarios@detalle');
+	Route::get('admin/propietarios/detalle','admin/propietarios@detalle');
+
+	Route::post('admin/propietarios/agregar','admin/propietarios@agregar');
+	Route::get('admin/propietarios/agregar','admin/propietarios@agregar');
 });
 
 /*
