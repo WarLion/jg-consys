@@ -141,6 +141,39 @@ Route::group(array('before' => 'admin'), function()
 
 	Route::post('admin/propietarios/agregar','admin/propietarios@agregar');
 	Route::get('admin/propietarios/agregar','admin/propietarios@agregar');
+
+	// Usuarios
+	Route::post('admin/usuarios','admin/usuarios@index');
+	Route::get('admin/usuarios','admin/usuarios@index');
+
+	Route::post('admin/usuarios/detalle','admin/usuarios@detalle');
+	Route::get('admin/usuarios/detalle','admin/usuarios@detalle');
+	
+	Route::post('admin/usuarios/agregar','admin/usuarios@agregar');
+	Route::get('admin/usuarios/agregar','admin/usuarios@agregar');
+
+	// Personal
+	Route::post('admin/personal','admin/personal@index');
+	Route::get('admin/personal','admin/personal@index');
+
+	Route::post('admin/personal/detalle','admin/personal@detalle');
+	Route::get('admin/personal/detalle','admin/personal@detalle');
+	
+	Route::post('admin/personal/agregar','admin/personal@agregar');
+	Route::get('admin/personal/agregar','admin/personal@agregar');
+
+	Route::post('admin/personal/cargos','admin/personal@cargos');
+	Route::get('admin/personal/cargos','admin/personal@cargos');
+
+	// Proveedores
+	Route::post('admin/proveedores','admin/proveedores@index');
+	Route::get('admin/proveedores','admin/proveedores@index');
+
+	Route::post('admin/proveedores/detalle','admin/proveedores@detalle');
+	Route::get('admin/proveedores/detalle','admin/proveedores@detalle');
+	
+	Route::post('admin/proveedores/agregar','admin/proveedores@agregar');
+	Route::get('admin/proveedores/agregar','admin/proveedores@agregar');
 });
 
 /*
