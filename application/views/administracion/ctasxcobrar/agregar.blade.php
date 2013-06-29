@@ -17,15 +17,16 @@
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('administracion/ctasxcobrar/agregar') }}" method="post" class="form-modules">
 
 				<div class="control-group">
 
 					<label class="control-label" for="inputParcela"><strong>Parcela</strong></label>
 					<div class="controls">
 
-						<input type="text" id="inputParcela" placeholder="Parcela">
-						<button type="submit" class="btn">Buscar</button>
+						<input type="text" id="parcela" name="parcela" placeholder="Parcela">
+						<button type="submit" class="btn btn-primary">Buscar</button>
+						<button type="submit" class="btn btn-primary">Todos</button>
 
 					</div>
 
@@ -33,80 +34,80 @@
 
 				<hr class="bs-docs-separator">
 
-			<div class="row-fluid">
+				<div class="row-fluid">
 
-				<div class="span6">
+					<div class="span6">
 
-					<p><strong>Datos</strong></p> 
+						<p><strong>Datos</strong></p> 
 
-					<hr class="bs-docs-separator">
+						<hr class="bs-docs-separator">
 
-					<div class="well">
+						<div class="well">
 
-						<table class="table table-hover">
+							<table class="table table-hover">
 
-					      <thead>
-					        <tr>
-					          <th>Parcela</th>
-					          <th>Propietario</th>
-					          <th style="width: 36px;"></th>
-					        </tr>
-					      </thead>
+						      <thead>
+						        <tr>
+						          <th>Parcela</th>
+						          <th>Propietario</th>
+						          <th style="width: 36px;"></th>
+						        </tr>
+						      </thead>
 
-					      <tbody>
-					        <tr>
-					          <td>36</td>
-					          <td>JULIA DUQUE</td>
-					        </tr>			        
-					      </tbody>
+						      <tbody>
+						        <tr>
+						          <td>36</td>
+						          <td>JULIA DUQUE</td>
+						        </tr>			        
+						      </tbody>
 
-					    </table>
+						    </table>
 
-				    </div>
+					    </div>
 
-				</div>
+					</div>
 
-				<div class="span6">
+					<div class="span6">
 
-					<p><strong>Concepto</strong></p> 
+						<p><strong>Concepto</strong></p> 
 
-					<hr class="bs-docs-separator">
+						<hr class="bs-docs-separator">
 
-					<div class="well">
+						<div class="well">
 
-						<div class="control-group">
+							<div class="control-group">
 
-							<label class="control-label-right" for="inputParcela"><strong>Código</strong></label>
-							<div class="controls">
+								<label class="control-label-right" for="inputParcela"><strong>Código</strong></label>
+								<div class="controls">
 
-								<select>
+									<select class="select-large" id="SelectConceptos">
 
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+									@foreach($conceptos as $concepto)
 
-								</select>
+										<option value="{{ $concepto->monto }}">{{ $concepto->nombre }}</option>
+
+									@endforeach
+
+									</select>
+
+								</div>
 
 							</div>
 
+						<div class="control-group">
+							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
+							<div class="controls">
+								<input type="text" class="input-small" id="MontoSelected" readonly>
+							</div>
 						</div>
 
-					<div class="control-group">
-						<label class="control-label-right" for="inputMonto">Monto</label>
-						<div class="controls">
-							<input type="text" id="monto" name="monto" class="input-small" readonly>
-						</div>
+					</div>
+
 					</div>
 
 				</div>
 
-				</div>
-
-			</div>
-
-			<a href="{{ URL::to('#'); }}" class="btn btn-primary">Agregar</a>
+				<input type="submit" class="btn btn-primary" value="Agregar">
 
 			</form>
 
@@ -173,5 +174,19 @@
 
 </div>
 
+@endsection
+
+@section('postscript')
+
+<script type="text/javascript">
+	
+	// Muestra el valor del monto del concepto seleccionado
+	$('#SelectConceptos').change(function(){
+	    var selectedOption = $(this).find('option:selected');
+	    var selectedValue = $(selectedOption).val();
+	    $("#MontoSelected").val(selectedValue + ',00');
+	}).change();
+
+</script>
 
 @endsection
