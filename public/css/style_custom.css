@@ -59,3 +59,7 @@
 .form-modules .btn-primary {
 	margin-left: 0px;
 }
+
+.select-large {
+	width: 360px;
+}
