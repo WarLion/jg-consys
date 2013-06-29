@@ -17,7 +17,7 @@
 
 			<div>&nbsp;</div>
 
-			<form action="{{ URL::to('administracion/ctasxcobrar/agregar') }}" method="post" class="form-modules">
+			<form action="{{ URL::to('admin/ctasxcobrar/agregar') }}" method="post" class="form-modules">
 
 				<div class="control-group">
 
@@ -49,15 +49,31 @@
 						      <thead>
 						        <tr>
 						          <th>Parcela</th>
+						          <th>Cédula</th>
 						          <th>Propietario</th>
-						          <th style="width: 36px;"></th>
 						        </tr>
 						      </thead>
 
 						      <tbody>
 						        <tr>
-						          <td>36</td>
-						          <td>JULIA DUQUE</td>
+						        	@if($parcela != null && $propietario != null)
+
+						        		<td>{{ $parcela }}</td>
+									
+										@foreach($propietario as $ptr)
+											<td>
+										  		{{ $ptr->ci }}
+											</td>
+											<td>
+										  		{{ $ptr->nombre }}
+											</td>
+										@endforeach
+
+									@else
+										<td>---</td>
+										<td>---</td>
+										<td>---</td>
+									@endif
 						        </tr>			        
 						      </tbody>
 

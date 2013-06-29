@@ -19,9 +19,14 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 		$conceptos = DB::table('tadm_conceptos')->get(array('nombre','monto'));
 
+		$parcela = null;
+		$propietario = null;
+
 		return View::make('administracion.ctasxcobrar.agregar')
 			->with('title',$title)
-			->with('conceptos',$conceptos);
+			->with('conceptos',$conceptos)
+			->with('parcela',$parcela)
+			->with('propietario',$propietario);
 	}
 
 	public function get_detalle()
@@ -37,7 +42,22 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		
+		$title = 'Agregar - Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
+
+		$conceptos = DB::table('tadm_conceptos')->get(array('nombre','monto'));
+
+		$txtParcela = Input::get('parcela');
+
+		$propietario = DB::table('tadm_propietarios')
+			->where('parcela_nro','=',$txtParcela)
+			->join('tadm_agrupar','tadm_propietarios.ci','=','tadm_agrupar.propietarios_ci')
+			->get(array('nombre','ci'));
+
+		return View::make('administracion.ctasxcobrar.agregar')
+			->with('title',$title)
+			->with('conceptos',$conceptos)
+			->with('parcela',$txtParcela)
+			->with('propietario',$propietario);
 	}
 
 	public function post_detalle()
