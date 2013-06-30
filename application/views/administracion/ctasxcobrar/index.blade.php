@@ -31,13 +31,25 @@
 		      </thead>
 
 		      <tbody>
-		        <tr>
-		          <td>1</td>
-		          <td>36</td>
-		          <td>JULIA DUQUE</td>
-		          <td>360,00</td>
-		          <td>{{ HTML::link('admin/ctasxcobrar/detalle','Detalle') }}</td>
-		        </tr>			        
+		      	@if(!empty($ctasxcobrar))
+		        	@foreach($ctasxcobrar as $cxc)
+			        	<tr>
+							<td>{{ $x++; }}</td>
+							<td>{{ $cxc->parcela_nro }}</td>
+							<td>{{ $cxc->nombre }}</td>
+							<td>{{ $cxc->monto.',00' }}</td>
+							<td>{{ HTML::link('admin/ctasxcobrar/detalle','Detalle') }}</td>
+						</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif
 		      </tbody>
 
 		    </table>

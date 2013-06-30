@@ -10,7 +10,21 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 	public function get_index()
 	{
 		$title = 'Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
-		return View::make('administracion.ctasxcobrar.index')->with('title',$title);
+		$x=1;
+
+		// Para mostrar las deudas actuales de todos los propietarios que deben
+		$ctasxcobrar = DB::table('tadm_ctasxcobrar')
+			->select(array('tadm_propietarios.nombre','tadm_ctasxcobrar.parcela_nro',DB::raw('SUM(tadm_ctasxcobrar.monto) as monto')))			
+			->join('tadm_agrupar','tadm_agrupar.parcela_nro','=','tadm_ctasxcobrar.parcela_nro')
+			->join('tadm_propietarios','tadm_agrupar.propietarios_ci','=','tadm_propietarios.ci')
+			->group_by('tadm_ctasxcobrar.parcela_nro')
+			->order_by('tadm_ctasxcobrar.parcela_nro', 'desc')
+			->get();
+
+		return View::make('administracion.ctasxcobrar.index')
+			->with('title',$title)
+			->with('ctasxcobrar',$ctasxcobrar)
+			->with('x',$x);
 	}
 
 	public function get_agregar()
@@ -83,7 +97,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 			$codigo = Input::get('valueConcepto');
 
 			// Inserta una nueva deuda o concepto...
-			$insert_ctasxcobrar = DB::table('tadm_ctasxcobrar')->insert(array('parcela_nro' 		=> $txtParcela,
+			$insert_ctasxcobrar = DB::table('tadm_ctasxcobrar')->insert(array('parcela_nro' 		=> $hidden_parcela,
 																				'concepto_codigo' 	=> $codigo,
 																				'fecha' 			=> '25/06/2013',
 																				'monto' 			=> $monto));
