@@ -35,16 +35,27 @@
 					        <tr>
 					          <th>Parcela</th>
 					          <th>Propietario</th>
-					          <th style="width: 36px;"></th>
 					        </tr>
 					      </thead>
 
-					      <tbody>
-					        <tr>
-					          <td>36</td>
-					          <td>JULIA DUQUE</td>
-					        </tr>			        
-					      </tbody>
+							<tbody>
+							<tr>
+								@if($txtParcela != null && $propietario != null)
+
+									<td>{{ $txtParcela }}</td>
+								
+									@foreach($propietario as $ptr)
+										<td>
+									  		{{ $ptr->nombre }}
+										</td>
+									@endforeach
+
+								@else
+									<td>---</td>
+									<td>---</td>
+								@endif
+							</tr>			        
+							</tbody>
 
 					    </table>
 
@@ -73,12 +84,47 @@
 			      </thead>
 
 			      <tbody>
+			        
+			        	@if(!empty($ctasxcobrar))
+							@foreach($ctasxcobrar as $cxc)
+							<tr>
+								<td>
+							  		{{ $cxc->concepto_codigo }}
+								</td>
+								<td>
+							  		{{ $cxc->nombre }}
+								</td>
+								<td>
+							  		{{ $cxc->monto.',00' }}
+								</td>
+								<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+							</tr>
+							@endforeach
+						@else
+						<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+						</tr>
+						@endif
+			        			        
+			      </tbody>
+
+			      <tbody>
 			        <tr>
-			          <td>0001</td>
-			          <td>CONDOMINIO ENERO 2012</td>
-			          <td>360,00</td>
-			          <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-			        </tr>			        
+			        	<td></td>
+						<td><strong>Total</strong></td>
+						<td>
+			        	@if(!empty($sum_monto))							
+								
+					  		{{ $sum_monto.',00' }}								
+						
+						@else
+						</td>
+						<td colspan="2"></td>
+						@endif
+			        </tr>
 			      </tbody>
 
 			    </table>
