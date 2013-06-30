@@ -17,10 +17,8 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 	{
 		$title = 'Agregar - Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
 
-		// Para mostrar conceptos en el select
-		$conceptos = DB::table('tadm_conceptos')->get(array('codigo','nombre','monto'));
-
 		// Variables en null cuando no se hace ninguna peticion
+		$conceptos 		= null;
 		$parcela 		= null;
 		$propietario 	= null;
 		$ctasxcobrar 	= null;
