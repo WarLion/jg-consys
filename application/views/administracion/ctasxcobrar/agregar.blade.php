@@ -25,6 +25,8 @@
 					<div class="controls">
 
 						<input type="text" id="parcela" name="parcela" placeholder="Parcela">
+						<input type="hidden" id="parcela" name="hidden_parcela" value="{{ $txtParcela }}">
+
 						<button type="submit" class="btn btn-primary">Buscar</button>
 						<button type="submit" class="btn btn-primary">Todos</button>
 
@@ -56,9 +58,9 @@
 
 						      <tbody>
 						        <tr>
-						        	@if($parcela != null && $propietario != null)
+						        	@if($txtParcela != null && $propietario != null)
 
-						        		<td>{{ $parcela }}</td>
+						        		<td>{{ $txtParcela }}</td>
 									
 										@foreach($propietario as $ptr)
 											<td>
@@ -96,11 +98,11 @@
 								<label class="control-label-right" for="inputParcela"><strong>Código</strong></label>
 								<div class="controls">
 
-									<select class="select-large" id="SelectConceptos">
+									<select class="select-large" id="SelectConceptos" name="valueConcepto">
 
 									@foreach($conceptos as $concepto)
 
-										<option value="{{ $concepto->monto }}">{{ $concepto->nombre }}</option>
+										<option value="{{ $concepto->codigo }}" label="{{ $concepto->nombre }}">{{ $concepto->monto }}</option>
 
 									@endforeach
 
@@ -113,7 +115,7 @@
 						<div class="control-group">
 							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
 							<div class="controls">
-								<input type="text" class="input-small" id="MontoSelected" readonly>
+								<input type="text" class="input-small" name="monto" id="MontoSelected">
 							</div>
 						</div>
 
@@ -123,7 +125,7 @@
 
 				</div>
 
-				<input type="submit" class="btn btn-primary" value="Agregar">
+				<input type="submit" class="btn btn-primary" name="add" value="Agregar">
 
 			</form>
 
@@ -146,20 +148,47 @@
 			      </thead>
 
 			      <tbody>
-			        <tr>
-			          <td>0001</td>
-			          <td>CONDOMINIO ENERO 2012</td>
-			          <td>360,00</td>
-			          <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-			        </tr>			        
+			        
+			        	@if(!empty($ctasxcobrar))
+							@foreach($ctasxcobrar as $cxc)
+							<tr>
+								<td>
+							  		{{ $cxc->concepto_codigo }}
+								</td>
+								<td>
+							  		{{ $cxc->nombre }}
+								</td>
+								<td>
+							  		{{ $cxc->monto.',00' }}
+								</td>
+								<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+							</tr>
+							@endforeach
+						@else
+						<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+						</tr>
+						@endif
+			        			        
 			      </tbody>
 
 			      <tbody>
 			        <tr>
 			        	<td></td>
 						<td><strong>Total</strong></td>
-						<td colspan="2">360,00</td>
-			        </tr>			        
+						<td>
+			        	@if(!empty($sum_monto))							
+								
+					  		{{ $sum_monto.',00' }}								
+						
+						@else
+						</td>
+						<td colspan="2">---</td>
+						@endif
+			        </tr>
 			      </tbody>
 
 			    </table>
@@ -199,8 +228,9 @@
 	// Muestra el valor del monto del concepto seleccionado
 	$('#SelectConceptos').change(function(){
 	    var selectedOption = $(this).find('option:selected');
+	    var selectedText = $(selectedOption).text();
 	    var selectedValue = $(selectedOption).val();
-	    $("#MontoSelected").val(selectedValue + ',00');
+	    $("#MontoSelected").val(selectedText + ',00');
 	}).change();
 
 </script>
