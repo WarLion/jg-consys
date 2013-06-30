@@ -100,12 +100,15 @@
 
 									<select class="select-large" id="SelectConceptos" name="valueConcepto">
 
-									@foreach($conceptos as $concepto)
+									@if(!empty($conceptos))
+										@foreach($conceptos as $concepto)
 
-										<option value="{{ $concepto->codigo }}" label="{{ $concepto->nombre }}">{{ $concepto->monto }}</option>
+											<option value="{{ $concepto->codigo }}" label="{{ $concepto->nombre }}">{{ $concepto->monto }}</option>
 
-									@endforeach
-
+										@endforeach
+									@else
+										<option>---</option>
+									@endif
 									</select>
 
 								</div>
@@ -115,7 +118,11 @@
 						<div class="control-group">
 							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
 							<div class="controls">
-								<input type="text" class="input-small" name="monto" id="MontoSelected">
+								@if(!empty($conceptos))
+									<input type="text" class="input-small" name="monto" id="MontoSelected">
+								@else
+									<input type="text" class="input-small" readonly>
+								@endif
 							</div>
 						</div>
 
@@ -125,7 +132,11 @@
 
 				</div>
 
-				<input type="submit" class="btn btn-primary" name="add" value="Agregar">
+				@if(!empty($conceptos))
+					<input type="submit" class="btn btn-primary" name="add" value="Agregar">
+				@else
+					<input type="submit" class="btn btn-primary" name="add" value="Agregar" disabled>
+				@endif
 
 			</form>
 
@@ -186,7 +197,7 @@
 						
 						@else
 						</td>
-						<td colspan="2">---</td>
+						<td colspan="2"></td>
 						@endif
 			        </tr>
 			      </tbody>
