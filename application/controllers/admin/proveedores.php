@@ -10,7 +10,15 @@ class Admin_proveedores_Controller extends Base_Controller {
 	public function get_index()
 	{
 		$title = 'Proveedores - Sistema Administrativo JG-Sigcon';
-		return View::make('administracion.proveedores.index')->with('title',$title);
+		$x=1;
+
+		// Para mostrar las deudas actuales de todos los propietarios que deben
+		$proveedores = DB::table('tadm_proveedor')->get();
+
+		return View::make('administracion.proveedores.index')
+			->with('title',$title)
+			->with('proveedores',$proveedores)
+			->with('x',$x);
 	}
 
 	public function get_agregar()

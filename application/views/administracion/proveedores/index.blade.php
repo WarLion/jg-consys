@@ -34,15 +34,32 @@
 				</thead>
 
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>20449123-98</td>
-						<td>Hidrocentro</td>
-						<td>04243809523</td>
-						<td>juliet.garcia@outlook.com</td>
-						<td>13/05/2012</td>
-						<td>{{ HTML::link('admin/proveedores/detalle','Detalle') }}</td>
-					</tr>	        
+			      	@if(!empty($proveedores))
+			        	@foreach($proveedores as $prv)
+				        	<tr>
+								<td>{{ $x++; }}</td>
+								<td>{{ $prv->nro }}</td>
+								<td>{{ $prv->descripcion }}</td>
+								<td>{{ $prv->telefono }}</td>
+								<td>{{ $prv->email }}</td>
+								<td>{{ $prv->fecha_ing }}</td>
+								<td>{{ HTML::link('admin/proveedores/detalle','Detalle') }}</td>
+								<td>
+									<a href="#">Detalle</a>
+								</td>
+							</tr>
+						@endforeach
+					@else
+			        	<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+						</tr>
+					@endif
 				</tbody>
 
 		    </table>
