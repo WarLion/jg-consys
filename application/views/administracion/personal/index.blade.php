@@ -35,17 +35,38 @@
 		      </thead>
 
 		      <tbody>
-		        <tr>
-		          <td>1</td>
-		          <td>20449123</td>
-		          <td>Juliet Oriana Garcia Duque</td>
-		          <td>04243809523</td>
-		          <td>juliet.garcia@outlook.com</td>
-		          <td>Secretaria</td>
-		          <td>13/05/2012</td>
-		          <td>Activo</td>
-		          <td>{{ HTML::link('admin/personal/detalle','Detalle') }}</td>
-		        </tr>			        
+		      	@if(!empty($personal))
+		        	@foreach($personal as $prp)
+		        		@if($prp->activo == 1) 
+		        			<?php $estado = "Activo"; ?>
+	        			@else
+	        				<?php $estado = "Inactivo"; ?>
+		        		@endif
+			        	<tr>
+							<td>{{ $x++; }}</td>
+							<td>{{ $prp->ci }}</td>
+							<td>{{ $prp->nombre }}</td>
+							<td>{{ $prp->tlf_cel }}</td>
+							<td>{{ $prp->email }}</td>
+							<td>{{ $prp->descripcion }}</td>
+							<td>{{ $prp->fecha_ing }}</td>
+							<td>{{ $estado }}</td>
+							<td>{{ HTML::link('admin/personal/detalle','Detalle') }}</td>
+						</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif
 		      </tbody>
 
 		    </table>

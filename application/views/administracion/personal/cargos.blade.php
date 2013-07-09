@@ -18,7 +18,7 @@
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/personal/cargos') }}" method="post" class="form-modules">
 
 				<div class="control-group">
 
@@ -55,11 +55,21 @@
 							  </thead>
 
 							  <tbody>
-								<tr>
-								  <td>1</td>
-								  <td>Secretaria</td>
-								  <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-edit"></i></a>  <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-								</tr>                   
+							      	@if(!empty($cargos))
+							        	@foreach($cargos as $crg)
+								        	<tr>
+												<td>{{ $x++; }}</td>
+												<td>{{ $crg->descripcion }}</td>
+												<td>{{ HTML::link('admin/personal/detalle','Detalle') }}</td>
+											</tr>
+										@endforeach
+									@else
+							        	<tr>
+											<td>---</td>
+											<td>---</td>
+											<td>---</td>
+										</tr>
+									@endif                 
 							  </tbody>
 
 							</table>
