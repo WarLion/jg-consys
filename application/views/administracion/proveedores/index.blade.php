@@ -44,9 +44,6 @@
 								<td>{{ $prv->email }}</td>
 								<td>{{ $prv->fecha_ing }}</td>
 								<td>{{ HTML::link('admin/proveedores/detalle','Detalle') }}</td>
-								<td>
-									<a href="#">Detalle</a>
-								</td>
 							</tr>
 						@endforeach
 					@else
