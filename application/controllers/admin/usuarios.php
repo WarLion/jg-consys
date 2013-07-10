@@ -14,6 +14,7 @@ class Admin_usuarios_Controller extends Base_Controller {
 
 		$usuarios = DB::table('tcns_usuarios')
 			->join('tadm_propietarios','tadm_propietarios.ci','=','tcns_usuarios.ci')
+			->join('tcns_gruposus','tcns_gruposus.id','=','tcns_usuarios.grupous_id')
 			->get();
 
 		return View::make('administracion.usuarios.index')
