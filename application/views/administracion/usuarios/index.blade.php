@@ -34,17 +34,38 @@
 		      </thead>
 
 		      <tbody>
-		        <tr>
-		          <td>1</td>
-		          <td>36</td>
-		          <td>9126116</td>
-		          <td>JULIA DUQUE</td>
-		          <td>jaduca</td>
-		          <td>Propietario Principal</td>
-		          <td>13/05/2012</td>
-		          <td>Activo</td>
-		          <td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
-		        </tr>			        
+		      	@if(!empty($usuarios))
+		        	@foreach($usuarios as $user)
+		        		@if($user->activo == 1) 
+		        			<?php $estado = "Activo"; ?>
+	        			@else
+	        				<?php $estado = "Inactivo"; ?>
+		        		@endif
+			        	<tr>
+							<td>{{ $x++; }}</td>
+							<td>{{ $user->parcela_nro }}</td>
+							<td>{{ $user->ci }}</td>
+							<td>{{ $user->nombre }}</td>
+							<td>{{ $user->nick }}</td>
+							<td>{{ $user->descripcion }}</td>
+							<td>{{ $user->fecha_reg }}</td>
+							<td>{{ $user->$estado }}</td>
+							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
+						</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif
 		      </tbody>
 
 		    </table>

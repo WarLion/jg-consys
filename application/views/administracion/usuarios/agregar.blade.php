@@ -17,40 +17,53 @@
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/usuarios/agregar') }}" method="post" class="form-modules">
 
 				<div class="row-fluid">
 
 					<div class="span6">
+
+						{{ $message }}						
 
 						<div class="control-group">
 
 							<label class="control-label-right" for="inputParcela"><strong>Parcela</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputParcela" placeholder="Parcela">
+								<input type="text" name="parcela" id="inputParcela" placeholder="Parcela" value="{{ $propietarios['parcela_nro'] }}">
 
 							</div>
 
 							<label class="control-label-right" for="inputCedula"><strong>Cédula</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputCedula" placeholder="Cédula">
-								<button type="submit" class="btn btn-primary">Buscar</button>
+								<input type="text" name="cedula" id="inputCedula" placeholder="Cédula" value="{{ $propietarios['ci'] }}">
+								<input type="submit" name="buscar" class="btn btn-primary" value="Buscar">
 
 							</div>
 
 							<label class="control-label-right" for="inputNombres"><strong>Nombre(s)</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputNombres" placeholder="Nombre(s) y apellido(s)">
+								<input type="text" name="nombre" id="inputNombres" placeholder="Nombre(s) y apellido(s)" value="{{ $propietarios['nombre'] }}">
+
+							</div>
+
+							<label class="control-label-right" for="inputCedula"><strong>Sexo</strong></label>
+							<div class="controls">
+
+								<select name="sexo">
+									<option>Seleccione...</option>
+									<option value="Femenino">Femenino</option>
+									<option value="Masculino">Masculino</option>
+								</select>
 
 							</div>
 
 							<label class="control-label-right" for="inputTelefono"><strong>Teléfono</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputTelefono" placeholder="Teléfono">
+								<input type="text" name="telefono" id="inputTelefono" placeholder="Teléfono" value="{{ $propietarios['tlf_cel'] }}">
 
 							</div>
 
@@ -65,42 +78,44 @@
 							<label class="control-label-right" for="inputEmail"><strong>Correo Electrónico</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputEmail" placeholder="Correo Electrónico">
+								<input type="text" name="email" id="inputEmail" placeholder="Correo Electrónico" value="{{ $propietarios['email'] }}">
 
 							</div>
 
 							<label class="control-label-right" for="inputUsuario"><strong>Usuario</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputUsuario" value="jaduca">
+								<input type="text" name="usuario" id="inputUsuario" placeholder="Usuario">
 
 							</div>
 
 							<label class="control-label-right" for="inputPassword"><strong>Contraseña</strong></label>
 							<div class="controls">
 
-								<input type="text" id="inputassword" placeholder="Contraseña">
+								<input type="text" name="contrasena" id="inputassword" placeholder="Contraseña">
 
 							</div>
 
 							<label class="control-label-right" for="inputParcela"><strong>Grupo</strong></label>
 							<div class="controls">
 
-								<select>
-									<option>Propietario principal</option>
-									<option>Propietario</option>
-									<option>No propietario</option>
+								<select name="grupo">
+									@if(!empty($grupos))
+										@foreach($grupos as $grp)
+											<option value="{{ $grp->id }}">{{ $grp->descripcion }}</option>
+										@endforeach
+									@endif
 								</select>
 
 							</div>
 
-						</div>
+						</div>						
 
 					</div>
 
 				</div>
 
-				<a href="{{ URL::to('#'); }}" class="btn btn-primary">Agregar</a>
+				<input type="submit" name="agregar" class="btn btn-primary" value="Agregar">
 
 			</form>
 
