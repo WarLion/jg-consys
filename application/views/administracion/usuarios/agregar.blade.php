@@ -53,7 +53,6 @@
 							<div class="controls">
 
 								<select name="sexo">
-									<option>Seleccione...</option>
 									<option value="Femenino">Femenino</option>
 									<option value="Masculino">Masculino</option>
 								</select>
