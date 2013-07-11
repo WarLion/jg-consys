@@ -22,10 +22,10 @@
 		      <thead>
 		        <tr>
 		          <th>#</th>
+		          <th>Usuario</th>
 		          <th>Parcela</th>
 		          <th>Cédula</th>
 		          <th>Nombre(s)</th>
-		          <th>Usuario</th>
 		          <th>Grupo</th>
 		          <th>Fecha</th>
 		          <th>Estado</th>
@@ -43,13 +43,13 @@
 		        		@endif
 			        	<tr>
 							<td>{{ $x++; }}</td>
+							<td>{{ $user->nick }}</td>
 							<td>{{ $user->parcela_nro }}</td>
 							<td>{{ $user->ci }}</td>
 							<td>{{ $user->nombre }}</td>
-							<td>{{ $user->nick }}</td>
 							<td>{{ $user->descripcion }}</td>
 							<td>{{ $user->fecha_reg }}</td>
-							<td>{{ $user->$estado }}</td>
+							<td>{{ $estado }}</td>
 							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
 						</tr>
 					@endforeach
