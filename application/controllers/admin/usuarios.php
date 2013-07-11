@@ -12,14 +12,20 @@ class Admin_usuarios_Controller extends Base_Controller {
 		$title = 'Usuarios - Sistema Administrativo JG-Sigcon';
 		$x=1;
 
-		$usuarios = DB::table('tcns_usuarios')
+		$us_propietarios = DB::table('tcns_usuarios')
 			->join('tadm_propietarios','tadm_propietarios.ci','=','tcns_usuarios.ci')
+			->join('tcns_gruposus','tcns_gruposus.id','=','tcns_usuarios.grupous_id')
+			->get();
+
+		$us_anonimo = DB::table('tcns_usuarios')
+			->where('parcela_nro','=','0')
 			->join('tcns_gruposus','tcns_gruposus.id','=','tcns_usuarios.grupous_id')
 			->get();
 
 		return View::make('administracion.usuarios.index')
 			->with('title',$title)
-			->with('usuarios',$usuarios)
+			->with('us_propietarios',$us_propietarios)
+			->with('us_anonimo',$us_anonimo)
 			->with('x',$x);
 	}
 
@@ -137,6 +143,9 @@ class Admin_usuarios_Controller extends Base_Controller {
 			$codigo 	= "sadadfcxxzcxczxHHSDjj2e8898";
 			$fecha 		= date("d-m-Y H:i:s");
 
+			$form_anonimo 		= array($cedula,$nombre,$sexo,$email,$telefono,$usuario,$contrasena,$grupo);
+			$form_propietario 	= array($parcela,$cedula,$usuario,$contrasena,$grupo);
+
 			// para que las variables no queden indefinidas y las casillas no muestren nada
 			$propietarios = array('parcela_nro' => null,
 									'nombre' 	=> null,
@@ -158,6 +167,22 @@ class Admin_usuarios_Controller extends Base_Controller {
 			// si existe el propietario...
 			if(!empty($buscar_propietarios))
 			{
+				// verifica que los campos no esten vacios si existen propietarios
+				foreach($form_propietario as $frm)
+				{		
+					if(empty($frm))
+					{
+						$message = "No puede dejar campos vacios.";
+						
+						return View::make('administracion.usuarios.agregar')
+							->with('title',$title)
+							->with('grupos',$grupos)
+							->with('x',$x)
+							->with('message',$message)
+							->with('propietarios',$propietarios);
+					}
+				}
+
 				// si el usuario no se ha creado
 				if(empty($buscar_usuarios))
 				{
@@ -182,6 +207,22 @@ class Admin_usuarios_Controller extends Base_Controller {
 			}
 			else
 			{
+				// verifica que los campos no esten vacios si son anonimos, es decir, no propietarios
+				foreach($form_anonimo as $frm)
+				{		
+					if(empty($frm))
+					{
+						$message = "No puede dejar campos vacios.";
+						
+						return View::make('administracion.usuarios.agregar')
+							->with('title',$title)
+							->with('grupos',$grupos)
+							->with('x',$x)
+							->with('message',$message)
+							->with('propietarios',$propietarios);
+					}
+				}
+
 				// si el usuario no se ha creado...
 				if(empty($buscar_usuarios))
 				{
