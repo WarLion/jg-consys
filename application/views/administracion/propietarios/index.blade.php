@@ -23,26 +23,38 @@
 		        <tr>
 		          <th>#</th>
 		          <th>Cédula</th>
+		          <th>Parcela</th>
 		          <th>Nombre(s) y Apellido(s)</th>
 		          <th>Tlf. Casa</th>
-		          <th>Tlf. Celular</th>
 		          <th>Correo Electrónico</th>
-		          <th>Parcela</th>
 		          <th>Opciones</th>
 		        </tr>
 		      </thead>
 
 		      <tbody>
-		        <tr>
-		          <td>1</td>
-		          <td>9126116</td>
-		          <td>JULIA DUQUE</td>
-		          <td>02432694811</td>
-		          <td>04147043338</td>
-		          <td>jaduca43@hotmail.com</td>
-		          <td>36</td>
-		          <td>{{ HTML::link('admin/propietarios/detalle','Detalle') }}</td>
-		        </tr>			        
+		        @if(!empty($propietarios))
+		        	@foreach($propietarios as $prp)
+			        	<tr>
+							<td>{{ $x++; }}</td>
+							<td>{{ $prp->ci }}</td>
+							<td>{{ $prp->parcela_nro }}</td>
+							<td>{{ $prp->nombre }}</td>
+							<td>{{ $prp->tlf_casa }}</td>
+							<td>{{ $prp->email }}</td>
+							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
+						</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif			        
 		      </tbody>
 
 		    </table>
