@@ -34,8 +34,41 @@
 		      </thead>
 
 		      <tbody>
-		      	@if(!empty($usuarios))
-		        	@foreach($usuarios as $user)
+		      	@if(!empty($us_propietarios))
+		        	@foreach($us_propietarios as $user)
+		        		@if($user->activo == 1) 
+		        			<?php $estado = "Activo"; ?>
+	        			@else
+	        				<?php $estado = "Inactivo"; ?>
+		        		@endif
+			        	<tr>
+							<td>{{ $x++; }}</td>
+							<td>{{ $user->nick }}</td>
+							<td>{{ $user->parcela_nro }}</td>
+							<td>{{ $user->ci }}</td>
+							<td>{{ $user->nombre }}</td>
+							<td>{{ $user->descripcion }}</td>
+							<td>{{ $user->fecha_reg }}</td>
+							<td>{{ $estado }}</td>
+							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
+						</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif
+
+		      	@if(!empty($us_anonimo))
+		        	@foreach($us_anonimo as $user)
 		        		@if($user->activo == 1) 
 		        			<?php $estado = "Activo"; ?>
 	        			@else
