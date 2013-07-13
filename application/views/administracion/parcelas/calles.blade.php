@@ -18,11 +18,13 @@
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/parcelas/calles') }}" method="post" class="form-modules">
 
 				<div class="row-fluid">
 
 					<div class="span6">
+
+						{{ $message }}
 
 						<div class="well"> 
 
@@ -83,14 +85,26 @@
 								</tr>
 							  </thead>
 
-							  <tbody>
-								<tr>
-								  <td>1</td>
-								  <td>Guiripa</td>
-								  <td>600,00</td>
-								  <td>300,00</td>
-								  <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-edit"></i></a>  <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-								</tr>                   
+								<tbody>
+									@if(!empty($calles))
+							        	@foreach($calles as $cal)
+								        	<tr>
+												<td>{{ $x++; }}</td>
+												<td>{{ $cal->nombre }}</td>
+												<td>{{ $cal->mtslargo }}</td>
+												<td>{{ $cal->mtsancho }}</td>
+												<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
+											</tr>
+										@endforeach
+									@else
+							        	<tr>
+											<td>---</td>
+											<td>---</td>
+											<td>---</td>
+											<td>---</td>
+											<td>---</td>
+										</tr>
+									@endif									
 							  </tbody>
 
 							</table>

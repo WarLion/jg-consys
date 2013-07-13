@@ -33,15 +33,29 @@
 		      </thead>
 
 		      <tbody>
-		        <tr>
-		          <td>1</td>
-		          <td>36</td>
-		          <td>Guiripa</td>
-		          <td>012344</td>
-		          <td>252,00</td>
-		          <td>Habitada</td>
-		          <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-edit"></i></a>  <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-		        </tr>			        
+		        @if(!empty($parcelas))
+		        	@foreach($parcelas as $prc)
+			        	<tr>
+							<td>{{ $x++; }}</td>
+							<td>{{ $prc->nro }}</td>
+							<td>{{ $prc->calle }}</td>
+							<td>{{ $prc->alicuota }}</td>
+							<td>{{ $prc->mts }}</td>
+							<td>{{ $prc->habitada }}</td>
+							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
+						</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif
 		      </tbody>
 
 		    </table>

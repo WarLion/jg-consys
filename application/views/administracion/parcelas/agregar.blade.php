@@ -12,16 +12,19 @@
 
 			    <a href="{{ URL::to('admin/parcelas/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
 			    <a href="{{ URL::to('admin/parcelas'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/parcelas/calles'); }}" class="btn"><i class="icon-road"></i> Calles</a>			    
+			    <a href="{{ URL::to('admin/parcelas/calles'); }}" class="btn"><i class="icon-road"></i> Calles</a>
+
 			</div>
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/parcelas/agregar') }}" method="post" class="form-modules">
 
 				<div class="row-fluid">
 
 					<div class="span6">
+
+						{{ $message; }}
 
 						<div class="well"> 
 
@@ -37,11 +40,10 @@
 								<label class="control-label-right" for="inputCodigo"><strong>Calle</strong></label>
 								<div class="controls">
 
-									<select>
-
-										<option>Guiripa</option>
-										<option>Taiguaiguai</option>
-
+									<select name="calle">
+										@foreach($calles as $cal)
+											<option value="{{ $cal->nombre }}">{{ $cal->nombre }}</option>
+										@endforeach
 									</select>
 
 								</div>
@@ -63,11 +65,9 @@
 								<label class="control-label-right" for="inputCodigo"><strong>Condición de Habitabilidad</strong></label>
 								<div class="controls">
 
-									<select>
-
-										<option>Habitada</option>
-										<option>Abandonada</option>
-
+									<select name="condicion">
+										<option value="Habitada">Habitada</option>
+										<option value="Abandonada">Abandonada</option>
 									</select>
 
 								</div>
