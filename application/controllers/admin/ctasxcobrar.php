@@ -99,7 +99,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 			// Inserta una nueva deuda o concepto...
 			$insert_ctasxcobrar = DB::table('tadm_ctasxcobrar')->insert(array('parcela_nro' 		=> $hidden_parcela,
 																				'concepto_codigo' 	=> $codigo,
-																				'fecha' 			=> '25/06/2013',
+																				'fecha' 			=> date("d-m-Y H:i:s"),
 																				'monto' 			=> $monto));
 		}
 
