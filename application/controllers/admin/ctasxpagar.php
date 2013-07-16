@@ -83,6 +83,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$detalle_prov = DB::table('tadm_ctasxpagar')
 			//->join('tadm_tipodoc','tadm_tipodoc.id','=','tadm_ctasxpagar.tipodoc_id')
 			->where('proveedor_nro','=',$rif)
+			->where('cancelado','=','0')
 			//->get(array('nro','concepto_codigo','tadm_tipodoc.descripcion','monto'));
 			->get(array('nro','concepto_codigo','fecha','monto'));
 
@@ -126,17 +127,19 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 			if(!empty($buscar_proveedor)) {
 
-				$tipo = DB::table('tadm_tipodoc')->get();
+				//$tipo = DB::table('tadm_tipodoc')->get();
 
 				$total = DB::table('tadm_ctasxpagar')
 					->select(array(DB::raw('SUM(tadm_ctasxpagar.monto) as monto')))
 					->where('proveedor_nro','=',$id_prov['id'])
+					->where('cancelado','=','0')
 					->group_by('tadm_ctasxpagar.proveedor_nro')
 					->get();
 
 				$ctasxpagar = DB::table('tadm_ctasxpagar')
 					//->join('tadm_tipodoc','tadm_tipodoc.id','=','tadm_ctasxpagar.tipodoc_id')
 					->where('proveedor_nro','=',$id_prov['id'])
+					->where('cancelado','=','0')
 					//->get(array('nro','concepto_codigo','tadm_tipodoc.descripcion','monto'));
 					->get(array('nro','concepto_codigo','monto'));
 
@@ -145,7 +148,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 					->with('x',$x)
 					->with('message',$message)
 					->with('proveedor',$buscar_proveedor)
-					->with('tipo',$tipo)
+					//->with('tipo',$tipo)
 					->with('total',$total)
 					->with('ctasxpagar',$ctasxpagar);
 			}
@@ -168,7 +171,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 			$tipo 			= Input::get('tipo');
 			$monto 			= Input::get('monto');
 
-			$form = array($referencia, $concepto, $tipo, $monto);
+			$form = array($referencia, $concepto, $monto);
 
 			foreach($form as $frm)
 			{
