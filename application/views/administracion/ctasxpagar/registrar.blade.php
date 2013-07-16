@@ -84,7 +84,7 @@
 		      <tbody>
 		        @if(!empty($detalle_prov))
 		        	@foreach($detalle_prov as $dprv)
-		        	{{ $x++ }}
+		        	<?php $x++ ?>
 		        	<tr>
 						<td>{{ $dprv->nro }}</td>
 						<td>{{ $dprv->concepto_codigo }}</td>
