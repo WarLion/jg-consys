@@ -17,42 +17,48 @@
 
 			<div>&nbsp;</div>
 
-		    <table class="table table-hover">
+			<form action="{{ URL::to('admin/ctasxcobrar/detalle') }}" method="post">
 
-		      <thead>
-		        <tr>
-		          <th>#</th>
-		          <th>Parcela</th>
-		          <th>Propietario</th>
-		          <th>Monto</th>
-		          <th>Opciones</th>
-		          <th style="width: 36px;"></th>
-		        </tr>
-		      </thead>
+			    <table class="table table-hover">
 
-		      <tbody>
-		      	@if(!empty($ctasxcobrar))
-		        	@foreach($ctasxcobrar as $cxc)
+			      <thead>
+			        <tr>
+			          <th>#</th>
+			          <th>Parcela</th>
+			          <th>Propietario</th>
+			          <th>Monto</th>
+			          <th>Opciones</th>
+			          <th style="width: 36px;"></th>
+			        </tr>
+			      </thead>
+
+			      <tbody>
+			      	@if(!empty($ctasxcobrar))
+			        	@foreach($ctasxcobrar as $cxc)
+				        	<tr>
+								<td>{{ $x++; }}</td>
+								<td>{{ $cxc->parcela_nro }}</td>
+								<td>{{ $cxc->nombre }}</td>
+								<td>{{ $cxc->monto.',00' }}</td>
+								<td>
+									<a href="#">Detalle</a>
+								</td>
+							</tr>
+						@endforeach
+					@else
 			        	<tr>
-							<td>{{ $x++; }}</td>
-							<td>{{ $cxc->parcela_nro }}</td>
-							<td>{{ $cxc->nombre }}</td>
-							<td>{{ $cxc->monto.',00' }}</td>
-							<td>{{ HTML::link('admin/ctasxcobrar/detalle','Detalle') }}</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
 						</tr>
-					@endforeach
-				@else
-		        	<tr>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-					</tr>
-				@endif
-		      </tbody>
+					@endif
+			      </tbody>
 
-		    </table>
+			    </table>
+
+			</form>
 
 		</div>
 
