@@ -15,6 +15,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$ctasxpagar = DB::table('tadm_ctasxpagar')
 			->select(array('tadm_proveedor.nro','tadm_proveedor.descripcion','tadm_ctasxpagar.cancelado',DB::raw('SUM(tadm_ctasxpagar.monto) as monto')))
 			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_ctasxpagar.proveedor_nro')
+			->where('cancelado','=','0')
 			->group_by('tadm_ctasxpagar.proveedor_nro')
 			->order_by('tadm_ctasxpagar.proveedor_nro', 'desc')
 			->get();
