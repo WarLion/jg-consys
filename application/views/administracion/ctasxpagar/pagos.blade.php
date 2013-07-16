@@ -33,19 +33,31 @@
 			          <th>Monto</th>
 			          <th>Fecha</th>
 			          <th>Opciones</th>
-			          <th style="width: 36px;"></th>
 			        </tr>
 			      </thead>
 
 			      <tbody>
-			        <tr>
-			          <td>1</td>
-			          <td>Hidrocentro</td>
-			          <td>Deposito</td>
-			          <td>800,00</td>
-			          <td>25/06/2013</td>
-			          <td>{{ HTML::link('admin/ctasxpagar/pagos/detalle','Detalle') }}</td>
-			        </tr>			        
+			        @if(!empty($pagos))
+			        	@foreach($pagos as $pag)
+			        	<tr>
+			        		<td>{{ $x++ }}</td>
+							<td>{{ $pag->proveedor }} </td>
+							<td>{{ $pag->metodopag }} </td>
+							<td>{{ $pag->fecha }} </td>
+							<td>{{ $pag->monto }} </td>
+							<td>{{ HTML::link('admin/ctasxpagar/pagos/detalle','Detalle') }}</td>
+						</tr>
+						@endforeach
+					@else
+			        	<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+						</tr>
+					@endif		        
 			      </tbody>
 
 			    </table>

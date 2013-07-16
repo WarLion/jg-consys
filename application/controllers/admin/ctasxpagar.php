@@ -60,7 +60,19 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 	public function get_pagos()
 	{
 		$title = 'Pagos - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
-		return View::make('administracion.ctasxPagar.pagos')->with('title',$title);
+		$x = 1;
+
+		$pagos = DB::table('tadm_pagos')
+			->select(array('tadm_proveedor.descripcion as proveedor','tadm_metodopag.descripcion as metodopag','fecha','monto'))
+			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_pagos.proveedor_nro')
+			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
+			->order_by('tadm_pagos.id', 'asc')
+			->get();
+
+		return View::make('administracion.ctasxPagar.pagos')
+			->with('title',$title)
+			->with('x',$x)
+			->with('pagos',$pagos);
 	}
 
 	public function get_detallePagos()
