@@ -12,21 +12,23 @@
 
 			    <a href="{{ URL::to('admin/ctasxpagar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
 			    <a href="{{ URL::to('admin/ctasxpagar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>
+			    <!--<a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>-->
 			    <a href="{{ URL::to('admin/ctasxpagar/pagos'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Pagos</a>
 			    
 			</div>
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/ctasxpagar/documento') }}" method="post" class="form-modules">
+
+				{{ $message }}
 
 				<div class="control-group">
 
-					<label class="control-label" for="inputProveedor"><strong>Tipos de documento</strong></label>
+					<label class="control-label" for="inputProveedor"><strong>Tipos de Documento</strong></label>
 					<div class="controls">
 
-						<input type="text" id="proveedor" name="proveedor" placeholder="Proveedor">
+						<input type="text" id="documento" name="documento" placeholder="Documento">
 						<button type="submit" class="btn btn-primary">Agregar</button>
 
 					</div>
@@ -57,11 +59,21 @@
 						      </thead>
 
 						      <tbody>
-						        <tr>
-						          <td>1</td>
-						          <td>Factura</td>
-						          <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-edit"></i></a>  <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-						        </tr>			        
+						    	@if(!empty($documento))
+						        	@foreach($documento as $doc)
+						        	<tr>
+										<td>{{ $x++ }}</td>
+										<td>{{ $doc->descripcion }}</td>
+										<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+									</tr>
+									@endforeach
+								@else
+						        	<tr>
+										<td>---</td>
+										<td>---</td>
+										<td>---</td>
+									</tr>
+								@endif			        
 						      </tbody>
 
 						    </table>

@@ -12,16 +12,18 @@
 
 			    <a href="{{ URL::to('admin/ctasxpagar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
 			    <a href="{{ URL::to('admin/ctasxpagar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>
+			    <!--<a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>-->
 			    <a href="{{ URL::to('admin/ctasxpagar/pagos'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Pagos</a>
 			    
 			</div>
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/ctasxpagar/pagos/registro') }}" name="form" method="post" class="form-modules">
 
 			<div class="row-fluid">
+
+			{{ $message }}
 
 				<div class="span6">
 
@@ -42,10 +44,17 @@
 					      </thead>
 
 					      <tbody>
-					        <tr>
-					          <td>1234567-89</td>
-					          <td>Hidrocentro</td>
-					        </tr>			        
+					        @if(!empty($proveedor))
+					        	@foreach($proveedor as $prv)
+									<td>{{ $prv->nro }} <input type="hidden" name="rif" value="{{ $rif }}"></td>
+									<td>{{ $prv->descripcion }}</td>
+								@endforeach
+							@else
+					        	<tr>
+									<td>---</td>
+									<td>---</td>
+								</tr>
+							@endif			        
 					      </tbody>
 
 					    </table>
@@ -58,69 +67,222 @@
 
 			<strong>Detalle</strong>
 
-			<hr class="bs-docs-separator">			
+			<hr class="bs-docs-separator">
 
-			<div class="well">
+		    <table class="table table-hover">
 
-			    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>Referencia</th>
+		          <th>Concepto</th>
+		          <th>Fecha</th>
+		          <th>Monto</th>
+		          <th>Opciones</th>
+		        </tr>
+		      </thead>
 
-			      <thead>
-			        <tr>
-			          <th>Referencia</th>
-			          <th>Código</th>
-			          <th>Concepto</th>
-			          <th>Tipo</th>
-			          <th>Fecha</th>
-			          <th>Monto</th>
-			          <th>Opciones</th>
-			          <th style="width: 36px;"></th>
-			        </tr>
-			      </thead>
+		      <tbody>
+		        @if(!empty($detalle_prov))
+		        	@foreach($detalle_prov as $dprv)
+		        	{{ $x++ }}
+		        	<tr>
+						<td>{{ $dprv->nro }}</td>
+						<td>{{ $dprv->concepto_codigo }}</td>
+						<td>{{ $dprv->fecha }}</td>
+						<td>{{ $dprv->monto }}</td>
+						<td><input type="checkbox" name="referencia{{ $x }}" value="{{ $dprv->nro }}" onclick="if (this.checked) sumar({{ $dprv->monto }}); else restar({{ $dprv->monto }})" id="selectMontos"></td>
+					</tr>
+					@endforeach
+				@else
+		        	<tr>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+						<td>---</td>
+					</tr>
+				@endif       
+		      </tbody>
 
-			      <tbody>
-			        <tr>
-			          <td>1234567</td>
-			          <td>0132</td>
-			          <td>CANCELACIÓN MES DE AGOSTO 2012</td>
-			          <td>Factura</td>
-			          <td>20/06/2013</td>
-			          <td>500,00</td>
-			          <td><input type="checkbox"></td>
-			        </tr>			        
-			      </tbody>
+		    </table>
 
-			    </table>
+		    <hr class="bs-docs-separator">
 
+			<div class="control-group">
+				<label class="control-label" for="inputMonto"><strong>Total monto</strong></label>
+				<div class="controls">
+					<input type="text" id="monto" name="monto" value="0" class="input-small" readonly>
+				</div>
 			</div>
+
+			<hr class="bs-docs-separator">
+
+			<strong>Formas de Pago</strong>
+
+			<hr class="bs-docs-separator">
 
 			<div class="row-fluid">
 
 				<div class="span6">
 
-					<div class="well">
-
-						<div class="control-group">
-							<label class="control-label-right" for="inputMonto"><strong>Total monto</strong></label>
-							<div class="controls">
-								<input type="text" id="monto" name="monto" class="input-small" readonly>
+					<div class="accordion" id="accordion1">
+						  
+						<div class="accordion-group">
+						    
+							<div class="accordion-heading">
+							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseUno">
+							    - Efectivo
+							  </a>
 							</div>
+							<div id="collapseUno" class="accordion-body collapse">
+							  	<div class="accordion-inner">
+							    	<input type="submit" class="btn btn-primary" name="efectivo" value="Registrar pago">
+							  	</div>
+							</div>
+
+						</div>
+						  
+						<div class="accordion-group">
+
+							<div class="accordion-heading">
+							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseDos">
+							    - Depósito
+							  </a>
+							</div>
+							<div id="collapseDos" class="accordion-body collapse">
+							  	<div class="accordion-inner">
+
+									<!-- Deposito -->
+									<div class="control-group">
+
+										<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
+										<div class="controls">
+
+											<select name='banco'>
+													<option selected='selected'>Banco Mercantil</option>
+													<option>Banesco</option>
+													<option>Banco de Venezuela</option>
+													<option>Banco Provincial</option>
+													<option>100% Banco</option>
+													<option>Banco del Tesoro</option>
+													<option>Banco Caroní</option>
+													<option>Banco Canarias de Venezuela</option>
+													<option>Banco Confederado</option>
+													<option>Bolívar Banco</option>
+													<option>Corp Banca</option>
+													<option>Banco de Crédito de Colombia</option>
+													<option>Banco Do Brasil</option>
+													<option>Banco del Caribe</option>
+													<option>Bancoro</option>
+													<option>Banco Sofitasa</option>
+													<option>Banpro</option>
+													<option>Stanford Bank</option>
+													<option>Banco Tequendama</option>
+													<option>Banco Fondo Común</option>
+													<option>Banfoandes</option>
+													<option>Banco Occidental de Descuento</option>
+													<option>Banco Venezolano de Crédito</option>
+													<option>Banco Guayana</option>
+													<option>Banco Exterior</option>
+													<option>Banco Industrial de Venezuela</option>
+													<option>Banco Plaza</option>
+													<option>Citibank</option>
+													<option>Total Bank</option>
+													<option>Nuevo Mundo</option>
+													<option>Banco Federal</option>
+													<option>Casa Propia</option>
+													<option>Banco Del Sur</option>
+													<option>Banco Mi Casa</option>
+													<option>Banco Bicentenario</option>
+											    </select>
+
+										</div>
+
+									</div>
+
+									<div class="control-group">
+										<label class="control-label-right" for="inputReferencia"><strong>Nº depósito</strong></label>
+										<div class="controls">
+											<input type="text" id="referencia" name="referencia">
+										</div>
+									</div>
+
+									<input type="submit" class="btn btn-primary" name="deposito" value="Registrar pago">
+
+							  	</div>
+
+							</div>
+
 						</div>
 
-						<div class="control-group">
+						<div class="accordion-group">
 
-							<label class="control-label-right" for="inputParcela"><strong>Forma de pago</strong></label>
-							<div class="controls">
+							<div class="accordion-heading">
+							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTres">
+							    - Cheque
+							  </a>
+							</div>
+							<div id="collapseTres" class="accordion-body collapse">
+							  	
+							  	<div class="accordion-inner">
+							    
+							  		<div class="control-group">
 
-								<select>
+										<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
+										<div class="controls">
 
-									<option>Efectivo</option>
-									<option>Depósito</option>
-									<option>Cheque</option>
-									<option>Transferencia</option>
-									<option>Tarjeta de débito</option>
-									<option>Tarjeta de crédito</option>
+											<select name='banco'>
+													<option selected='selected'>Banco Mercantil</option>
+													<option>Banesco</option>
+													<option>Banco de Venezuela</option>
+													<option>Banco Provincial</option>
+													<option>100% Banco</option>
+													<option>Banco del Tesoro</option>
+													<option>Banco Caroní</option>
+													<option>Banco Canarias de Venezuela</option>
+													<option>Banco Confederado</option>
+													<option>Bolívar Banco</option>
+													<option>Corp Banca</option>
+													<option>Banco de Crédito de Colombia</option>
+													<option>Banco Do Brasil</option>
+													<option>Banco del Caribe</option>
+													<option>Bancoro</option>
+													<option>Banco Sofitasa</option>
+													<option>Banpro</option>
+													<option>Stanford Bank</option>
+													<option>Banco Tequendama</option>
+													<option>Banco Fondo Común</option>
+													<option>Banfoandes</option>
+													<option>Banco Occidental de Descuento</option>
+													<option>Banco Venezolano de Crédito</option>
+													<option>Banco Guayana</option>
+													<option>Banco Exterior</option>
+													<option>Banco Industrial de Venezuela</option>
+													<option>Banco Plaza</option>
+													<option>Citibank</option>
+													<option>Total Bank</option>
+													<option>Nuevo Mundo</option>
+													<option>Banco Federal</option>
+													<option>Casa Propia</option>
+													<option>Banco Del Sur</option>
+													<option>Banco Mi Casa</option>
+													<option>Banco Bicentenario</option>
+											    </select>
 
-								</select>
+										</div>
+
+									</div>
+
+									<div class="control-group">
+										<label class="control-label-right" for="inputReferencia"><strong>Nº cheque</strong></label>
+										<div class="controls">
+											<input type="text" id="referencia" name="referencia">
+										</div>
+									</div>
+
+									<input type="submit" class="btn btn-primary" name="cheque" value="Registrar pago">
+
+							  	</div>
 
 							</div>
 
@@ -128,140 +290,323 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary">Registrar pago</button>
-
 				</div>
 
 				<div class="span6">
 
-					<div class="well">
+					<div class="accordion" id="accordion2">
+						  
+						<div class="accordion-group">
+						    
+							<div class="accordion-heading">
+							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseCuatro">
+							    - Transferencia
+							  </a>
+							</div>
+							<div id="collapseCuatro" class="accordion-body collapse">
+							  <div class="accordion-inner">
 
-						<!-- Deposito -->
-						<div class="control-group">
+							  	<div class="control-group">
 
-							<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
-							<div class="controls">
+									<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
+									<div class="controls">
 
-								<select>
+										<select name='banco'>
+											<option selected='selected'>Banco Mercantil</option>
+											<option>Banesco</option>
+											<option>Banco de Venezuela</option>
+											<option>Banco Provincial</option>
+											<option>100% Banco</option>
+											<option>Banco del Tesoro</option>
+											<option>Banco Caroní</option>
+											<option>Banco Canarias de Venezuela</option>
+											<option>Banco Confederado</option>
+											<option>Bolívar Banco</option>
+											<option>Corp Banca</option>
+											<option>Banco de Crédito de Colombia</option>
+											<option>Banco Do Brasil</option>
+											<option>Banco del Caribe</option>
+											<option>Bancoro</option>
+											<option>Banco Sofitasa</option>
+											<option>Banpro</option>
+											<option>Stanford Bank</option>
+											<option>Banco Tequendama</option>
+											<option>Banco Fondo Común</option>
+											<option>Banfoandes</option>
+											<option>Banco Occidental de Descuento</option>
+											<option>Banco Venezolano de Crédito</option>
+											<option>Banco Guayana</option>
+											<option>Banco Exterior</option>
+											<option>Banco Industrial de Venezuela</option>
+											<option>Banco Plaza</option>
+											<option>Citibank</option>
+											<option>Total Bank</option>
+											<option>Nuevo Mundo</option>
+											<option>Banco Federal</option>
+											<option>Casa Propia</option>
+											<option>Banco Del Sur</option>
+											<option>Banco Mi Casa</option>
+											<option>Banco Bicentenario</option>
+										</select>
 
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+									</div>
 
-								</select>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label-right" for="inputReferencia"><strong>Nº transferencia</strong></label>
+									<div class="controls">
+										<input type="text" id="referencia" name="referencia">
+									</div>
+								</div>
+
+								<input type="submit" class="btn btn-primary" name="transferencia" value="Registrar pago">
+							    
+							  </div>
+
+							</div>
+
+						</div>
+						  
+						<div class="accordion-group">
+
+							<div class="accordion-heading">
+							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseCinco">
+							    - Tarjeta de Débito
+							  </a>
+							</div>
+							<div id="collapseCinco" class="accordion-body collapse">
+							  	
+							  	<div class="accordion-inner">
+							    
+							  		<div class="control-group">
+
+										<label class="control-label-right" for="inputParcela"><strong>Entidad banco</strong></label>
+										<div class="controls">
+
+											<select name='banco'>
+												<option selected='selected'>Banco Mercantil</option>
+												<option>Banesco</option>
+												<option>Banco de Venezuela</option>
+												<option>Banco Provincial</option>
+												<option>100% Banco</option>
+												<option>Banco del Tesoro</option>
+												<option>Banco Caroní</option>
+												<option>Banco Canarias de Venezuela</option>
+												<option>Banco Confederado</option>
+												<option>Bolívar Banco</option>
+												<option>Corp Banca</option>
+												<option>Banco de Crédito de Colombia</option>
+												<option>Banco Do Brasil</option>
+												<option>Banco del Caribe</option>
+												<option>Bancoro</option>
+												<option>Banco Sofitasa</option>
+												<option>Banpro</option>
+												<option>Stanford Bank</option>
+												<option>Banco Tequendama</option>
+												<option>Banco Fondo Común</option>
+												<option>Banfoandes</option>
+												<option>Banco Occidental de Descuento</option>
+												<option>Banco Venezolano de Crédito</option>
+												<option>Banco Guayana</option>
+												<option>Banco Exterior</option>
+												<option>Banco Industrial de Venezuela</option>
+												<option>Banco Plaza</option>
+												<option>Citibank</option>
+												<option>Total Bank</option>
+												<option>Nuevo Mundo</option>
+												<option>Banco Federal</option>
+												<option>Casa Propia</option>
+												<option>Banco Del Sur</option>
+												<option>Banco Mi Casa</option>
+												<option>Banco Bicentenario</option>
+											</select>
+
+										</div>
+
+									</div>
+
+									<div class="control-group">
+
+										<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
+										<div class="controls">
+
+											<select name='banco2'>
+												<option selected='selected'>Banco Mercantil</option>
+												<option>Banesco</option>
+												<option>Banco de Venezuela</option>
+												<option>Banco Provincial</option>
+												<option>100% Banco</option>
+												<option>Banco del Tesoro</option>
+												<option>Banco Caroní</option>
+												<option>Banco Canarias de Venezuela</option>
+												<option>Banco Confederado</option>
+												<option>Bolívar Banco</option>
+												<option>Corp Banca</option>
+												<option>Banco de Crédito de Colombia</option>
+												<option>Banco Do Brasil</option>
+												<option>Banco del Caribe</option>
+												<option>Bancoro</option>
+												<option>Banco Sofitasa</option>
+												<option>Banpro</option>
+												<option>Stanford Bank</option>
+												<option>Banco Tequendama</option>
+												<option>Banco Fondo Común</option>
+												<option>Banfoandes</option>
+												<option>Banco Occidental de Descuento</option>
+												<option>Banco Venezolano de Crédito</option>
+												<option>Banco Guayana</option>
+												<option>Banco Exterior</option>
+												<option>Banco Industrial de Venezuela</option>
+												<option>Banco Plaza</option>
+												<option>Citibank</option>
+												<option>Total Bank</option>
+												<option>Nuevo Mundo</option>
+												<option>Banco Federal</option>
+												<option>Casa Propia</option>
+												<option>Banco Del Sur</option>
+												<option>Banco Mi Casa</option>
+												<option>Banco Bicentenario</option>
+											</select>
+
+										</div>
+
+									</div>
+
+
+									<div class="control-group">
+										<label class="control-label-right" for="inputReferencia"><strong>Nº transacción</strong></label>
+										<div class="controls">
+											<input type="text" id="referencia" name="referencia">
+										</div>
+									</div>
+
+									<input type="submit" class="btn btn-primary" name="debito" value="Registrar pago">
+
+							  	</div>
 
 							</div>
 
 						</div>
 
-						<div class="control-group">
-							<label class="control-label-right" for="inputReferencia"><strong>Nº depósito</strong></label>
-							<div class="controls">
-								<input type="text" id="referencia" name="referencia">
+						<div class="accordion-group">
+
+							<div class="accordion-heading">
+							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeis">
+							    - Tarjeta de Crédito
+							  </a>
 							</div>
-						</div>
+							<div id="collapseSeis" class="accordion-body collapse">
+							  	<div class="accordion-inner">
+							    
+							  		<div class="control-group">
 
-						<!-- Cheque -->
-						<div class="control-group">
+										<label class="control-label-right" for="inputParcela"><strong>Entidad banco</strong></label>
+										<div class="controls">
 
-							<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
-							<div class="controls">
+											<select name='banco'>
+												<option selected='selected'>Banco Mercantil</option>
+												<option>Banesco</option>
+												<option>Banco de Venezuela</option>
+												<option>Banco Provincial</option>
+												<option>100% Banco</option>
+												<option>Banco del Tesoro</option>
+												<option>Banco Caroní</option>
+												<option>Banco Canarias de Venezuela</option>
+												<option>Banco Confederado</option>
+												<option>Bolívar Banco</option>
+												<option>Corp Banca</option>
+												<option>Banco de Crédito de Colombia</option>
+												<option>Banco Do Brasil</option>
+												<option>Banco del Caribe</option>
+												<option>Bancoro</option>
+												<option>Banco Sofitasa</option>
+												<option>Banpro</option>
+												<option>Stanford Bank</option>
+												<option>Banco Tequendama</option>
+												<option>Banco Fondo Común</option>
+												<option>Banfoandes</option>
+												<option>Banco Occidental de Descuento</option>
+												<option>Banco Venezolano de Crédito</option>
+												<option>Banco Guayana</option>
+												<option>Banco Exterior</option>
+												<option>Banco Industrial de Venezuela</option>
+												<option>Banco Plaza</option>
+												<option>Citibank</option>
+												<option>Total Bank</option>
+												<option>Nuevo Mundo</option>
+												<option>Banco Federal</option>
+												<option>Casa Propia</option>
+												<option>Banco Del Sur</option>
+												<option>Banco Mi Casa</option>
+												<option>Banco Bicentenario</option>
+											</select>
 
-								<select>
+										</div>
 
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+									</div>
 
-								</select>
+									<div class="control-group">
+
+										<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
+										<div class="controls">
+
+											<select name='banco2'>
+												<option selected='selected'>Banco Mercantil</option>
+												<option>Banesco</option>
+												<option>Banco de Venezuela</option>
+												<option>Banco Provincial</option>
+												<option>100% Banco</option>
+												<option>Banco del Tesoro</option>
+												<option>Banco Caroní</option>
+												<option>Banco Canarias de Venezuela</option>
+												<option>Banco Confederado</option>
+												<option>Bolívar Banco</option>
+												<option>Corp Banca</option>
+												<option>Banco de Crédito de Colombia</option>
+												<option>Banco Do Brasil</option>
+												<option>Banco del Caribe</option>
+												<option>Bancoro</option>
+												<option>Banco Sofitasa</option>
+												<option>Banpro</option>
+												<option>Stanford Bank</option>
+												<option>Banco Tequendama</option>
+												<option>Banco Fondo Común</option>
+												<option>Banfoandes</option>
+												<option>Banco Occidental de Descuento</option>
+												<option>Banco Venezolano de Crédito</option>
+												<option>Banco Guayana</option>
+												<option>Banco Exterior</option>
+												<option>Banco Industrial de Venezuela</option>
+												<option>Banco Plaza</option>
+												<option>Citibank</option>
+												<option>Total Bank</option>
+												<option>Nuevo Mundo</option>
+												<option>Banco Federal</option>
+												<option>Casa Propia</option>
+												<option>Banco Del Sur</option>
+												<option>Banco Mi Casa</option>
+												<option>Banco Bicentenario</option>
+											</select>
+
+										</div>
+
+									</div>
+
+
+									<div class="control-group">
+										<label class="control-label-right" for="inputReferencia"><strong>Nº transacción</strong></label>
+										<div class="controls">
+											<input type="text" id="referencia" name="referencia">
+										</div>
+									</div>
+
+									<input type="submit" class="btn btn-primary" name="credito" value="Registrar pago">
+
+							  	</div>
 
 							</div>
 
-						</div>
-
-						<div class="control-group">
-							<label class="control-label-right" for="inputReferencia"><strong>Nº cheque</strong></label>
-							<div class="controls">
-								<input type="text" id="referencia" name="referencia">
-							</div>
-						</div>
-
-						<!-- Transferencia -->
-						<div class="control-group">
-
-							<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
-							<div class="controls">
-
-								<select>
-
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-
-								</select>
-
-							</div>
-
-						</div>
-
-						<div class="control-group">
-							<label class="control-label-right" for="inputReferencia"><strong>Nº transferencia</strong></label>
-							<div class="controls">
-								<input type="text" id="referencia" name="referencia">
-							</div>
-						</div>
-
-						<!-- Tarjeta débito o crédito -->
-						<div class="control-group">
-
-							<label class="control-label-right" for="inputParcela"><strong>Entidad banco</strong></label>
-							<div class="controls">
-
-								<select>
-
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-
-								</select>
-
-							</div>
-
-						</div>
-
-						<div class="control-group">
-
-							<label class="control-label-right" for="inputParcela"><strong>Banco</strong></label>
-							<div class="controls">
-
-								<select>
-
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-
-								</select>
-
-							</div>
-
-						</div>
-
-
-						<div class="control-group">
-							<label class="control-label-right" for="inputReferencia"><strong>Nº transacción</strong></label>
-							<div class="controls">
-								<input type="text" id="referencia" name="referencia">
-							</div>
 						</div>
 
 					</div>
@@ -270,7 +615,9 @@
 
 			</div>
 
-			</form>
+		</div>
+
+		</form>
 
 			<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    
@@ -296,5 +643,23 @@
 
 </div>
 
+@endsection
+
+@section('postscript')
+
+<script type="text/javascript">
+//Script que me permite sumar los montos cuando se selecciona un CheckBox
+var monto = 0;
+
+	function sumar(valor) {
+		monto += valor;
+		document.form.monto.value = monto;
+	}
+
+	function restar(valor) {
+		monto -= valor;
+		document.form.monto.value = monto;
+	}
+</script>
 
 @endsection

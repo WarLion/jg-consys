@@ -12,14 +12,16 @@
 
 			    <a href="{{ URL::to('admin/ctasxpagar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
 			    <a href="{{ URL::to('admin/ctasxpagar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>
+			    <!--<a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>-->
 			    <a href="{{ URL::to('admin/ctasxpagar/pagos'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Pagos</a>
 			    
 			</div>
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/ctasxpagar/agregar') }}" method="post" class="form-modules">
+
+				{{ $message }}
 
 				<div class="control-group">
 
@@ -27,7 +29,7 @@
 					<div class="controls">
 
 						<input type="text" id="proveedor" name="proveedor" placeholder="Proveedor">
-						<button type="submit" class="btn">Buscar</button>
+						<input type="submit" class="btn btn-primary" name="buscar" value="Buscar">
 
 					</div>
 
@@ -56,10 +58,18 @@
 					      </thead>
 
 					      <tbody>
-					        <tr>
-					          <td>1234567-89</td>
-					          <td>Hidrocentro C.A.</td>
-					        </tr>			        
+					      		<tr>
+					        @if(!empty($proveedor))
+					        	@foreach($proveedor as $prv)
+									<td>{{ $prv->nro }} <input type="hidden" name="hidentificacion" value="{{ $prv->nro }}"></td>
+									<td>{{ $prv->descripcion }} <input type="hidden" name="hproveedor" value="{{ $prv->descripcion }}"></td>
+								@endforeach
+							@else
+					        	<tr>
+									<td>---</td>
+									<td>---</td>
+								</tr>
+							@endif			        
 					      </tbody>
 
 					    </table>
@@ -87,44 +97,33 @@
 
 							<label class="control-label-right" for="inputParcela"><strong>Concepto</strong></label>
 							<div class="controls">
-
-								<select>
-
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-
-								</select>
-
+								<input type="text" id="referencia" name="concepto">
 							</div>
 
 						</div>
 
-						<div class="control-group">
+						<!--<div class="control-group">
 
 							<label class="control-label-right" for="inputParcela"><strong>Tipo</strong></label>
 							<div class="controls">
 
-								<select>
-
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								<select name="tipo">
+									@if(!empty($tipo))
+										@foreach($tipo as $tip)
+											<option value="{{ $tip->id }}">{{ $tip->descripcion }}</option>
+										@endforeach
+									@endif
 
 								</select>
 
 							</div>
 
-						</div>
+						</div>-->
 
 						<div class="control-group">
 							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
 							<div class="controls">
-								<input type="text" id="monto" name="monto" class="input-small" readonly>
+								<input type="text" id="monto" name="monto" class="input-small">
 							</div>
 						</div>
 
@@ -134,7 +133,7 @@
 
 			</div>
 
-			<a href="{{ URL::to('#'); }}" class="btn btn-primary">Agregar</a>
+			<input type="submit" class="btn btn-primary" name="agregar" value="Agregar">
 
 			<div>&nbsp;</div>
 
@@ -148,34 +147,51 @@
 
 			      <thead>
 			        <tr>
-			          <th>Referencia</th>
-			          <th>Código</th>
-			          <th>Concepto</th>
-			          <th>Tipo</th>
-			          <th>Monto</th>
-			          <th>Opciones</th>
-			          <th style="width: 36px;"></th>
+			        	<th>#</th>
+				        <th>Referencia</th>
+				        <th>Concepto</th>
+				        <!--<th>Tipo</th>-->
+				        <th>Monto</th>
+				        <th>Opciones</th>
 			        </tr>
 			      </thead>
 
 			      <tbody>
-			        <tr>
-			          <td>1234567</td>
-			          <td>0132</td>
-			          <td>CANCELACIÓN MES DE AGOSTO 2012</td>
-			          <td>Factura</td>
-			          <td>500,00</td>
-			          <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-			        </tr>			        
-			      </tbody>
+			        @if(!empty($ctasxpagar))
+			        	@foreach($ctasxpagar as $cxp)
+			        	<tr>
+							<td>{{ $x++ }}</td>
+							<td>{{ $cxp->nro }}</td>
+							<td>{{ $cxp->concepto_codigo }}</td>
+							<td>{{ $cxp->monto }}</td>
+							<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+						</tr>
+						@endforeach
+						<tr>
+							<td></td>
+							<td></td>
+							<td><strong>Total</strong></td>
+							@foreach($total as $tot)
+								<td>{{ $tot->monto.',00' }}</td>
+							@endforeach
+						</tr>
+					@else
+			        	<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+						</tr>
 
-			      <tbody>
-			        <tr>
-			        	<td></td>
-			        	<td></td>
-						<td colspan="2"><strong>Total</strong></td>
-						<td colspan="2">360,00</td>
-			        </tr>			        
+						<tr>
+							<td></td>
+							<td></td>
+							<td><strong>Total</strong></td>
+							<td>---</td>
+							<td></td>
+						</tr>
+					@endif			        
 			      </tbody>
 
 			    </table>
