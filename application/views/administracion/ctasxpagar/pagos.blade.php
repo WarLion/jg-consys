@@ -30,6 +30,7 @@
 			          <th>#</th>
 			          <th>Proveedor</th>
 			          <th>Tipo</th>
+			          <th>Partida</th>
 			          <th>Monto</th>
 			          <th>Fecha</th>
 			          <th>Opciones</th>
@@ -44,8 +45,8 @@
 							<td>{{ $pag->proveedor }} </td>
 							<td>{{ $pag->metodopag }} </td>
 							<td>{{ $pag->partida }} </td>
-							<td>{{ $pag->fecha }} </td>
 							<td>{{ $pag->monto }} </td>
+							<td>{{ $pag->fecha }} </td>
 							<td>{{ HTML::link('admin/ctasxpagar/pagos/detalle','Detalle') }}</td>
 						</tr>
 						@endforeach

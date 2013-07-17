@@ -13,9 +13,9 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$x = 1;
 
 		$ctasxpagar = DB::table('tadm_ctasxpagar')
-			->select(array('tadm_proveedor.nro','tadm_proveedor.descripcion','tadm_ctasxpagar.cancelado',DB::raw('SUM(tadm_ctasxpagar.monto) as monto')))
+			->select(array('tadm_proveedor.nro','tadm_proveedor.descripcion',DB::raw('SUM(tadm_ctasxpagar.monto) as monto')))
 			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_ctasxpagar.proveedor_nro')
-			->where('cancelado','=','0')
+			->where('pagos_id','=','0')
 			->group_by('tadm_ctasxpagar.proveedor_nro')
 			->order_by('tadm_ctasxpagar.proveedor_nro', 'desc')
 			->get();
@@ -96,7 +96,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$detalle_prov = DB::table('tadm_ctasxpagar')
 			//->join('tadm_tipodoc','tadm_tipodoc.id','=','tadm_ctasxpagar.tipodoc_id')
 			->where('proveedor_nro','=',$rif)
-			->where('cancelado','=','0')
+			->where('pagos_id','=','0')
 			//->get(array('nro','concepto_codigo','tadm_tipodoc.descripcion','monto'));
 			->get(array('nro','concepto_codigo','fecha','monto'));
 
@@ -145,14 +145,14 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 				$total = DB::table('tadm_ctasxpagar')
 					->select(array(DB::raw('SUM(tadm_ctasxpagar.monto) as monto')))
 					->where('proveedor_nro','=',$id_prov['id'])
-					->where('cancelado','=','0')
+					->where('pagos_id','=','0')
 					->group_by('tadm_ctasxpagar.proveedor_nro')
 					->get();
 
 				$ctasxpagar = DB::table('tadm_ctasxpagar')
 					//->join('tadm_tipodoc','tadm_tipodoc.id','=','tadm_ctasxpagar.tipodoc_id')
 					->where('proveedor_nro','=',$id_prov['id'])
-					->where('cancelado','=','0')
+					->where('pagos_id','=','0')
 					//->get(array('nro','concepto_codigo','tadm_tipodoc.descripcion','monto'));
 					->get(array('nro','concepto_codigo','monto'));
 
@@ -220,7 +220,6 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 									'fecha'				=> date("d-m-Y H:i:s"),
 									'fecha_pago'		=> null,
 									'monto'				=> $monto,
-									'cancelado'			=> '0',
 									'anular'			=> '0'));
 
 				$message = "Se ha registrado satisfactoriamente.";
@@ -359,8 +358,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 					DB::table('tadm_ctasxpagar')
 						->where('nro','=',$smon)
 						->update(array('fecha_pago' => $fecha,
-										'pagos_id'	=> $pagos,
-										'cancelado'	=> '1'));
+										'pagos_id'	=> $pagos));
 				}
 
 				$message = "El pago se ha registrado satisfactoriamente.";
