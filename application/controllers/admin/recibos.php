@@ -10,7 +10,16 @@ class Admin_recibos_Controller extends Base_Controller {
 	public function get_index()
 	{
 		$title = 'Recibos - Sistema Administrativo JG-Sigcon';
-		return View::make('administracion.recibos.index')->with('title',$title);
+		$x = 1;
+
+		$recibos = DB::table('tadm_recibo')
+			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_recibo.metodopag_id')
+			->get(array('tadm_recibo.id','parcela_nro','fecha','monto','tadm_metodopag.descripcion','anulada'));
+
+		return View::make('administracion.recibos.index')
+			->with('title',$title)
+			->with('recibos',$recibos)
+			->with('x',$x);
 	}
 
 	public function get_generar()
@@ -46,7 +55,14 @@ class Admin_recibos_Controller extends Base_Controller {
 	public function get_formaspay()
 	{
 		$title = 'Formas de Pago - Recibos - Sistema Administrativo JG-Sigcon';
-		return View::make('administracion.recibos.formaspay')->with('title',$title);
+		$x = 1;
+
+		$formas = DB::table('tadm_metodopag')->get();
+
+		return View::make('administracion.recibos.formaspay')
+			->with('title',$title)
+			->with('formas',$formas)
+			->with('x',$x);
 	}
 
 	public function post_index()
