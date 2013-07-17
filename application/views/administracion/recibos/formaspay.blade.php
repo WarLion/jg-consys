@@ -12,22 +12,21 @@
 
 			    <a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
 			    <a href="{{ URL::to('admin/recibos'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>
+			    <!--<a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>-->
 			    <a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>
 			    
 			</div>
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/recibos/formaspay') }}" method="post" class="form-modules">
 
 				<div class="control-group">
-
 					<label class="control-label" for="inputFormaspay"><strong>Tipo de pago</strong></label>
 					<div class="controls">
 
 						<input type="text" id="formaspay" name="formaspay" placeholder="Tipo de pago">
-						<button type="submit" class="btn btn-primary">Agregar</button>
+						<button type="submit" class="btn btn-primary" name="add">Agregar</button>
 
 					</div>
 
@@ -56,11 +55,21 @@
 						      </thead>
 
 						      <tbody>
-						        <tr>
-						          <td>1</td>
-						          <td>Efectivo</td>
-						          <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-edit"></i></a>  <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-						        </tr>			        
+						        @if(!empty($formas))
+					        		@foreach($formas as $frm)
+						        	<tr>
+										<td>{{ $x++; }}</td>
+										<td>{{ $frm->descripcion }}</td>
+										<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+									</tr>
+									@endforeach
+								@else
+						        	<tr>
+										<td>---</td>
+										<td>---</td>
+										<td>---</td>
+									</tr>
+								@endif			        
 						      </tbody>
 
 						    </table>

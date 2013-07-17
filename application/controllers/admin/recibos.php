@@ -82,7 +82,19 @@ class Admin_recibos_Controller extends Base_Controller {
 	
 	public function post_formaspay()
 	{
-		
+		$title = 'Formas de Pago - Recibos - Sistema Administrativo JG-Sigcon';
+		$x = 1;
+
+		$formaspay = Input::get('formaspay');
+
+		$insert_formas = DB::table('tadm_metodopag')
+			->insert(array('descripcion' => $formaspay));
+
+		if($insert_formas === TRUE) { return Redirect::to('admin/recibos/formaspay'); }
+
+		return View::make('administracion.recibos.formaspay')
+			->with('title',$title)
+			->with('x',$x);
 	}
 }
 
