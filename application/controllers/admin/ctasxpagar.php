@@ -64,7 +64,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 		$pagos = DB::table('tadm_pagos')
 			->select(array('tadm_proveedor.descripcion as proveedor','tadm_metodopag.descripcion as metodopag','fecha','monto'))
-			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_pagos.proveedor_nro')
+			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_pagos.identificacion')
 			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
 			->order_by('tadm_pagos.id', 'asc')
 			->get();
@@ -340,15 +340,16 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 			{
 				// Inserta el pago
 				DB::table('tadm_pagos')
-					->where('proveedor_nro','=',$rif)
-					->insert(array('proveedor_nro' 	=> $rif,
+					->where('identificacion','=',$rif)
+					->insert(array('identificacion' => $rif,
 									'metodopag_id' 	=> '1',
+									'partida'		=> 'Egreso',
 									'fecha' 		=> $fecha,
 									'monto'			=> $monto));
 
 				// Me muestra el ultimo ID del pago del proveedor
 				$pagos = DB::table('tadm_pagos')
-					->where('proveedor_nro','=',$rif)
+					->where('identificacion','=',$rif)
 					->max('id');
 
 				$pago_id = (array) $pagos;
