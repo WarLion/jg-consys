@@ -43,6 +43,7 @@
 			        		<td>{{ $x++ }}</td>
 							<td>{{ $pag->proveedor }} </td>
 							<td>{{ $pag->metodopag }} </td>
+							<td>{{ $pag->partida }} </td>
 							<td>{{ $pag->fecha }} </td>
 							<td>{{ $pag->monto }} </td>
 							<td>{{ HTML::link('admin/ctasxpagar/pagos/detalle','Detalle') }}</td>

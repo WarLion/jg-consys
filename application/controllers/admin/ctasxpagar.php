@@ -63,7 +63,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$x = 1;
 
 		$pagos = DB::table('tadm_pagos')
-			->select(array('tadm_proveedor.descripcion as proveedor','tadm_metodopag.descripcion as metodopag','fecha','monto'))
+			->select(array('tadm_proveedor.descripcion as proveedor','tadm_metodopag.descripcion as metodopag','partida','fecha','monto'))
 			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_pagos.identificacion')
 			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
 			->order_by('tadm_pagos.id', 'asc')
