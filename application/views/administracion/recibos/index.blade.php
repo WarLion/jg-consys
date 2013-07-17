@@ -46,7 +46,7 @@
 							<td>{{ $rcb->descripcion }}</td>
 							<td>{{ $rcb->fecha }}</td>
 							<td><i class="icon-check"></i></td>
-							<td>{{ HTML::link('admin/ctasxpagar/pagos/registro?rif='.$rcb->nro,'Pagar') }}</td>
+							<td><a href="#">Detalle</a></td>
 						</tr>
 						@endforeach
 					@else
