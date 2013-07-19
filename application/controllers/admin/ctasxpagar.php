@@ -353,8 +353,6 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 					->where('partida','=','egreso')
 					->max('id');
 
-				$pago_id = (array) $pagos;
-
 				foreach($selectMontos as $smon)
 				{
 					DB::table('tadm_ctasxpagar')
