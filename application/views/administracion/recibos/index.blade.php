@@ -13,7 +13,7 @@
 			    <a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
 			    <a href="{{ URL::to('admin/recibos'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
 			    <!--<a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>-->
-			    <a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>
+			    <!--<a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>-->
 			    
 			</div>
 
@@ -23,13 +23,12 @@
 
 				<thead>
 					<tr>
-					  <th>#</th>
-					  <th>Parcela</th>
 					  <th>Correlativo</th>
+					  <th>Parcela</th>
 					  <th>Monto</th>
 					  <th>Tipo</th>
-					  <th>Estado</th>
 					  <th>Fecha</th>
+					  <th>Estado</th>
 					  <th>Opciones</th>
 					</tr>
 				</thead>
@@ -39,8 +38,7 @@
 					@if(!empty($recibos))
 		        		@foreach($recibos as $rcb)
 			        	<tr>
-							<td>{{ $x++; }}</td>
-							<td>{{ $rcb->id }}</td>
+							<td>{{ '00'.$rcb->id }}</td>
 							<td>{{ $rcb->parcela_nro }}</td>
 							<td>{{ $rcb->monto }}</td>
 							<td>{{ $rcb->descripcion }}</td>

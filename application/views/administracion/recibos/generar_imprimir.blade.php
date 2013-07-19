@@ -13,7 +13,7 @@
 			    <a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
 			    <a href="{{ URL::to('admin/recibos'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
 			    <!--<a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>-->
-			    <a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>
+			    <!--<a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>-->
 			    
 			</div>
 
@@ -28,6 +28,8 @@
 				<hr class="bs-docs-separator">
 
 				<div>
+
+					{{ $message }}
 
 					<div class="span6">	
 
@@ -118,7 +120,6 @@
 
 					<tbody>
 						@for($x=1; $x<=$num_con; $x++)
-							<?php $total += $nombre_con[$x]['monto'] ?>
 						<tr>
 						  	<td><?php echo $nombre_con[$x]['nombre'] ?></td>
 						  	<td><?php echo $nombre_con[$x]['monto'].',00' ?></td>
@@ -127,7 +128,7 @@
 			      	<tbody>
 			        <tr>
 						<td><strong>Total</strong></td>
-						<td colspan="2">{{ $total.',00' }}</td>
+						<td colspan="2">{{ $total_conceptos.',00' }}</td>
 			        </tr>			        
 			      </tbody>
 
@@ -135,9 +136,9 @@
 
 			</div>
 
-			<p><strong>A la fecha 07/06/2013 usted adeuda Bs. 0,00</strong></p><br>
+			<p><strong>A la fecha {{ $fecha }} usted adeuda Bs. {{ $adeuda.',00' }}</strong></p><br>
 
-			<a href="{{ URL::to('admin/recibos/generar/2'); }}" class="btn btn-primary">Procesar </a>
+			<input type="submit" name="procesar" value="Procesar" class="btn btn-primary">
 
 			</form>
 
