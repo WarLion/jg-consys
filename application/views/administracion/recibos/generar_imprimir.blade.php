@@ -12,14 +12,14 @@
 
 			    <a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
 			    <a href="{{ URL::to('admin/recibos'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>
+			    <!--<a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>-->
 			    <a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>
 			    
 			</div>
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">
+			<form action="{{ URL::to('admin/recibos/generar/3') }}" name="form" method="post" class="form-modules">
 
 			<div class="row-fluid">
 
@@ -38,21 +38,21 @@
 						      <thead>
 						        <tr>
 									<td><strong>Parcela</strong></td>
-									<td>36</td>
+									<td>{{ $generarPay['parcela'] }}</td>
 						        </tr>
 						      <tbody>
 
 						      <thead>
 						        <tr>
 									<td><strong>Cédula</strong></td>
-									<td>9126116</td>
+									<td>{{ $generarPay['ci'] }}</td>
 						        </tr>			        
 						      </thead>
 
 						      <thead>
 						        <tr>
 									<td><strong>Propietario</strong></td>
-									<td>JULIA DUQUE</td>
+									<td>{{ $generarPay['name'] }}</td>
 						        </tr>			        
 						      </thead>
 
@@ -68,19 +68,26 @@
 
 							<table class="table table-hover">
 
-						      <thead>
-						        <tr>
-									<td><strong>Fecha</strong></td>
-									<td>23/06/2013</td>								
-						        </tr>
-						      </thead>
+								<thead>
+									<tr>
+										<td><strong>Fecha</strong></td>
+										<td>{{ $generarPay['fecha'] }}</td>
+									</tr>
+								</thead>
 
-						      <thead>
-						        <tr>
-						        	<td><strong>Correlativo</strong></td>
-						        	<td>1500</td>
-						        </tr>			        
-						      </thead>
+								<thead>
+									<tr>
+										<td><strong>Correlativo</strong></td>
+										<td>{{ '00'.$correlativo }}</td>
+									</tr>
+								</thead>
+
+								<thead>
+									<tr>
+										<td><strong>Forma de pago</strong></td>
+										<td>Efectivo</td>
+									</tr>
+								</thead>
 
 						    </table>
 
@@ -102,26 +109,25 @@
 
 			    <table class="table table-hover">
 
-			      <thead>
-			        <tr>
-			          <th>Concepto</th>
-			          <th>Monto</th>
-			          <th>Forma de pago</th>
-			        </tr>
-			      </thead>
+				     <thead>
+				        <tr>
+				          <th>Concepto</th>
+				          <th>Monto</th>
+				        </tr>
+				     </thead>
 
 					<tbody>
-					<tr>
-					  <td>CONDOMINIO ENERO 2012</td>
-					  <td>120,00</td>
-					  <td>Depósito</td>
-					</tr>			        
-					</tbody>
-
-			      <tbody>
+						@for($x=1; $x<=$num_con; $x++)
+							<?php $total += $nombre_con[$x]['monto'] ?>
+						<tr>
+						  	<td><?php echo $nombre_con[$x]['nombre'] ?></td>
+						  	<td><?php echo $nombre_con[$x]['monto'].',00' ?></td>
+						</tr>
+						@endfor
+			      	<tbody>
 			        <tr>
 						<td><strong>Total</strong></td>
-						<td colspan="2">120,00 Bs.</td>
+						<td colspan="2">{{ $total.',00' }}</td>
 			        </tr>			        
 			      </tbody>
 
