@@ -13,8 +13,9 @@ class Admin_recibos_Controller extends Base_Controller {
 		$x = 1;
 
 		$recibos = DB::table('tadm_recibo')
-			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_recibo.metodopag_id')
-			->get(array('tadm_recibo.id','parcela_nro','fecha','monto','tadm_metodopag.descripcion','anulada'));
+			->join('tadm_pagos','tadm_pagos.id','=','tadm_recibo.pagos_id')
+			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
+			->get(array('tadm_recibo.id','parcela_nro','tadm_pagos.fecha','tadm_pagos.monto','tadm_metodopag.descripcion','anulada'));
 
 		return View::make('administracion.recibos.index')
 			->with('title',$title)
@@ -157,7 +158,7 @@ class Admin_recibos_Controller extends Base_Controller {
 				{
 					// se guardan exclusivamente en otra variable los codigos
 					$y++;
-					$conceptos[$y] =  array('codigo' 	=> $cp->concepto_codigo);
+					$conceptos[$y] =  array('codigo' => $cp->concepto_codigo);
 				}
 			}
 		}
@@ -175,50 +176,182 @@ class Admin_recibos_Controller extends Base_Controller {
 		$title = 'Procesar - Recibos - Sistema Administrativo JG-Consys';
 		$fecha = date("d-m-Y");
 		$y = 0;
-		$total = null;
+		$total_conceptos = 0;
+		$message = null;
 
-		$generarPay = array('parcela' 	=> Input::get('hparcela'),
-							'ci' 		=> Input::get('hci'),
-							'name' 		=> Input::get('hname'),
-							'monto' 	=> Input::get('monto'),
-							'fecha'		=> $fecha
-					);
+		$procesar = Input::get('procesar');
 
-		// se recibe el array conceptos
-		$conceptos = Session::get('conceptos');
-		//se cuenta la cantidad de valores que existe en el array
-		$num_con = count($conceptos);
-
-		for($x=1; $x<=$num_con; $x++)
+		// si presiono el boton Procesar...
+		if(!empty($procesar))
 		{
-			// se recorre el array para buscar el nombre del concepto en la tabla
-			$query_nombre_con = DB::table('tadm_conceptos')
-									->where('codigo','=',$conceptos[$x]['codigo'])
-									->get(array('nombre','monto'));
+			$generarPay 		= Session::get('generarPay');
+			$total_conceptos 	= Session::get('total_conceptos');
+			$num_con 			= Session::get('num_con');
+			$conceptos 			= Session::get('conceptos');
 
-			foreach($query_nombre_con as $nc)
+			if(!empty($generarPay['efectivo']))
 			{
-				// se guarda los resultados en otra variable que no sea objeto
-				$y++;
-				$nombre_con[$y] = array('nombre' 	=> $nc->nombre,
-										'monto' 	=> $nc->monto);
+				DB::table('tadm_pagos')
+					->insert(array('metodopag_id' 	=> '1',
+									'identificacion'=> $generarPay['parcela'],
+									'referencia'	=> '0',
+									'banco'			=> '0',
+									'partida'		=> 'ingreso',
+									'fecha'			=> $fecha,
+									'monto'			=> $total_conceptos));
 			}
+
+			if(!empty($generarPay['deposito']))
+			{
+				DB::table('tadm_pagos')
+					->insert(array('metodopag_id' 	=> '2',
+									'identificacion'=> $generarPay['parcela'],
+									'referencia'	=> '0',
+									'banco'			=> '0',
+									'partida'		=> 'ingreso',
+									'fecha'			=> $fecha,
+									'monto'			=> $total_conceptos));
+			}
+
+			if(!empty($generarPay['cheque']))
+			{
+				DB::table('tadm_pagos')
+					->insert(array('metodopag_id' 	=> '3',
+									'identificacion'=> $generarPay['parcela'],
+									'referencia'	=> '0',
+									'banco'			=> '0',
+									'partida'		=> 'ingreso',
+									'fecha'			=> $fecha,
+									'monto'			=> $total_conceptos));
+			}
+
+			if(!empty($generarPay['trasnferencia']))
+			{
+				DB::table('tadm_pagos')
+					->insert(array('metodopag_id' 	=> '4',
+									'identificacion'=> $generarPay['parcela'],
+									'referencia'	=> '0',
+									'banco'			=> '0',
+									'partida'		=> 'ingreso',
+									'fecha'			=> $fecha,
+									'monto'			=> $total_conceptos));
+			}
+
+			if(!empty($generarPay['debito']))
+			{
+				DB::table('tadm_pagos')
+					->insert(array('metodopag_id' 	=> '5',
+									'identificacion'=> $generarPay['parcela'],
+									'referencia'	=> '0',
+									'banco'			=> '0',
+									'partida'		=> 'ingreso',
+									'fecha'			=> $fecha,
+									'monto'			=> $total_conceptos));
+			}
+
+			if(!empty($generarPay['credito']))
+			{
+				DB::table('tadm_pagos')
+					->insert(array('metodopag_id' 	=> '6',
+									'identificacion'=> $generarPay['parcela'],
+									'referencia'	=> '0',
+									'banco'			=> '0',
+									'partida'		=> 'ingreso',
+									'fecha'			=> $fecha,
+									'monto'			=> $total_conceptos));
+			}
+				// Me muestra el ultimo ID del pago del proveedor
+				$pagos = DB::table('tadm_pagos')
+					->where('identificacion','=',$generarPay['parcela'])
+					->where('partida','=','ingreso')
+					->max('id');
+
+				$recibo = DB::table('tadm_recibo')
+						->insert(array('parcela_nro'=> $generarPay['parcela'],
+										'pagos_id' 	=> $pagos,
+										'anulada' 	=> '0'));
+
+				for($y=1; $y<=$num_con; $y++)
+				{
+					$ctasxcobrar = DB::table('tadm_ctasxcobrar')
+										->where('parcela_nro','=',$generarPay['parcela'])
+										->where('concepto_codigo','=',$conceptos[$y]['codigo'])
+										->update(array('pagos_id' => $pagos));
+				}
+
+
+				return Redirect::to('admin/recibos/generar');
 		}
+		else
+		{
+			$generarPay = array('parcela' 		=> Input::get('hparcela'),
+								'ci' 			=> Input::get('hci'),
+								'name' 			=> Input::get('hname'),
+								'monto' 		=> Input::get('monto'),
+								'efectivo' 		=> Input::get('efectivo'),
+								'deposito' 		=> Input::get('deposito'),
+								'cheque' 		=> Input::get('cheque'),
+								'transferencia' => Input::get('transferencia'),
+								'debito' 		=> Input::get('debito'),
+								'credito' 		=> Input::get('credito'),
+								'fecha'			=> $fecha
+						);
 
-		// se cuenta la cantidad de valores
-		$num_con = count($nombre_con);
+			// se recibe el array conceptos
+			$conceptos = Session::get('conceptos');
+			//se cuenta la cantidad de valores que existe en el array
+			$num_con = count($conceptos);
 
-		// se busca cual es el ultimo valor o correlativo de los recibos
-		$correlativo = DB::table('tadm_recibo')->max('id');
-		$correlativo = $correlativo['id'] + 1;
+			for($x=1; $x<=$num_con; $x++)
+			{
+				// se recorre el array para buscar el nombre del concepto en la tabla
+				$query_nombre_con = DB::table('tadm_conceptos')
+										->where('codigo','=',$conceptos[$x]['codigo'])
+										->get(array('nombre','monto'));
 
-		return View::make('administracion.recibos.generar_imprimir')
-			->with('title',$title)
-			->with('generarPay',$generarPay)
-			->with('nombre_con',$nombre_con)
-			->with('num_con',$num_con)
-			->with('total',$total)
-			->with('correlativo',$correlativo);
+				foreach($query_nombre_con as $nc)
+				{
+					// se guarda los resultados en otra variable que no sea objeto
+					$y++;
+					$nombre_con[$y] = array('nombre' 	=> $nc->nombre,
+											'monto' 	=> $nc->monto);
+
+					$total_conceptos += $nombre_con[$y]['monto'];
+				}
+			}
+
+			$total_parcela = DB::table('tadm_ctasxcobrar')
+								->select(array(DB::raw('SUM(tadm_ctasxcobrar.monto) as monto')))
+								->where('parcela_nro','=',$generarPay['parcela'])
+								->where('pagos_id','=','0')
+								->get(array('monto'));
+
+			foreach($total_parcela as $tp) { $total_parcela = $tp->monto; }
+
+			$adeuda = $total_parcela - $total_conceptos;
+
+			// se cuenta la cantidad de valores
+			$num_con = count($nombre_con);
+
+			// se busca cual es el ultimo valor o correlativo de los recibos
+			$correlativo = DB::table('tadm_recibo')->max('id');
+			$correlativo = $correlativo['id'] + 1;
+
+			Session::put('generarPay',$generarPay);
+			Session::put('num_con',$num_con);
+			Session::put('total_conceptos',$total_conceptos);
+
+			return View::make('administracion.recibos.generar_imprimir')
+				->with('title',$title)
+				->with('generarPay',$generarPay)
+				->with('nombre_con',$nombre_con)
+				->with('num_con',$num_con)
+				->with('fecha',$fecha)
+				->with('adeuda',$adeuda)
+				->with('message',$message)
+				->with('total_conceptos',$total_conceptos)
+				->with('correlativo',$correlativo);
+		}
 	}
 
 	public function post_bancos()
