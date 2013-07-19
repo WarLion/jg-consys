@@ -54,6 +54,10 @@ Route::group(array('before' => 'consulta'), function()
 	Route::post('register','register@index');
 	Route::get('register','register@index');
 
+	// statement of account
+	Route::post('account','account@index');
+	Route::get('account','account@index');
+
 });
 
 Route::group(array('before' => 'admin'), function()
