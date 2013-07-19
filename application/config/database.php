@@ -67,10 +67,21 @@ return array(
 			'prefix'   => '',
 		),
 
+		/* Default configuration
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => '127.0.0.1',
 			'database' => 'database',
+			'username' => 'root',
+			'password' => '',
+			'charset'  => 'utf8',
+			'prefix'   => '',
+		),*/
+
+		'mysql' => array(
+			'driver'   => 'mysql',
+			'host'     => 'localhost',
+			'database' => 'condominio',
 			'username' => 'root',
 			'password' => '',
 			'charset'  => 'utf8',

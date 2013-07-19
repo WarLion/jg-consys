@@ -37,19 +37,144 @@
 	return View::make('home.index');
 });*/
 
-Route::get('/','index@index');
 
-// authentication
-Route::post('login','login@index');
-Route::get('login','login@index');
+Route::group(array('before' => 'consulta'), function()
+{
+	Route::get('/','index@index');
 
-// dashboard
-Route::post('dashboard','dashboard@index');
-Route::get('dashboard','dashboard@index');
+	// authentication
+	Route::post('login','login@index');
+	Route::get('login','login@index');
 
-// Register
-Route::post('register','register@index');
-Route::get('register','register@index');
+	// dashboard
+	Route::post('dashboard','dashboard@index');
+	Route::get('dashboard','dashboard@index');
+
+	// Register
+	Route::post('register','register@index');
+	Route::get('register','register@index');
+
+});
+
+Route::group(array('before' => 'admin'), function()
+{
+	/*++ Administration ++*/
+
+	// index
+	Route::post('condominio','admin/administracion@index');
+	Route::get('condominio','admin/administracion@index');
+
+	// CtasXCobrar
+	Route::post('admin/ctasxcobrar','admin/ctasxcobrar@index');
+	Route::get('admin/ctasxcobrar','admin/ctasxcobrar@index');
+
+	Route::post('admin/ctasxcobrar/agregar','admin/ctasxcobrar@agregar');
+	Route::get('admin/ctasxcobrar/agregar','admin/ctasxcobrar@agregar');
+	
+	Route::post('admin/ctasxcobrar/detalle','admin/ctasxcobrar@detalle');
+	Route::get('admin/ctasxcobrar/detalle','admin/ctasxcobrar@detalle');
+
+	// CtasXPagar
+	Route::post('admin/ctasxpagar/','admin/ctasxpagar@index');
+	Route::get('admin/ctasxpagar','admin/ctasxpagar@index');
+
+	Route::post('admin/ctasxpagar/agregar','admin/ctasxpagar@agregar');
+	Route::get('admin/ctasxpagar/agregar','admin/ctasxpagar@agregar');
+
+	Route::post('admin/ctasxpagar/detalle','admin/ctasxpagar@detalle');
+	Route::get('admin/ctasxpagar/detalle','admin/ctasxpagar@detalle');
+
+	Route::post('admin/ctasxpagar/documento','admin/ctasxpagar@documento');
+	Route::get('admin/ctasxpagar/documento','admin/ctasxpagar@documento');
+
+	Route::post('admin/ctasxpagar/pagos','admin/ctasxpagar@pagos');
+	Route::get('admin/ctasxpagar/pagos','admin/ctasxpagar@pagos');
+
+	Route::post('admin/ctasxpagar/pagos/detalle','admin/ctasxpagar@detallePagos');
+	Route::get('admin/ctasxpagar/pagos/detalle','admin/ctasxpagar@detallePagos');
+
+	Route::post('admin/ctasxpagar/pagos/registro','admin/ctasxpagar@pagar');
+	Route::get('admin/ctasxpagar/pagos/registro','admin/ctasxpagar@pagar');
+
+	// Recibos
+	Route::post('admin/recibos','admin/recibos@index');
+	Route::get('admin/recibos','admin/recibos@index');
+
+	Route::post('admin/recibos/generar','admin/recibos@generar');
+	Route::get('admin/recibos/generar','admin/recibos@generar');
+
+	Route::post('admin/recibos/detalle','admin/recibos@detalle');
+	Route::get('admin/recibos/detalle','admin/recibos@detalle');
+
+		Route::post('admin/recibos/generar/2','admin/recibos@generar_pago');
+		Route::get('admin/recibos/generar/2','admin/recibos@generar_pago');
+
+		Route::post('admin/recibos/generar/3','admin/recibos@generar_imprimir');
+		Route::get('admin/recibos/generar/3','admin/recibos@generar_imprimir');
+
+	Route::post('admin/recibos/bancos','admin/recibos@bancos');
+	Route::get('admin/recibos/bancos','admin/recibos@bancos');
+
+	Route::post('admin/recibos/formaspay','admin/recibos@formaspay');
+	Route::get('admin/recibos/formaspay','admin/recibos@formaspay');
+
+	// Conceptos
+	Route::post('admin/conceptos','admin/conceptos@index');
+	Route::get('admin/conceptos','admin/conceptos@index');
+
+	// Parcelas
+	Route::post('admin/parcelas','admin/parcelas@index');
+	Route::get('admin/parcelas','admin/parcelas@index');
+
+	Route::post('admin/parcelas/agregar','admin/parcelas@agregar');
+	Route::get('admin/parcelas/agregar','admin/parcelas@agregar');
+
+	Route::post('admin/parcelas/calles','admin/parcelas@calles');
+	Route::get('admin/parcelas/calles','admin/parcelas@calles');
+
+	// Propietarios
+	Route::post('admin/propietarios','admin/propietarios@index');
+	Route::get('admin/propietarios','admin/propietarios@index');
+
+	Route::post('admin/propietarios/detalle','admin/propietarios@detalle');
+	Route::get('admin/propietarios/detalle','admin/propietarios@detalle');
+
+	Route::post('admin/propietarios/agregar','admin/propietarios@agregar');
+	Route::get('admin/propietarios/agregar','admin/propietarios@agregar');
+
+	// Usuarios
+	Route::post('admin/usuarios','admin/usuarios@index');
+	Route::get('admin/usuarios','admin/usuarios@index');
+
+	Route::post('admin/usuarios/detalle','admin/usuarios@detalle');
+	Route::get('admin/usuarios/detalle','admin/usuarios@detalle');
+	
+	Route::post('admin/usuarios/agregar','admin/usuarios@agregar');
+	Route::get('admin/usuarios/agregar','admin/usuarios@agregar');
+
+	// Personal
+	Route::post('admin/personal','admin/personal@index');
+	Route::get('admin/personal','admin/personal@index');
+
+	Route::post('admin/personal/detalle','admin/personal@detalle');
+	Route::get('admin/personal/detalle','admin/personal@detalle');
+	
+	Route::post('admin/personal/agregar','admin/personal@agregar');
+	Route::get('admin/personal/agregar','admin/personal@agregar');
+
+	Route::post('admin/personal/cargos','admin/personal@cargos');
+	Route::get('admin/personal/cargos','admin/personal@cargos');
+
+	// Proveedores
+	Route::post('admin/proveedores','admin/proveedores@index');
+	Route::get('admin/proveedores','admin/proveedores@index');
+
+	Route::post('admin/proveedores/detalle','admin/proveedores@detalle');
+	Route::get('admin/proveedores/detalle','admin/proveedores@detalle');
+	
+	Route::post('admin/proveedores/agregar','admin/proveedores@agregar');
+	Route::get('admin/proveedores/agregar','admin/proveedores@agregar');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -123,4 +248,41 @@ Route::filter('csrf', function()
 Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
+});
+
+
+Route::filter('consulta', function()
+{
+	// Styles
+	Asset::add('bootstrap','css/bootstrap.min.css');
+	Asset::add('bootstrap-responsive','css/bootstrap-responsive.min.css');
+	Asset::add('styles','css/style.css');
+	Asset::add('slides','css/slides.css');
+	Asset::add('masonry','css/masonry.css');
+	Asset::add('fancybox','css/fancybox.css');
+	Asset::add('custom','css/colors/custom.css');
+	Asset::add('water','css/colors/green.css');
+	Asset::add('font_oswald','css/fonts/font_oswald.css');
+	Asset::add('style_custom','css/style_custom.css');
+
+	// Javascripts files
+	Asset::add('jquery','js/jquery.js');
+	Asset::add('bootstrap','js/bootstrap.min.js');
+	Asset::add('slides','js/slides.min.js');
+	Asset::add('masonry','js/masonry.min.js');
+	Asset::add('fancybox','js/fancybox.js');
+	Asset::add('functions','js/functions.js');
+});
+
+Route::filter('admin', function()
+{
+	// Styles
+	Asset::add('bootstrap','css/bootstrap.min.css');
+	Asset::add('bootstrap-responsive','css/bootstrap-responsive.min.css');
+	Asset::add('style_custom','css/style_custom.css');
+	//Asset::add('docs','css/docs.css');
+
+	// Javascripts files
+	Asset::add('jquery','js/jquery.js');
+	Asset::add('bootstrap','js/bootstrap.min.js');
 });
