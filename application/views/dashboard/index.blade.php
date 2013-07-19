@@ -8,15 +8,15 @@
 
 		<div class="span12">
 
-			<p class="lead">Escritorio</p>
+			<p class="lead">Bienvenido(a) <strong>DUQUE, JULIA</strong></p>
 
 			<ul id="portfolio" class="thumbnails">
 
-			  	<li class="span3 cms integration">
+			  	<li class="span4">
 
-					<div class="thumbnail">
+					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/example-slide-1.jpg') }} </a>
+						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/user.png') }} </a>
 					  
 						<div class="caption">
 
@@ -29,11 +29,11 @@
 
 			  	</li>
 
-			  	<li class="span3 cms integration">
+			  	<li class="span4">
 
-					<div class="thumbnail">
+					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/example-slide-2.jpg') }} </a>
+						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/cuenta.png') }} </a>
 					  
 						<div class="caption">
 
@@ -46,11 +46,11 @@
 
 			  	</li>
 
-			  	<li class="span3 cms integration">
+			  	<li class="span4">
 
-					<div class="thumbnail">
+					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/example-slide-3.jpg') }} </a>
+						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/documento.png') }} </a>
 					  
 						<div class="caption">
 
@@ -63,11 +63,15 @@
 
 			  	</li>
 
-			  	<li class="span3 cms integration">
+			</ul>
 
-					<div class="thumbnail">
+			<ul id="portfolio" class="thumbnails">
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/example-slide-4.jpg') }} </a>
+			  	<li class="span4">
+
+					<div class="thumbnail"><br />
+
+						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/pago.png') }} </a>
 					  
 						<div class="caption">
 
@@ -80,11 +84,11 @@
 
 			  	</li>
 
-			  	<li class="span3 cms integration">
+			  	<li class="span4">
 
-					<div class="thumbnail">
+					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}"> {{ HTML::image('img/example-slide-1.jpg') }} </a>
+						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/foro.png') }} </a>
 					  
 						<div class="caption">
 
