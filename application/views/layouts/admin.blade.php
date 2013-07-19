@@ -28,7 +28,7 @@
 						<span class="icon-bar"></span>
 					</a>
 
-					<a class="brand" href="{{ URL::to('condominio'); }}" name="top">JG-Sigcon</a>
+					<a class="brand" href="{{ URL::to('condominio'); }}" name="top">JG-Consys</a>
 
 					<div class="nav-collapse in collapse" style="height: auto;">
 
@@ -89,7 +89,7 @@
 						<div class="row show-grid">
 							
 							<div class="span5" data-original-title="" title="">
-								&copy; 2013 <strong>JG-Sigcon
+								&copy; 2013 <strong>JG-Consys
 								<br />Todos los derechos reservados.
 							</div>
 

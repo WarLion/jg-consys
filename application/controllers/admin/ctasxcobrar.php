@@ -9,7 +9,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
+		$title = 'Cuentas por Cobrar - Sistema Administrativo JG-Consys';
 		$x=1;
 
 		// Para mostrar las deudas actuales de todos los propietarios que deben
@@ -29,7 +29,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Cuentas por Cobrar - Sistema Administrativo JG-Consys';
 
 		// Variables en null cuando no se hace ninguna peticion
 		$conceptos 		= null;
@@ -50,7 +50,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Cuentas por Cobrar - Sistema Administrativo JG-Consys';
 		return View::make('administracion.ctasxcobrar.detalle')->with('title',$title);
 	}
 
@@ -61,7 +61,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		$title = 'Agregar - Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Cuentas por Cobrar - Sistema Administrativo JG-Consys';
 
 		// Variables de los Input del formulario
 		$txtParcela = 		Input::get('parcela');
@@ -115,7 +115,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function post_detalle()
 	{
-		$title = 'Detalle - Cuentas por Cobrar - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Cuentas por Cobrar - Sistema Administrativo JG-Consys';
 
 		// Variable de Input del formulario
 		$txtParcela = Input::get('parcela');

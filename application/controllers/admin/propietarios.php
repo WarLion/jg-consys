@@ -9,7 +9,7 @@ class Admin_propietarios_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Propietarios - Sistema Administrativo JG-Sigcon';
+		$title = 'Propietarios - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$propietarios = DB::table('tadm_propietarios')
@@ -25,13 +25,13 @@ class Admin_propietarios_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Sistema Administrativo JG-Consys';
 		return View::make('administracion.propietarios.detalle')->with('title',$title);
 	}
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		return View::make('administracion.propietarios.agregar')
@@ -51,7 +51,7 @@ class Admin_propietarios_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		$title = 'Agregar - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		$cedula 	= Input::get('cedula');

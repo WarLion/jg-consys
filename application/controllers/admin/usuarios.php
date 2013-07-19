@@ -9,7 +9,7 @@ class Admin_usuarios_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Usuarios - Sistema Administrativo JG-Sigcon';
+		$title = 'Usuarios - Sistema Administrativo JG-Consys';
 		$x=1;
 
 		$us_propietarios = DB::table('tcns_usuarios')
@@ -31,7 +31,7 @@ class Admin_usuarios_Controller extends Base_Controller {
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Usuarios - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Usuarios - Sistema Administrativo JG-Consys';
 		$x=1;
 		$message = null;
 
@@ -55,7 +55,7 @@ class Admin_usuarios_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - usuarios - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - usuarios - Sistema Administrativo JG-Consys';
 		return View::make('administracion.usuarios.detalle')->with('title',$title);
 	}
 
@@ -66,7 +66,7 @@ class Admin_usuarios_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		$title = 'Agregar - Usuarios - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Usuarios - Sistema Administrativo JG-Consys';
 		$x=1;
 		$message = null;
 

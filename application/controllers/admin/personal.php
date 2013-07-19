@@ -9,7 +9,7 @@ class Admin_personal_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Personal - Sistema Administrativo JG-Sigcon';
+		$title = 'Personal - Sistema Administrativo JG-Consys';
 		$x=1;
 
 		// para mostrar personal
@@ -28,7 +28,7 @@ class Admin_personal_Controller extends Base_Controller {
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Personal - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Personal - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		$cargos = DB::table('tadm_cargo')->get();
@@ -41,13 +41,13 @@ class Admin_personal_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - Personal - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Personal - Sistema Administrativo JG-Consys';
 		return View::make('administracion.personal.detalle')->with('title',$title);
 	}
 
 	public function get_cargos()
 	{
-		$title = 'Cargos - Personal - Sistema Administrativo JG-Sigcon';
+		$title = 'Cargos - Personal - Sistema Administrativo JG-Consys';
 		$x = 1;
 		$message = null;
 
@@ -66,7 +66,7 @@ class Admin_personal_Controller extends Base_Controller {
 
 	public function post_agregar() 
 	{
-		$title = 'Agregar - Personal - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Personal - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		$cedula 	= Input::get('cedula');
@@ -136,7 +136,7 @@ class Admin_personal_Controller extends Base_Controller {
 
 	public function post_cargos()
 	{
-		$title = 'Cargos - Personal - Sistema Administrativo JG-Sigcon';
+		$title = 'Cargos - Personal - Sistema Administrativo JG-Consys';
 		$x = 1;
 		$message = null;
 

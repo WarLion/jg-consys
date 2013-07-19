@@ -9,7 +9,7 @@ class Admin_parcelas_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Parcelas - Sistema Administrativo JG-Sigcon';
+		$title = 'Parcelas - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$parcelas = DB::table('tadm_parcela')
@@ -24,7 +24,7 @@ class Admin_parcelas_Controller extends Base_Controller {
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Parcelas - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Parcelas - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		$calles = DB::table('tadm_calles')->get();
@@ -37,7 +37,7 @@ class Admin_parcelas_Controller extends Base_Controller {
 
 	public function get_calles()
 	{
-		$title = 'Agregar - Calles - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Calles - Sistema Administrativo JG-Consys';
 		$message = null;
 		$x = 1;
 
@@ -61,7 +61,7 @@ class Admin_parcelas_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		$title = 'Agregar - Parcelas - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Parcelas - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		$parcela 	= Input::get('parcela');
@@ -105,7 +105,7 @@ class Admin_parcelas_Controller extends Base_Controller {
 
 	public function post_calles()
 	{
-		$title = 'Agregar - Calles - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Calles - Sistema Administrativo JG-Consys';
 		$message = null;
 		$x = 1;
 

@@ -9,7 +9,7 @@ class Admin_recibos_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Recibos - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$recibos = DB::table('tadm_recibo')
@@ -24,7 +24,7 @@ class Admin_recibos_Controller extends Base_Controller {
 
 	public function get_generar()
 	{
-		$title = 'Generar recibos - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Generar recibos - Recibos - Sistema Administrativo JG-Consys';
 		$message = null;
 		$parcela = null;
 		$ci = null;
@@ -50,19 +50,19 @@ class Admin_recibos_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Recibos - Sistema Administrativo JG-Consys';
 		return View::make('administracion.recibos.detalle')->with('title',$title);
 	}
 
 	public function get_bancos()
 	{
-		$title = 'Bancos - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Bancos - Recibos - Sistema Administrativo JG-Consys';
 		return View::make('administracion.recibos.bancos')->with('title',$title);
 	}
 
 	public function get_formaspay()
 	{
-		$title = 'Formas de Pago - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Formas de Pago - Recibos - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$formas = DB::table('tadm_metodopag')->get();
@@ -80,7 +80,7 @@ class Admin_recibos_Controller extends Base_Controller {
 
 	public function post_generar()
 	{
-		$title = 'Generar recibos - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Generar recibos - Recibos - Sistema Administrativo JG-Consys';
 		$message = null;
 		$x = 1;
 
@@ -129,7 +129,7 @@ class Admin_recibos_Controller extends Base_Controller {
 
 	public function post_generar_pago()
 	{
-		$title = 'Forma de Pago - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Forma de Pago - Recibos - Sistema Administrativo JG-Consys';
 		$y = 0;
 
 		$generar = array('parcela' 	=> Input::get('hparcela'), // recibe valores de peticion anterior -- luego se cambiara por variables Session
@@ -172,7 +172,7 @@ class Admin_recibos_Controller extends Base_Controller {
 
 	public function post_generar_imprimir()
 	{
-		$title = 'Procesar - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Procesar - Recibos - Sistema Administrativo JG-Consys';
 		$fecha = date("d-m-Y");
 		$y = 0;
 		$total = null;
@@ -228,7 +228,7 @@ class Admin_recibos_Controller extends Base_Controller {
 	
 	public function post_formaspay()
 	{
-		$title = 'Formas de Pago - Recibos - Sistema Administrativo JG-Sigcon';
+		$title = 'Formas de Pago - Recibos - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$formaspay = Input::get('formaspay');

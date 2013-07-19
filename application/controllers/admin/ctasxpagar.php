@@ -9,7 +9,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$ctasxpagar = DB::table('tadm_ctasxpagar')
@@ -28,7 +28,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$message = null;
 
 		return View::make('administracion.ctasxPagar.agregar')
@@ -38,13 +38,13 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		return View::make('administracion.ctasxPagar.detalle')->with('title',$title);
 	}
 
 	public function get_documento()
 	{
-		$title = 'Tipos de Documento - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Tipos de Documento - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$message= null;
 		$x = 1;
 
@@ -59,7 +59,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function get_pagos()
 	{
-		$title = 'Pagos - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Pagos - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$x = 1;
 
 		$pagos = DB::table('tadm_pagos')
@@ -78,13 +78,13 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function get_detallePagos()
 	{
-		$title = 'Detalle Pagos - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle Pagos - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		return View::make('administracion.ctasxPagar.detallePagos')->with('title',$title);
 	}
 
 	public function get_pagar()
 	{
-		$title = 'Registrar Pago- Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Registrar Pago- Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$message = null;
 		$x = 1;
 
@@ -117,7 +117,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		$title = 'Agregar - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$message = null;
 		$x = 1;
 
@@ -251,7 +251,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 	
 	public function post_documento()
 	{
-		$title = 'Tipos de Documento - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Tipos de Documento - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$message= null;
 		$x = 1;
 
@@ -294,7 +294,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 
 	public function post_pagar()
 	{
-		$title = 'Registrar Pago - Cuentas por Pagar - Sistema Administrativo JG-Sigcon';
+		$title = 'Registrar Pago - Cuentas por Pagar - Sistema Administrativo JG-Consys';
 		$message = null;
 		$x = 1;
 

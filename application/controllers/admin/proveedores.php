@@ -9,7 +9,7 @@ class Admin_proveedores_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		$title = 'Proveedores - Sistema Administrativo JG-Sigcon';
+		$title = 'Proveedores - Sistema Administrativo JG-Consys';
 		$x=1;
 
 		// Para mostrar las deudas actuales de todos los propietarios que deben
@@ -23,7 +23,7 @@ class Admin_proveedores_Controller extends Base_Controller {
 
 	public function get_agregar()
 	{
-		$title = 'Agregar - Proveedores - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Proveedores - Sistema Administrativo JG-Consys';
 		$message = null;
 		return View::make('administracion.proveedores.agregar')
 			->with('title',$title)
@@ -32,7 +32,7 @@ class Admin_proveedores_Controller extends Base_Controller {
 
 	public function get_detalle()
 	{
-		$title = 'Detalle - Proveedores - Sistema Administrativo JG-Sigcon';
+		$title = 'Detalle - Proveedores - Sistema Administrativo JG-Consys';
 		return View::make('administracion.proveedores.detalle')->with('title',$title);
 	}
 
@@ -43,7 +43,7 @@ class Admin_proveedores_Controller extends Base_Controller {
 
 	public function post_agregar()
 	{
-		$title = 'Agregar - Proveedores - Sistema Administrativo JG-Sigcon';
+		$title = 'Agregar - Proveedores - Sistema Administrativo JG-Consys';
 
 		$message = null;
 		
