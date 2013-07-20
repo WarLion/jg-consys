@@ -11,57 +11,35 @@
 		<form action="#" class="form-horizontal no-margin">
 
 		    <div class="control-group">
-
-		      <label class="control-label" for="inputUser">Usuario</label>
-		      
-		      <div class="controls">
-
-		        <input type="text" id="inputUser" placeholder="Usuario" />
-
-		      </div>
-
+				<label class="control-label" for="inputUser">Usuario</label>
+				<div class="controls">
+					<input type="text" id="inputUser" placeholder="Usuario" />
+				</div>
 		    </div>
 
-		    <div class="control-group">
-		      
-		      <label class="control-label" for="inputPassword">Contraseña</label>
-		      
-		      <div class="controls">
-
-		        <input type="password" id="inputPassword" placeholder="Contraseña" />
-
-		      </div>
-
+		    <div class="control-group">		      
+				<label class="control-label" for="inputPassword">Contraseña</label>		      
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="Contraseña" />
+				</div>
 		    </div>
 
-		    <div class="control-group">
-		      
-		      <div class="controls">
-
-		        <button type="submit" class="btn btn-small">Entrar</button>
-
-		      </div>
-
+		    <div class="control-group">		      
+				<div class="controls">
+					<button type="submit" class="btn btn-small">Entrar</button>
+				</div>
 		    </div>
 
-		    <div class="control-group no-margin">
-		      
-		      <div class="controls">
-
-		      	<p>{{ HTML::link('user/password_recovery','¿Olvidaste tu contraseña?') }}</p>
-
-		      </div>
-
+		    <div class="control-group no-margin">		      
+				<div class="controls">
+					<p>{{ HTML::link('user/password_recovery','¿Olvidaste tu contraseña?') }}</p>
+				</div>
 		    </div>		    
 
-		    <div class="control-group no-margin">
-		      
-		      <div class="controls">
-
-		      	<p>{{ HTML::link('register','¿No tiene una cuenta? Regístrate') }}</p>
-
-		      </div>
-
+		    <div class="control-group no-margin">		      
+				<div class="controls">
+					<p>{{ HTML::link('register','¿No tiene una cuenta? Regístrate') }}</p>
+				</div>
 		    </div>		    
 
 		</form>
