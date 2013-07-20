@@ -2,13 +2,25 @@
 
 @section('content')
 
-<div class="container">
+<div id="padre" style="width:500px;height:300px;margin:0 auto;display:table;">
 
-	<div class="row">
+	<div id="hijo">
 
-		<div class="span12">
+		<div style="width: 700px; margin: 0 auto 0 auto;">
 
-			C O N T E N I D O 
+		<!--<div class="container">-->
+
+			<div class="row">
+
+				<div class="span12">
+
+					{{ HTML::image('img/consys/logo_consys.png') }}
+
+				</div>
+
+			</div>
+
+		<!--</div>-->
 
 		</div>
 
