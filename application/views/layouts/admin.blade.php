@@ -28,7 +28,9 @@
 						<span class="icon-bar"></span>
 					</a>
 
-					<a class="brand" href="{{ URL::to('condominio'); }}" name="top">JG-Consys</a>
+					<a class="brand logo-consys" href="{{ URL::to('admin'); }}" name="top">
+						{{ HTML::image('img/consys/logo_consys.png') }}
+					</a>
 
 					<div class="nav-collapse in collapse" style="height: auto;">
 
