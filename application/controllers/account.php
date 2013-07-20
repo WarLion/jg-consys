@@ -13,6 +13,12 @@ class Account_Controller extends Base_Controller {
 		return View::make('account.index')->with('title',$title);
 	}
 
+	public function get_pagos()
+	{
+		$title = 'Reporte de Pagos Realizados - Urbanización Villas de Aragua';
+		return View::make('account.pagos')->with('title',$title);
+	}
+
 	public function post_index()
 	{
 		
