@@ -53,7 +53,7 @@
 
 						<div class="control-group">
 							<label class="control-label">Método de pago</label>
-							<div class="select-controls">
+							<div class="controls">
 								<select>
 									<option>Efectivo</option>
 									<option>Depósito</option>
