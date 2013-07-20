@@ -8,6 +8,8 @@
 
 		<div class="span12">
 
+			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Agregar -</span> <snap style="color:#51a351; font-size:23px;">Personal</snap></p> <hr />
+
 			<div class="btn-toolbar">
 
 			    <a href="{{ URL::to('admin/personal/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>

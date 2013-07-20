@@ -8,6 +8,8 @@
 
 		<div class="span12">
 
+			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Procesar 2/3 -</span> <snap style="color:#51a351; font-size:23px;">Recibos</snap></p> <hr />
+
 			<div class="btn-toolbar">
 
 				<a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
