@@ -33,12 +33,12 @@
 
 					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/cuenta.png') }} </a>
+						<a href="{{ URL::to('cuenta') }}">{{ HTML::image('img/dashboard/cuenta.png') }} </a>
 					  
 						<div class="caption">
 
 							<h3>{{ HTML::link('#','Estado de cuenta') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
+							<a class="btn btn-primary" href="{{ URL::to('cuenta') }}">Ver</a>
 
 						</div>
 						
