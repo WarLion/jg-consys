@@ -74,16 +74,16 @@ Route::group(array('before' => 'admin'), function()
 	/*++ Administration ++*/
 
 	// login
-	Route::post('login','admin/login@login');
-	Route::get('login','admin/login@login');
+	Route::post('admin/login','admin/login@login');
+	Route::get('admin/login','admin/login@login');
 
 	// logout
-	Route::post('logout','admin/login@logout');
-	Route::get('logout','admin/login@logout');
+	Route::post('admin/logout','admin/login@logout');
+	Route::get('admin/logout','admin/login@logout');
 
 	// index
-	Route::post('condominio','admin/administracion@index');
-	Route::get('condominio','admin/administracion@index');
+	Route::post('admin','admin/administracion@index');
+	Route::get('admin','admin/administracion@index');
 
 	// CtasXCobrar
 	Route::post('admin/ctasxcobrar','admin/ctasxcobrar@index');
