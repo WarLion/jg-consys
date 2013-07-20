@@ -73,6 +73,14 @@ Route::group(array('before' => 'admin'), function()
 {
 	/*++ Administration ++*/
 
+	// login
+	Route::post('login','admin/login@login');
+	Route::get('login','admin/login@login');
+
+	// logout
+	Route::post('logout','admin/login@logout');
+	Route::get('logout','admin/login@logout');
+
 	// index
 	Route::post('condominio','admin/administracion@index');
 	Route::get('condominio','admin/administracion@index');
