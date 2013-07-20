@@ -8,100 +8,129 @@
 
 		<div class="span12">
 
-			<p class="lead">Bienvenido(a) <strong>DUQUE, JULIA</strong></p>
+			<p class="lead">Estado de Cuenta</strong></p>
 
-			<ul id="portfolio" class="thumbnails">
+			<h4>Número de villa &nbsp;
+				<select class="span1">
+					<option>36</option>
+				</select>
+			</h4>
 
-			  	<li class="span4">
+			<div>&nbsp;</div>
 
-					<div class="thumbnail"><br />
+			<h4>Deuda vigente</h4><br />
+			<div class="well">
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/user.png') }} </a>
-					  
-						<div class="caption">
+				<table class="table table-hover no-margin">
 
-							<h3>{{ HTML::link('#','Datos personales') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
+					<thead>
+						<tr>
+							<th>Fecha de emisión</th>
+							<th>Fecha de Vencimiento</th>
+							<th>Total (Bs)</th>
+						</tr>
+					</thead>
 
-						</div>
+					<tbody>					
+						<tr>
+							<td>01-07-2013</td>
+							<td>30-07-2013</td>
+							<td>160,00</td>
+						</tr>
+					</tbody>
 
-					</div>
+				</table>
 
-			  	</li>
+			</div>
 
-			  	<li class="span4">
+			<h4>Deuda vencida</h4><br />
+			<div class="well">
+				<table class="table table-hover no-margin">
+					<thead>
+						<tr>
+							<th>Concepto</th>
+							<th>Monto</th>
+							<th>Opciones</th>
+						</tr>
+					</thead>
 
-					<div class="thumbnail"><br />
+					<tbody>
+						<tr>
+							<th colspan="3">Cuota Ordinaria</th>
+						</tr>
+						<tr>
+							<td>Condominio</td>
+							<td>420,00</td>
+							<td><a href="#">Detalle</a></td>
+						</tr>
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/cuenta.png') }} </a>
-					  
-						<div class="caption">
+						<tr>
+							<th colspan="3">Cuota(s) Extraordinaria(s)</th>
+						</tr>
+						<tr>
+							<td>Proyecto Sistema de Seguridad 2008</td>
+							<td>80,00</td>
+							<td><a href="#">Detalle</a></td>
+						</tr>
+						<tr>
+							<td>Proyecto de Mejoras 2010</td>
+							<td>50,00</td>
+							<td><a href="#">Detalle</a></td>
+						</tr>
+						<tr>
+							<td>Actualización de Doc. Constitutivo 2011</td>
+							<td>120,00</td>
+							<td><a href="#">Detalle</a></td>
+						</tr>
 
-							<h3>{{ HTML::link('#','Estado de cuenta') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
+						<tr>
+							<th>Otro(s)</th>
+							<td>0,00</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="3"></td>
+						</tr>
+						<tr>
+							<td>Sub-Total Deuda Vencida</td>
+							<td>670,00</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Cheque Devuelto</td>
+							<td>0,00</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Reintegros</td>
+							<td>0,00</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Total Deuda Vencida</td>
+							<td>670,00</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-						</div>
-						
-					</div>
+			<div class="well">
+				<table class="table table-hover no-margin">
+					<thead>
+						<tr>
+							<th width="702">Total a pagar (Bs)</th>
+							<th>830,00</th>
+							<th></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
 
-			  	</li>
-
-			  	<li class="span4">
-
-					<div class="thumbnail"><br />
-
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/documento.png') }} </a>
-					  
-						<div class="caption">
-
-							<h3>{{ HTML::link('#','Solicitud de documentos') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
-
-						</div>
-						
-					</div>
-
-			  	</li>
-
-			</ul>
-
-			<ul id="portfolio" class="thumbnails">
-
-			  	<li class="span4">
-
-					<div class="thumbnail"><br />
-
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/pago.png') }} </a>
-					  
-						<div class="caption">
-
-							<h3>{{ HTML::link('#','Informar pago de condominio') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
-
-						</div>
-						
-					</div>
-
-			  	</li>
-
-			  	<li class="span4">
-
-					<div class="thumbnail"><br />
-
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/foro.png') }} </a>
-					  
-						<div class="caption">
-
-							<h3>{{ HTML::link('#','Foro') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
-
-						</div>
-						
-					</div>
-
-			  	</li>
-
-			</ul>
+			<p>
+				<a href="#" class="btn btn-primary">Descargar en PDF</a>
+				<a href="{{ URL::to('cuenta/pagos') }}" class="btn btn-primary">Ver Reporte de Pagos</a>
+			</p>
 
 		</div>
 
