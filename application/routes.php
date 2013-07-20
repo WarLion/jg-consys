@@ -64,6 +64,9 @@ Route::group(array('before' => 'consulta'), function()
 	Route::post('documentos','documents@index');
 	Route::get('documentos','documents@index');
 
+	Route::post('informar','inform@index');
+	Route::get('informar','inform@index');
+
 });
 
 Route::group(array('before' => 'admin'), function()
