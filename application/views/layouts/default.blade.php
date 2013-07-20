@@ -27,7 +27,7 @@
 
 			<div class="span6">
 
-				<div class="top-header text-right"><em>call us (123) 456 7890 - <a href="#">my@mail.com</a></em>
+				<div class="top-header text-right">
 
 					<div class="social">
 						<a href="#" class="ico-twitter">{{ HTML::image('img/twitter-icon.png') }}</a> 
