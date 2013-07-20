@@ -1,3 +1,12 @@
+a {
+	color: #51a351;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #4b904b;
+	text-decoration: underline;
+}
 
 .align-center {
 	margin-left: auto;
@@ -16,6 +25,17 @@
 	margin-right: auto;
 }
 
+#padre {
+	width:500px;
+    height:500px;
+    margin:0 auto;
+    display:table;
+}
+#hijo {
+	display:table-cell;
+    vertical-align:middle;
+}
+
 /* Register */
 
 #register-title-center {
@@ -29,7 +49,7 @@
 	width: 1150px;
 }
 
-.register-btn-primary {
+.register-btn-success {
 	width: 550px;
 }
 
@@ -57,10 +77,19 @@
 	margin-left: 20px;
 }
 
-.form-modules .btn-primary {
+.form-modules .btn-success {
 	margin-left: 0px;
 }
 
 .select-large {
 	width: 360px;
 }
+
+.logo-consys {
+	width:100px; 
+	height:20px;
+	margin-bottom: 5px;
+}
+
+/* Hack para el pie de pagina */
+
