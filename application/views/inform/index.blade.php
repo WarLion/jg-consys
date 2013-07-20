@@ -55,7 +55,6 @@
 							<label class="control-label">Método de pago</label>
 							<div class="controls">
 								<select>
-									<option>Efectivo</option>
 									<option>Depósito</option>
 									<option>Transferencia</option>
 									<option>Cheque</option>
