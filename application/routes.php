@@ -55,8 +55,11 @@ Route::group(array('before' => 'consulta'), function()
 	Route::get('register','register@index');
 
 	// statement of account
-	Route::post('account','account@index');
-	Route::get('account','account@index');
+	Route::post('cuenta','account@index');
+	Route::get('cuenta','account@index');
+
+		Route::post('cuenta/pagos','account@pagos');
+		Route::get('cuenta/pagos','account@pagos');
 
 });
 
