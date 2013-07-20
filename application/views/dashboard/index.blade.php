@@ -71,12 +71,12 @@
 
 					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/pago.png') }} </a>
+						<a href="{{ URL::to('informar') }}">{{ HTML::image('img/dashboard/pago.png') }} </a>
 					  
 						<div class="caption">
 
-							<h3>{{ HTML::link('#','Informar pago de condominio') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
+							<h3>{{ HTML::link('informar','Informar pago de condominio') }}</h3>
+							<a class="btn btn-primary" href="{{ URL::to('informar') }}">Ver</a>
 
 						</div>
 						
