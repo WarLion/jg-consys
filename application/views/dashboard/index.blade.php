@@ -37,7 +37,7 @@
 					  
 						<div class="caption">
 
-							<h3>{{ HTML::link('#','Estado de cuenta') }}</h3>
+							<h3>{{ HTML::link('cuenta','Estado de cuenta') }}</h3>
 							<a class="btn btn-primary" href="{{ URL::to('cuenta') }}">Ver</a>
 
 						</div>
@@ -50,12 +50,12 @@
 
 					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/documento.png') }} </a>
+						<a href="{{ URL::to('documentos') }}">{{ HTML::image('img/dashboard/documento.png') }} </a>
 					  
 						<div class="caption">
 
-							<h3>{{ HTML::link('#','Solicitud de documentos') }}</h3>
-							<a class="btn btn-primary" href="#">Ver</a>
+							<h3>{{ HTML::link('documentos','Solicitud de documentos') }}</h3>
+							<a class="btn btn-primary" href="{{ URL::to('documentos') }}">Ver</a>
 
 						</div>
 						
