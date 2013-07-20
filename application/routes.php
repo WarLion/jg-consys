@@ -61,6 +61,9 @@ Route::group(array('before' => 'consulta'), function()
 		Route::post('cuenta/pagos','account@pagos');
 		Route::get('cuenta/pagos','account@pagos');
 
+	Route::post('documentos','documents@index');
+	Route::get('documentos','documents@index');
+
 });
 
 Route::group(array('before' => 'admin'), function()
