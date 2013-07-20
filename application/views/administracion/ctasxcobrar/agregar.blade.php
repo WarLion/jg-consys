@@ -27,8 +27,8 @@
 						<input type="text" id="parcela" name="parcela" placeholder="Parcela">
 						<input type="hidden" id="parcela" name="hidden_parcela" value="{{ $txtParcela }}">
 
-						<button type="submit" class="btn btn-primary">Buscar</button>
-						<button type="submit" class="btn btn-primary">Todos</button>
+						<button type="submit" class="btn btn-success">Buscar</button>
+						<button type="submit" class="btn btn-success">Todos</button>
 
 					</div>
 
@@ -133,9 +133,9 @@
 				</div>
 
 				@if(!empty($conceptos))
-					<input type="submit" class="btn btn-primary" name="add" value="Agregar">
+					<input type="submit" class="btn btn-success" name="add" value="Agregar">
 				@else
-					<input type="submit" class="btn btn-primary" name="add" value="Agregar" disabled>
+					<input type="submit" class="btn btn-success" name="add" value="Agregar" disabled>
 				@endif
 
 			</form>

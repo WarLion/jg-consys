@@ -80,7 +80,7 @@
 
 				</div>
 
-				<input type="submit" class="btn btn-primary" name="add" value="Agregar">
+				<input type="submit" class="btn btn-success" name="add" value="Agregar">
 
 			</form>
 

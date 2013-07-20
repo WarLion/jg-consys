@@ -38,7 +38,7 @@
 							<div class="controls">
 
 								<input type="text" name="cedula" id="inputCedula" placeholder="Cédula" value="{{ $propietarios['ci'] }}">
-								<input type="submit" name="buscar" class="btn btn-primary" value="Buscar">
+								<input type="submit" name="buscar" class="btn btn-success" value="Buscar">
 
 							</div>
 
@@ -114,7 +114,7 @@
 
 				</div>
 
-				<input type="submit" name="agregar" class="btn btn-primary" value="Agregar">
+				<input type="submit" name="agregar" class="btn btn-success" value="Agregar">
 
 			</form>
 

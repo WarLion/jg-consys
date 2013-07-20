@@ -27,7 +27,7 @@
 					<div class="controls">
 
 						<input type="text" id="banco" name="banco" placeholder="Banco">
-						<button type="submit" class="btn btn-primary">Agregar</button>
+						<button type="submit" class="btn btn-success">Agregar</button>
 
 					</div>
 

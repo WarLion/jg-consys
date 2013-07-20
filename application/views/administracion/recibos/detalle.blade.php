@@ -135,7 +135,7 @@
 
 			</div>
 
-			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-primary">Imprimir <i class="icon-print icon-white"></i></a>
+			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-success">Imprimir <i class="icon-print icon-white"></i></a>
 			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-danger">Anular <i class="icon-remove-sign icon-white"></i></a>
 
 		</div>

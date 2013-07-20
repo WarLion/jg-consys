@@ -117,7 +117,7 @@
 
 				</div>
 
-				<a href="{{ URL::to('#'); }}" class="btn btn-primary">Actualizar <i class="icon-refresh icon-white"></i></a>
+				<a href="{{ URL::to('#'); }}" class="btn btn-success">Actualizar <i class="icon-refresh icon-white"></i></a>
 				<a href="{{ URL::to('#'); }}" class="btn btn-danger">Desactivar <i class="icon-remove icon-white"></i></a>
 
 			</form>

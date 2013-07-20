@@ -87,7 +87,7 @@
 							</div>
 							<div id="collapseUno" class="accordion-body collapse">
 							  	<div class="accordion-inner">
-							    	<input type="submit" class="btn btn-primary" name="efectivo" value="Registrar pago">
+							    	<input type="submit" class="btn btn-success" name="efectivo" value="Registrar pago">
 							  	</div>
 							</div>
 
@@ -158,7 +158,7 @@
 										</div>
 									</div>
 
-									<input type="submit" class="btn btn-primary" name="deposito" value="Registrar pago">
+									<input type="submit" class="btn btn-success" name="deposito" value="Registrar pago">
 
 							  	</div>
 
@@ -231,7 +231,7 @@
 										</div>
 									</div>
 
-									<input type="submit" class="btn btn-primary" name="cheque" value="Registrar pago">
+									<input type="submit" class="btn btn-success" name="cheque" value="Registrar pago">
 
 							  	</div>
 
@@ -311,7 +311,7 @@
 									</div>
 								</div>
 
-								<input type="submit" class="btn btn-primary" name="transferencia" value="Registrar pago">
+								<input type="submit" class="btn btn-success" name="transferencia" value="Registrar pago">
 							    
 							  </div>
 
@@ -432,7 +432,7 @@
 										</div>
 									</div>
 
-									<input type="submit" class="btn btn-primary" name="debito" value="Registrar pago">
+									<input type="submit" class="btn btn-success" name="debito" value="Registrar pago">
 
 							  	</div>
 
@@ -551,7 +551,7 @@
 										</div>
 									</div>
 
-									<input type="submit" class="btn btn-primary" name="credito" value="Registrar pago">
+									<input type="submit" class="btn btn-success" name="credito" value="Registrar pago">
 
 							  	</div>
 
@@ -565,7 +565,7 @@
 
 			</div>
 
-			<!--<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-primary">Continuar <i class="icon-circle-arrow-right icon-white"></i></a>-->
+			<!--<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-success">Continuar <i class="icon-circle-arrow-right icon-white"></i></a>-->
 
 			</form>
 

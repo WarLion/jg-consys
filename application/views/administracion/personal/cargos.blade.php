@@ -26,7 +26,7 @@
 					<div class="controls">
 
 						<input type="text" id="cargo" name="cargo" placeholder="Cargo">
-						<button type="submit" class="btn btn-primary">Agregar</button>
+						<button type="submit" class="btn btn-success">Agregar</button>
 
 					</div>
 

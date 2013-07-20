@@ -26,7 +26,7 @@
 					<div class="controls">
 
 						<input type="text" id="formaspay" name="formaspay" placeholder="Tipo de pago">
-						<button type="submit" class="btn btn-primary" name="add">Agregar</button>
+						<button type="submit" class="btn btn-success" name="add">Agregar</button>
 
 					</div>
 

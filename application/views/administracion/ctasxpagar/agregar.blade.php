@@ -29,7 +29,7 @@
 					<div class="controls">
 
 						<input type="text" id="proveedor" name="proveedor" placeholder="Proveedor">
-						<input type="submit" class="btn btn-primary" name="buscar" value="Buscar">
+						<input type="submit" class="btn btn-success" name="buscar" value="Buscar">
 
 					</div>
 
@@ -133,7 +133,7 @@
 
 			</div>
 
-			<input type="submit" class="btn btn-primary" name="agregar" value="Agregar">
+			<input type="submit" class="btn btn-success" name="agregar" value="Agregar">
 
 			<div>&nbsp;</div>
 

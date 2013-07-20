@@ -29,7 +29,7 @@
 					<div class="controls">
 
 						<input type="text" id="inputParcela" name="parcela" placeholder="Parcela">
-						<button type="submit" class="btn btn-primary" name="buscar" >Buscar</button>
+						<button type="submit" class="btn btn-success" name="buscar" >Buscar</button>
 
 					</div>
 
@@ -141,7 +141,7 @@
 
 				<div>&nbsp;</div>
 
-				<button type="submit" class="btn btn-primary">Continuar <i class="icon-circle-arrow-right icon-white"></i></button>
+				<button type="submit" class="btn btn-success">Continuar <i class="icon-circle-arrow-right icon-white"></i></button>
 
 			</form>
 				

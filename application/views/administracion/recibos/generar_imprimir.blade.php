@@ -138,7 +138,7 @@
 
 			<p><strong>A la fecha {{ $fecha }} usted adeuda Bs. {{ $adeuda.',00' }}</strong></p><br>
 
-			<input type="submit" name="procesar" value="Procesar" class="btn btn-primary">
+			<input type="submit" name="procesar" value="Procesar" class="btn btn-success">
 
 			</form>
 
