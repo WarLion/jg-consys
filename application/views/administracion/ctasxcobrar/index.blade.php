@@ -43,7 +43,7 @@
 								<td>{{ $cxc->nombre }}</td>
 								<td>{{ $cxc->monto.',00' }}</td>
 								<td>
-									<a href="#">Detalle</a>
+									{{ HTML::link('admin/ctasxcobrar/detalle?par='.$cxc->parcela_nro,'Detalle') }}
 								</td>
 							</tr>
 						@endforeach
