@@ -40,9 +40,9 @@
 
 							<tbody>
 							<tr>
-								@if($txtParcela != null && $propietario != null)
+								@if($parcela != null && $propietario != null)
 
-									<td>{{ $txtParcela }}</td>
+									<td>{{ $parcela }}</td>
 								
 									@foreach($propietario as $ptr)
 										<td>
