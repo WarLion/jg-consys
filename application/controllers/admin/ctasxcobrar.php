@@ -51,7 +51,35 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 	public function get_detalle()
 	{
 		$title = 'Detalle - Cuentas por Cobrar - Sistema Administrativo JG-Consys';
-		return View::make('administracion.ctasxcobrar.detalle')->with('title',$title);
+
+		// Variable de Input del formulario
+		$parcela = Input::get('par');
+
+		// Para mostrar los datos del propietario que se busca
+		$propietario = DB::table('tadm_propietarios')
+			->where('parcela_nro','=',$parcela)
+			->join('tadm_agrupar','tadm_propietarios.ci','=','tadm_agrupar.propietarios_ci')
+			->get(array('nombre','ci'));
+
+		// Para mostrar las deudas actuales del propietario que se busca
+		$ctasxcobrar = DB::table('tadm_ctasxcobrar')
+			->where('parcela_nro','=',$parcela)
+			->join('tadm_conceptos','tadm_ctasxcobrar.concepto_codigo','=','tadm_conceptos.codigo')
+			->get(array('tadm_ctasxcobrar.concepto_codigo','tadm_conceptos.nombre','tadm_ctasxcobrar.monto','tadm_ctasxcobrar.parcela_nro'));
+
+		// Suma el monto de los conceptos que debe el propietario
+		$sum_monto = DB::table('tadm_ctasxcobrar')
+			->where('parcela_nro','=',$parcela)
+			->join('tadm_conceptos','tadm_ctasxcobrar.concepto_codigo','=','tadm_conceptos.codigo')
+			->sum('tadm_ctasxcobrar.monto');
+
+		// Envia los parametros por POST
+		return View::make('administracion.ctasxcobrar.detalle')
+			->with('title',$title)
+			->with('parcela',$parcela)
+			->with('propietario',$propietario)
+			->with('ctasxcobrar',$ctasxcobrar)
+			->with('sum_monto',$sum_monto);
 	}
 
 	public function post_index()
@@ -115,37 +143,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 
 	public function post_detalle()
 	{
-		$title = 'Detalle - Cuentas por Cobrar - Sistema Administrativo JG-Consys';
 
-		// Variable de Input del formulario
-		$txtParcela = Input::get('parcela');
-		var_dump($txtParcela);
-
-		// Para mostrar los datos del propietario que se busca
-		$propietario = DB::table('tadm_propietarios')
-			->where('parcela_nro','=',$txtParcela)
-			->join('tadm_agrupar','tadm_propietarios.ci','=','tadm_agrupar.propietarios_ci')
-			->get(array('nombre','ci'));
-
-		// Para mostrar las deudas actuales del propietario que se busca
-		$ctasxcobrar = DB::table('tadm_ctasxcobrar')
-			->where('parcela_nro','=',$txtParcela)
-			->join('tadm_conceptos','tadm_ctasxcobrar.concepto_codigo','=','tadm_conceptos.codigo')
-			->get(array('tadm_ctasxcobrar.concepto_codigo','tadm_conceptos.nombre','tadm_ctasxcobrar.monto','tadm_ctasxcobrar.parcela_nro'));
-
-		// Suma el monto de los conceptos que debe el propietario
-		$sum_monto = DB::table('tadm_ctasxcobrar')
-			->where('parcela_nro','=',$txtParcela)
-			->join('tadm_conceptos','tadm_ctasxcobrar.concepto_codigo','=','tadm_conceptos.codigo')
-			->sum('tadm_ctasxcobrar.monto');
-
-		// Envia los parametros por POST
-		return View::make('administracion.ctasxcobrar.detalle')
-			->with('title',$title)
-			->with('txtParcela',$txtParcela)
-			->with('propietario',$propietario)
-			->with('ctasxcobrar',$ctasxcobrar)
-			->with('sum_monto',$sum_monto);
 	}
 
 }
