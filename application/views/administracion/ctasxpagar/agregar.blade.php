@@ -91,7 +91,7 @@
 						<div class="control-group">
 							<label class="control-label-right" for="inputReferencia"><strong>Referencia</strong></label>
 							<div class="controls">
-								<input type="text" id="referencia" name="referencia">
+								<input type="text" id="referencia" name="referencia" placeholder="Nro. de referencia">
 							</div>
 						</div>
 
@@ -99,7 +99,7 @@
 
 							<label class="control-label-right" for="inputParcela"><strong>Concepto</strong></label>
 							<div class="controls">
-								<input type="text" id="referencia" name="concepto">
+								<input type="text" id="referencia" name="concepto" placeholder="Razón de la deuda">
 							</div>
 
 						</div>
@@ -125,7 +125,7 @@
 						<div class="control-group">
 							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
 							<div class="controls">
-								<input type="text" id="monto" name="monto" class="input-small">
+								<input type="text" id="monto" name="monto" class="input-small" placeholder="Cantidad">
 							</div>
 						</div>
 
