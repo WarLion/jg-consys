@@ -46,13 +46,26 @@
 					      </thead>
 
 					      <tbody>
-					        <tr>
-					          <td>1234567-89</td>
-					          <td>Hidrocentro</td>
-					          <td>1344345435345</td>
-					          <td>Depósito</td>
-					          <td>26/06/2013</td>
-					        </tr>			        
+					    	@if(!empty($detalle))
+			        			@foreach($detalle as $det)
+						        <tr>
+									<td>{{ $det->rif }}</td>
+									<td>{{ $det->proveedor }}</td>
+									<td>{{ $det->ref_pago }}</td>
+									<td>{{ $det->metodo }}</td>
+									<td>{{ $det->fec_pago }}</td>
+						        </tr>
+						        <?php break; ?>
+						        @endforeach
+							@else
+								<tr>
+							        <td>---</td>
+							        <td>---</td>
+							        <td>---</td>
+							        <td>---</td>
+							        <td>---</td>
+						        </tr>
+						    @endif
 					      </tbody>
 
 					    </table>
@@ -71,28 +84,34 @@
 
 			    <table class="table table-hover">
 
-			      <thead>
-			        <tr>
-			          <th>Referencia</th>
-			          <th>Código</th>
-			          <th>Concepto</th>
-			          <th>Tipo</th>
-			          <th>Fecha</th>
-			          <th>Monto</th>
-			          <th style="width: 36px;"></th>
-			        </tr>
-			      </thead>
+					<thead>
+						<tr>
+							<th>Referencia</th>
+							<th>Concepto</th>
+							<th>Fecha</th>
+							<th>Monto</th>
+						</tr>
+					</thead>
 
-			      <tbody>
-			        <tr>
-			          <td>1234567</td>
-			          <td>0132</td>
-			          <td>CANCELACIÓN MES DE AGOSTO 2012</td>
-			          <td>Factura</td>
-			          <td>20/06/2013</td>
-			          <td>300,00</td>
-			        </tr>			        
-			      </tbody>
+					<tbody>
+					@if(!empty($detalle))
+			        	@foreach($detalle as $det)
+						<tr>
+							<td>{{ $det->ref_documento }}</td>
+							<td>{{ $det->concepto_codigo }}</td>
+							<td>{{ $det->fec_vencimiento }}</td>
+							<td>{{ $det->ctasxpagar_monto }}</td>
+						</tr>
+						@endforeach
+					@else
+						<tr>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+							<td>---</td>
+						</tr>
+					@endif
+					</tbody>
 
 			    </table>
 

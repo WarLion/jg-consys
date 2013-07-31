@@ -47,7 +47,7 @@
 							<td>{{ $pag->metodopag }} </td>
 							<td>{{ $pag->monto }} </td>
 							<td>{{ $pag->fecha }} </td>
-							<td>{{ HTML::link('admin/ctasxpagar/pagos/detalle','Detalle') }}</td>
+							<td>{{ HTML::link('admin/ctasxpagar/pagos/detalle?id='.$pag->id,'Detalle') }}</td>
 						</tr>
 						@endforeach
 					@else

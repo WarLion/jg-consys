@@ -63,7 +63,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$x = 1;
 
 		$pagos = DB::table('tadm_pagos')
-			->select(array('tadm_proveedor.descripcion as proveedor','tadm_metodopag.descripcion as metodopag','partida','fecha','monto'))
+			->select(array('tadm_pagos.id','tadm_proveedor.descripcion as proveedor','tadm_metodopag.descripcion as metodopag','partida','fecha','monto'))
 			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_pagos.identificacion')
 			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
 			->where('partida','=','egreso')
@@ -79,7 +79,33 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 	public function get_detallePagos()
 	{
 		$title = 'Detalle Pagos - Cuentas por Pagar - Sistema Administrativo JG-Consys';
-		return View::make('administracion.ctasxPagar.detallePagos')->with('title',$title);
+		$x = 1;
+
+		$id = Input::get('id');
+
+		$result = array('tadm_ctasxpagar.proveedor_nro as rif',
+						'tadm_proveedor.descripcion as proveedor',
+						'tadm_pagos.referencia as ref_pago',
+						'tadm_metodopag.descripcion as metodo',
+						'tadm_pagos.fecha as fec_pago',
+						'tadm_ctasxpagar.nro as ref_documento',
+						'tadm_ctasxpagar.concepto_codigo',
+						'tadm_ctasxpagar.fecha as fec_vencimiento',
+						'tadm_ctasxpagar.monto as ctasxpagar_monto');
+
+		$detalle = DB::table('tadm_ctasxpagar')
+			->select($result)
+			->where('tadm_ctasxpagar.pagos_id','=',$id)
+			->join('tadm_proveedor','tadm_proveedor.nro','=','tadm_ctasxpagar.proveedor_nro')
+			->join('tadm_pagos','tadm_pagos.id','=','tadm_ctasxpagar.pagos_id')
+			->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
+			->where('tadm_pagos.partida','=','egreso')
+			->get();
+
+		return View::make('administracion.ctasxPagar.detallePagos')
+			->with('title',$title)
+			->with('detalle',$detalle)
+			->with('x',$x);
 	}
 
 	public function get_pagar()
@@ -219,8 +245,8 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 									'concepto_codigo' 	=> $concepto,
 									'tipodoc_id'		=> $tipo,
 									'fecha'				=> date("d-m-Y H:i:s"),
-									'fecha_pago'		=> null,
 									'monto'				=> $monto,
+									'pagos_id'			=> '0',
 									'anular'			=> '0'));
 
 				$message = "Se ha registrado satisfactoriamente.";
@@ -343,7 +369,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 					->where('identificacion','=',$rif)
 					->insert(array('identificacion' => $rif,
 									'metodopag_id' 	=> '1',
-									'partida'		=> 'Egreso',
+									'partida'		=> 'egreso',
 									'fecha' 		=> $fecha,
 									'monto'			=> $monto));
 
@@ -357,7 +383,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 				{
 					DB::table('tadm_ctasxpagar')
 						->where('nro','=',$smon)
-						->update(array('fecha_pago' => $fecha,
+						->update(array('fecha' => $fecha,
 										'pagos_id'	=> $pagos));
 				}
 
