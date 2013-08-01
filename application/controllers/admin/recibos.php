@@ -52,7 +52,42 @@ class Admin_recibos_Controller extends Base_Controller {
 	public function get_detalle()
 	{
 		$title = 'Detalle - Recibos - Sistema Administrativo JG-Consys';
-		return View::make('administracion.recibos.detalle')->with('title',$title);
+		$total = 0;
+
+		$id = Input::get('id');
+
+		$result = array('tadm_recibo.parcela_nro',
+						'tadm_agrupar.propietarios_ci',
+						'tadm_propietarios.nombre as nom_prop',
+						'tadm_pagos.fecha',
+						'tadm_pagos.monto as mon_pago',
+						'tadm_metodopag.descripcion',
+						'tadm_conceptos.nombre as nom_conc',
+						'tadm_ctasxcobrar.monto as mon_ctas');
+
+		$recibo = DB::table('tadm_recibo')
+					->where('tadm_recibo.id','=',$id)
+					->join('tadm_pagos','tadm_pagos.id','=','tadm_recibo.pagos_id')
+					->join('tadm_agrupar','tadm_agrupar.parcela_nro','=','tadm_recibo.parcela_nro')
+					->join('tadm_propietarios','tadm_propietarios.ci','=','tadm_agrupar.propietarios_ci')
+					->join('tadm_metodopag','tadm_metodopag.id','=','tadm_pagos.metodopag_id')
+					->join('tadm_ctasxcobrar','tadm_ctasxcobrar.pagos_id','=','tadm_pagos.id')
+					->join('tadm_conceptos','tadm_conceptos.codigo','=','tadm_ctasxcobrar.concepto_codigo')
+					->get($result);
+
+		foreach($recibo as $rec)
+		{
+			$detalle = $rec;
+		}
+
+		// variables para imprimir recibos
+		Session::put('detalle',$detalle);
+
+		return View::make('administracion.recibos.detalle')
+			->with('title',$title)
+			->with('total',$total)
+			->with('detalle',$detalle)
+			->with('recibo',$recibo);
 	}
 
 	public function get_bancos()

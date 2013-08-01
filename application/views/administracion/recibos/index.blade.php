@@ -46,7 +46,7 @@
 							<td>{{ $rcb->descripcion }}</td>
 							<td>{{ $rcb->fecha }}</td>
 							<td><i class="icon-check"></i></td>
-							<td><a href="#">Detalle</a></td>
+							<td>{{ HTML::link('admin/recibos/detalle?id='.$rcb->id,'Detalle') }}</td>
 						</tr>
 						@endforeach
 					@else

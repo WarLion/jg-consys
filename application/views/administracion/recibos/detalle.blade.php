@@ -14,7 +14,7 @@
 
 			    <a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
 			    <a href="{{ URL::to('admin/recibos'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>
+			    <!--<a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>-->
 			    <!--<a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>-->
 			    
 			</div>
@@ -37,28 +37,28 @@
 
 							<table class="table table-hover">
 
-						      <thead>
-						        <tr>
-									<td><strong>Parcela</strong></td>
-									<td>36</td>
-						        </tr>
-						      <tbody>
+								<thead>
+									<tr>
+										<td><strong>Parcela</strong></td>
+										<td>{{ $detalle->parcela_nro }}</td>
+									</tr>
+								<tbody>
 
-						      <thead>
-						        <tr>
-									<td><strong>Cédula</strong></td>
-									<td>9126116</td>
-						        </tr>			        
-						      </thead>
+								<thead>
+									<tr>
+										<td><strong>Cédula</strong></td>
+										<td>{{ $detalle->propietarios_ci }}</td>
+									</tr>
+								</thead>
 
-						      <thead>
-						        <tr>
-									<td><strong>Propietario</strong></td>
-									<td>JULIA DUQUE</td>
-						        </tr>			        
-						      </thead>
+								<thead>
+									<tr>
+										<td><strong>Propietario</strong></td>
+										<td>{{ $detalle->nom_prop }}</td>
+									</tr>
+								</thead>
 
-						    </table>
+							</table>
 
 						</div>
 
@@ -73,21 +73,21 @@
 						      <thead>
 						        <tr>
 									<td><strong>Fecha</strong></td>
-									<td>23/06/2013</td>								
+									<td>{{ $detalle->fecha }}</td>								
 						        </tr>
 						      </thead>
 
 						      <thead>
 						        <tr>
 						        	<td><strong>Monto</strong></td>
-						        	<td>120,00</td>
+						        	<td>{{ $detalle->mon_pago }}</td>
 						        </tr>			        
 						      </thead>
 
 						      <thead>
 						        <tr>
 						        	<td><strong>Tipo</strong></td>
-						        	<td>Efectivo</td>
+						        	<td>{{ $detalle->descripcion }}</td>
 						        </tr>			        
 						      </thead>
 
@@ -105,7 +105,7 @@
 
 			<div class="row-fluid">		
 
-				<div class="span6">
+				<div class="span12">
 
 					<strong>Conceptos</strong>
 
@@ -113,23 +113,30 @@
 
 					<div class="well">
 
-					    <table class="table table-hover">
+						<table class="table table-hover">
 
-					      <thead>
-					        <tr>
-					          <th>Descripción</th>
-					          <th>Monto</th>
-					        </tr>
-					      </thead>
+							<thead>
+								<tr>
+									<th>Descripción</th>
+									<th>Monto</th>
+								</tr>
+							</thead>
 
-					      <tbody>
-					        <tr>
-					          <td>CONDOMINIO ENERO 2012</td>
-					          <td>120,00</td>
-					        </tr>			        
-					      </tbody>
+							<tbody>
+								@foreach($recibo as $rec)
+									<tr>
+										<td>{{ $rec->nom_conc }}</td>
+										<td>{{ $rec->mon_ctas }}</td>
+									</tr>
+									<?php $total = $total + $rec->mon_ctas; ?>
+								@endforeach
+									<tr>
+										<th>Total</th>
+										<td>{{ $total; }}</td>
+									</tr>
+							</tbody>
 
-					    </table>
+						</table>
 
 					</div>
 
@@ -137,7 +144,7 @@
 
 			</div>
 
-			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-success">Imprimir <i class="icon-print icon-white"></i></a>
+			<a href="{{ URL::to('admin/recibos/generar/print'); }}" class="btn btn-success" onclick="window.print()" target="_blank">Imprimir <i class="icon-print icon-white"></i></a>
 			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-danger">Anular <i class="icon-remove-sign icon-white"></i></a>
 
 		</div>
