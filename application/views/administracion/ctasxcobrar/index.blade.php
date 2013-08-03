@@ -41,7 +41,7 @@
 								<td>{{ $x++; }}</td>
 								<td>{{ $cxc->parcela_nro }}</td>
 								<td>{{ $cxc->nombre }}</td>
-								<td>{{ $cxc->monto.',00' }}</td>
+								<td>Bs. {{ $cxc->monto.',00' }}</td>
 								<td>
 									{{ HTML::link('admin/ctasxcobrar/detalle?par='.$cxc->parcela_nro,'Detalle') }}
 								</td>

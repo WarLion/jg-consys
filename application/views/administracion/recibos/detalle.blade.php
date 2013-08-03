@@ -80,7 +80,7 @@
 						      <thead>
 						        <tr>
 						        	<td><strong>Monto</strong></td>
-						        	<td>{{ $detalle->mon_pago }}</td>
+						        	<td>Bs. {{ $detalle->mon_pago }}</td>
 						        </tr>			        
 						      </thead>
 
@@ -107,7 +107,7 @@
 
 				<div class="span12">
 
-					<strong>Conceptos</strong>
+					<strong>Concepto(s)</strong>
 
 					<hr class="bs-docs-separator">
 
@@ -126,13 +126,13 @@
 								@foreach($recibo as $rec)
 									<tr>
 										<td>{{ $rec->nom_conc }}</td>
-										<td>{{ $rec->mon_ctas }}</td>
+										<td>Bs. {{ $rec->mon_ctas }}</td>
 									</tr>
 									<?php $total = $total + $rec->mon_ctas; ?>
 								@endforeach
 									<tr>
 										<th>Total</th>
-										<td>{{ $total; }}</td>
+										<td>Bs. {{ $total; }}</td>
 									</tr>
 							</tbody>
 
@@ -144,7 +144,7 @@
 
 			</div>
 
-			<a href="{{ URL::to('admin/recibos/generar/print'); }}" class="btn btn-success" onclick="window.print()" target="_blank">Imprimir <i class="icon-print icon-white"></i></a>
+			<a href="{{ URL::to('admin/recibos/print'); }}" class="btn btn-success" target="_blank">Imprimir <i class="icon-print icon-white"></i></a>
 			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-danger">Anular <i class="icon-remove-sign icon-white"></i></a>
 
 		</div>
