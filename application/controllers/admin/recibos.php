@@ -80,8 +80,11 @@ class Admin_recibos_Controller extends Base_Controller {
 			$detalle = $rec;
 		}
 
+		$rec_conceptos = $recibo;
+
 		// variables para imprimir recibos
 		Session::put('detalle',$detalle);
+		Session::put('rec_conceptos',$rec_conceptos);
 
 		return View::make('administracion.recibos.detalle')
 			->with('title',$title)

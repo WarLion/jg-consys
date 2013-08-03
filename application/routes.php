@@ -81,6 +81,10 @@ Route::group(array('before' => 'admin'), function()
 	Route::post('admin/logout','admin/login@logout');
 	Route::get('admin/logout','admin/login@logout');
 
+	// print
+	Route::post('admin/recibos/print','admin/print@recibos');
+	Route::get('admin/recibos/print','admin/print@recibos');
+
 	// index
 	Route::post('admin','admin/administracion@index');
 	Route::get('admin','admin/administracion@index');
