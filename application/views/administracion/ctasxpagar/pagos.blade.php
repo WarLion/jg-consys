@@ -21,20 +21,18 @@
 
 			<div>&nbsp;</div>
 
-			<form class="form-modules">			
-
-			<div class="well">
+			<form class="form-modules">
 
 			    <table class="table table-hover">
 
 			      <thead>
-			        <tr>
+			        <tr class="well">
 			          <th>#</th>
 			          <th>Proveedor</th>
 			          <th>Tipo</th>
 			          <th>Monto</th>
 			          <th>Fecha</th>
-			          <th>Opciones</th>
+			          <th>Acciones</th>
 			        </tr>
 			      </thead>
 
@@ -45,7 +43,7 @@
 			        		<td>{{ $x++ }}</td>
 							<td>{{ $pag->proveedor }} </td>
 							<td>{{ $pag->metodopag }} </td>
-							<td>{{ $pag->monto }} </td>
+							<td>Bs. {{ $pag->monto }} </td>
 							<td>{{ $pag->fecha }} </td>
 							<td>{{ HTML::link('admin/ctasxpagar/pagos/detalle?id='.$pag->id,'Detalle') }}</td>
 						</tr>
@@ -63,8 +61,6 @@
 			      </tbody>
 
 			    </table>
-
-			</div>
 
 			</form>
 

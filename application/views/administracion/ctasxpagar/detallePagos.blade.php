@@ -23,69 +23,63 @@
 
 			<form class="form-modules">
 
-			<div class="row-fluid">
+				<div class="row-fluid">
 
-				<div class="span6">
+					<div class="span6">
 
-					<p><strong>Datos</strong></p> 
+						<h4>Datos</h4>
 
-					<hr class="bs-docs-separator">
+						<div class="well">
 
-					<div class="well">
+							<table class="table table-hover">
 
-						<table class="table table-hover">
-
-					      <thead>
-					        <tr>
-					          <th>RIF</th>
-					          <th>Proveedor</th>
-					          <th>Referencia</th>
-					          <th>Tipo</th>
-					          <th>Fecha</th>
-					        </tr>
-					      </thead>
-
-					      <tbody>
-					    	@if(!empty($detalle))
-			        			@foreach($detalle as $det)
+						      <thead>
 						        <tr>
-									<td>{{ $det->rif }}</td>
-									<td>{{ $det->proveedor }}</td>
-									<td>{{ $det->ref_pago }}</td>
-									<td>{{ $det->metodo }}</td>
-									<td>{{ $det->fec_pago }}</td>
+						          <th>RIF</th>
+						          <th>Proveedor</th>
+						          <th>Referencia</th>
+						          <th>Tipo</th>
+						          <th>Fecha</th>
 						        </tr>
-						        <?php break; ?>
-						        @endforeach
-							@else
-								<tr>
-							        <td>---</td>
-							        <td>---</td>
-							        <td>---</td>
-							        <td>---</td>
-							        <td>---</td>
-						        </tr>
-						    @endif
-					      </tbody>
+						      </thead>
 
-					    </table>
+						      <tbody>
+						    	@if(!empty($detalle))
+				        			@foreach($detalle as $det)
+							        <tr>
+										<td>{{ $det->rif }}</td>
+										<td>{{ $det->proveedor }}</td>
+										<td>{{ $det->ref_pago }}</td>
+										<td>{{ $det->metodo }}</td>
+										<td>{{ $det->fec_pago }}</td>
+							        </tr>
+							        <?php break; ?>
+							        @endforeach
+								@else
+									<tr>
+								        <td>---</td>
+								        <td>---</td>
+								        <td>---</td>
+								        <td>---</td>
+								        <td>---</td>
+							        </tr>
+							    @endif
+						      </tbody>
 
-				    </div>
+						    </table>
+
+					    </div>
+
+					</div>
 
 				</div>
 
-			</div>
-
-			<strong>Detalle</strong>
-
-			<hr class="bs-docs-separator">			
-
-			<div class="well">
+				<h4 align="center">Detalle</h4>
 
 			    <table class="table table-hover">
 
 					<thead>
-						<tr>
+						<tr class="well">
 							<th>Referencia</th>
 							<th>Concepto</th>
 							<th>Fecha</th>
@@ -100,7 +94,7 @@
 							<td>{{ $det->ref_documento }}</td>
 							<td>{{ $det->concepto_codigo }}</td>
 							<td>{{ $det->fec_vencimiento }}</td>
-							<td>{{ $det->ctasxpagar_monto }}</td>
+							<td>Bs. {{ $det->ctasxpagar_monto }}</td>
 						</tr>
 						@endforeach
 					@else
@@ -115,27 +109,7 @@
 
 			    </table>
 
-			</div>
-
 			</form>
-
-			<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    
-			    <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			        <h3 id="myModalLabel">Delete Confirmation</h3>
-			    </div>
-			    
-			    <div class="modal-body">
-			        <p class="error-text">Are you sure you want to delete the user?</p>
-			    </div>
-			    
-			    <div class="modal-footer">
-			        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-			        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
-			    </div>
-			    
-			</div>
 
 		</div>
 

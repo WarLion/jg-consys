@@ -24,11 +24,11 @@
 		    <table class="table table-hover">
 
 		      <thead>
-		        <tr>
+		        <tr class="well">
 		          <th>#</th>
 		          <th>Proveedor</th>
 		          <th>Monto</th>
-		          <th>Estado</th>
+		          <th>Acción</th>
 		        </tr>
 		      </thead>
 
@@ -38,7 +38,7 @@
 			        	<tr>
 							<td>{{ $x++; }}</td>
 							<td>{{ $cxp->descripcion }}</td>
-							<td>{{ $cxp->monto.',00' }}</td>
+							<td>Bs. {{ $cxp->monto.',00' }}</td>
 							<td>{{ HTML::link('admin/ctasxpagar/pagos/registro?rif='.$cxp->nro,'Pagar') }}</td>
 						</tr>
 					@endforeach

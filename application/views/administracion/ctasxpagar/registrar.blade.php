@@ -29,9 +29,7 @@
 
 				<div class="span6">
 
-					<p><strong>Datos</strong></p> 
-
-					<hr class="bs-docs-separator">
+					<h4>Datos</h4>
 
 					<div class="well">
 
@@ -67,19 +65,17 @@
 
 			</div>
 
-			<strong>Detalle</strong>
-
-			<hr class="bs-docs-separator">
+			<h4 align="center">Detalle de la Deuda</h4>
 
 		    <table class="table table-hover">
 
 		      <thead>
-		        <tr>
+		        <tr class="well">
 		          <th>Referencia</th>
 		          <th>Concepto</th>
 		          <th>Fecha</th>
 		          <th>Monto</th>
-		          <th>Opciones</th>
+		          <th>Seleccionar</th>
 		        </tr>
 		      </thead>
 
@@ -91,7 +87,7 @@
 						<td>{{ $dprv->nro }}</td>
 						<td>{{ $dprv->concepto_codigo }}</td>
 						<td>{{ $dprv->fecha }}</td>
-						<td>{{ $dprv->monto }}</td>
+						<td>Bs. {{ $dprv->monto }}</td>
 						<td><input type="checkbox" name="referencia{{ $x }}" value="{{ $dprv->nro }}" onclick="if (this.checked) sumar({{ $dprv->monto }}); else restar({{ $dprv->monto }})" id="selectMontos"></td>
 					</tr>
 					@endforeach
@@ -111,7 +107,7 @@
 		    <hr class="bs-docs-separator">
 
 			<div class="control-group">
-				<label class="control-label" for="inputMonto"><strong>Total monto</strong></label>
+				<label class="control-label" for="inputMonto"><strong>Total monto (Bs.)</strong></label>
 				<div class="controls">
 					<input type="text" id="monto" name="monto" value="0" class="input-small" readonly>
 				</div>
@@ -119,9 +115,7 @@
 
 			<hr class="bs-docs-separator">
 
-			<strong>Formas de Pago</strong>
-
-			<hr class="bs-docs-separator">
+			<h4>Forma de Pago</h4>
 
 			<div class="row-fluid">
 
@@ -133,7 +127,7 @@
 						    
 							<div class="accordion-heading">
 							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseUno">
-							    - Efectivo
+							    <i class="icon-ok"></i> Efectivo
 							  </a>
 							</div>
 							<div id="collapseUno" class="accordion-body collapse">
@@ -148,7 +142,7 @@
 
 							<div class="accordion-heading">
 							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseDos">
-							    - Depósito
+							    <i class="icon-ok"></i> Depósito
 							  </a>
 							</div>
 							<div id="collapseDos" class="accordion-body collapse">
@@ -221,7 +215,7 @@
 
 							<div class="accordion-heading">
 							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTres">
-							    - Cheque
+							    <i class="icon-ok"></i> Cheque
 							  </a>
 							</div>
 							<div id="collapseTres" class="accordion-body collapse">
@@ -302,7 +296,7 @@
 						    
 							<div class="accordion-heading">
 							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseCuatro">
-							    - Transferencia
+							    <i class="icon-ok"></i> Transferencia
 							  </a>
 							</div>
 							<div id="collapseCuatro" class="accordion-body collapse">
@@ -374,7 +368,7 @@
 
 							<div class="accordion-heading">
 							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseCinco">
-							    - Tarjeta de Débito
+							    <i class="icon-ok"></i> Tarjeta de Débito
 							  </a>
 							</div>
 							<div id="collapseCinco" class="accordion-body collapse">
@@ -495,7 +489,7 @@
 
 							<div class="accordion-heading">
 							  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeis">
-							    - Tarjeta de Crédito
+							    <i class="icon-ok"></i> Tarjeta de Crédito
 							  </a>
 							</div>
 							<div id="collapseSeis" class="accordion-body collapse">
