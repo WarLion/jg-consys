@@ -42,9 +42,7 @@
 
 					<div class="span6">
 
-						<p><strong>Datos</strong></p> 
-
-						<hr class="bs-docs-separator">
+						<h4>Datos</h4>
 
 						<div class="well">
 
@@ -89,9 +87,7 @@
 
 					<div class="span6">
 
-						<p><strong>Concepto</strong></p> 
-
-						<hr class="bs-docs-separator">
+						<h4>Concepto</h4>
 
 						<div class="well">
 
@@ -118,7 +114,7 @@
 							</div>
 
 						<div class="control-group">
-							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
+							<label class="control-label-right" for="inputMonto"><strong>Monto Bs.</strong></label>
 							<div class="controls">
 								@if(!empty($conceptos))
 									<input type="text" class="input-small" name="monto" id="MontoSelected">
@@ -142,21 +138,16 @@
 
 			</form>
 
-			<strong>Deudas</strong>
-
-			<hr class="bs-docs-separator">			
-
-			<div class="well">
+			<h4 class="center">Deudas</h4>
 
 			    <table class="table table-hover">
 
 			      <thead>
-			        <tr>
+			        <tr class="well">
 			          <th>Código</th>
 			          <th>Concepto</th>
 			          <th>Monto</th>
-			          <th>Opciones</th>
-			          <th style="width: 36px;"></th>
+			          <th>Acciones</th>
 			        </tr>
 			      </thead>
 
@@ -172,9 +163,9 @@
 							  		{{ $cxc->nombre }}
 								</td>
 								<td>
-							  		{{ $cxc->monto.',00' }}
+							  		Bs. {{ $cxc->monto.',00' }}
 								</td>
-								<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+								<td><a href="#myModal" role="button" data-toggle="modal" class="tip" data-toggle="tooltip" data-placement="right" title="Eliminar"><i class="icon-remove"></i></a></td>
 							</tr>
 							@endforeach
 						@else
@@ -182,7 +173,7 @@
 							<td>---</td>
 							<td>---</td>
 							<td>---</td>
-							<td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
+							<td><i class="icon-remove"></i></td>
 						</tr>
 						@endif
 			        			        
@@ -195,7 +186,7 @@
 						<td>
 			        	@if(!empty($sum_monto))							
 								
-					  		{{ $sum_monto.',00' }}								
+					  		Bs. {{ $sum_monto.',00' }}								
 						
 						@else
 						</td>
@@ -206,22 +197,20 @@
 
 			    </table>
 
-			</div>			
-
 			<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    
 			    <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			        <h3 id="myModalLabel">Delete Confirmation</h3>
+			        <h3 id="myModalLabel">Confirmar eliminar</h3>
 			    </div>
 			    
 			    <div class="modal-body">
-			        <p class="error-text">Are you sure you want to delete the user?</p>
+			        <p class="error-text">¿Desea eliminar esta deuda?</p>
 			    </div>
 			    
 			    <div class="modal-footer">
-			        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-			        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+			        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+			        <button class="btn btn-danger" data-dismiss="modal">Eliminar</button>
 			    </div>
 			    
 			</div>
@@ -245,6 +234,14 @@
 	    var selectedValue = $(selectedOption).val();
 	    $("#MontoSelected").val(selectedText + ',00');
 	}).change();
+
+</script>
+
+<script type="text/javascript">
+
+	$(function() {
+		$(".tip").tooltip();
+	});
 
 </script>
 

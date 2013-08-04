@@ -24,7 +24,7 @@
 			    <table class="table table-hover">
 
 			      <thead>
-			        <tr>
+			        <tr class="well">
 			          <th>#</th>
 			          <th>Parcela</th>
 			          <th>Propietario</th>
