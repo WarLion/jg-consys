@@ -19,51 +19,51 @@
 
 			<form class="form-modules">
 
-			<div class="row-fluid">
+				<div class="row-fluid">
 
-				<div class="span6">
+					<div class="span6">
 
-					<h4>Datos</h4>
+						<h4>Datos</h4>
 
-					<div class="well">
+						<div class="well">
 
-						<table class="table table-hover">
+							<table class="table table-hover">
 
-					      <thead>
-					        <tr>
-					          <th>Parcela</th>
-					          <th>Propietario</th>
-					        </tr>
-					      </thead>
+						      <thead>
+						        <tr>
+						          <th>Parcela</th>
+						          <th>Propietario</th>
+						        </tr>
+						      </thead>
 
-							<tbody>
-							<tr>
-								@if($parcela != null && $propietario != null)
+								<tbody>
+								<tr>
+									@if($parcela != null && $propietario != null)
 
-									<td>{{ $parcela }}</td>
-								
-									@foreach($propietario as $ptr)
-										<td>
-									  		{{ $ptr->nombre }}
-										</td>
-									@endforeach
+										<td>{{ $parcela }}</td>
+									
+										@foreach($propietario as $ptr)
+											<td>
+										  		{{ $ptr->nombre }}
+											</td>
+										@endforeach
 
-								@else
-									<td>---</td>
-									<td>---</td>
-								@endif
-							</tr>			        
-							</tbody>
+									@else
+										<td>---</td>
+										<td>---</td>
+									@endif
+								</tr>			        
+								</tbody>
 
-					    </table>
+						    </table>
 
-				    </div>
+					    </div>
+
+					</div>
 
 				</div>
 
-			</div>
-
-			<h4 align="center">Deudas</h4>
+				<h4 align="center">Deudas</h4>
 
 			    <table class="table table-hover">
 
@@ -121,32 +121,32 @@
 			        </tr>
 			      </tbody>
 
-			    </table>	
+			    </table>
 
-			<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    
-			    <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			        <h3 id="myModalLabel">Confirmar eliminar</h3>
-			    </div>
-			    
-			    <div class="modal-body">
-			        <p class="error-text">¿Desea eliminar esta deuda?</p>
-			    </div>
-			    
-			    <div class="modal-footer">
-			        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-			        <button class="btn btn-danger" data-dismiss="modal">Eliminar</button>
-			    </div>
-			    
-			</div>
+			</form>
 
 		</div>
 
-		</form>
-
 	</div>
 
+</div>
+
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Confirmar eliminar</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p class="error-text">¿Desea eliminar esta deuda?</p>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+    </div>
+    
 </div>
 
 
