@@ -47,9 +47,7 @@
 
 					<div class="span6">
 
-						<p><strong>Datos</strong></p>
-
-						<hr class="bs-docs-separator">
+						<h4>Datos</h4>
 
 						<div class="well">
 
@@ -91,19 +89,17 @@
 
 				<div>&nbsp;</div>
 
-				<strong>Detalle</strong>
-
-				<hr class="bs-docs-separator">
+				<h4 align="center">Detalle</h4>
 
 			    <table class="table table-hover">
 
 			      <thead>
-			        <tr>
+			        <tr class="well">
 			          <th>Código</th>
 			          <th>Concepto</th>
 			          <th>Fecha</th>
 			          <th>Monto</th>
-			          <th>Opciones</th>
+			          <th>Seleccionar</th>
 			        </tr>
 			      </thead>
 
@@ -115,7 +111,7 @@
 								<td>{{ $cxc->concepto_codigo }}</td>
 								<td>{{ $cxc->nombre }}</td>
 								<td>{{ $cxc->fecha }}</td>
-								<td>{{ $cxc->monto.',00' }}</td>
+								<td>Bs. {{ $cxc->monto.',00' }}</td>
 								<td><input type="checkbox" name="referencia{{ $x }}" value="{{ $cxc->concepto_codigo }}" onclick="if (this.checked) sumar({{ $cxc->monto }}); else restar({{ $cxc->monto }})" id="selectMontos"></td>
 							</tr>
 							@endforeach
@@ -135,7 +131,7 @@
 				<div>&nbsp;</div>
 
 				<div class="control-group">
-					<label class="control-label" for="inputMonto"><strong>Total monto</strong></label>
+					<label class="control-label" for="inputMonto"><strong>Total monto (Bs.)</strong></label>
 					<div class="controls">
 						<input type="text" id="monto" name="monto" value="0" class="input-small" readonly>
 					</div>

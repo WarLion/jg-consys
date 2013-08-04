@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	<div class="row">
+	<div class="row-fluid">
 
 		<div class="span12">
 
@@ -23,11 +23,7 @@
 
 			<form class="form-modules">
 
-			<div class="row-fluid">
-
-				<p><strong>Datos</strong></p> 
-
-				<hr class="bs-docs-separator">
+				<h4>Datos</h4>
 
 				<div>
 
@@ -80,7 +76,7 @@
 						      <thead>
 						        <tr>
 						        	<td><strong>Monto</strong></td>
-						        	<td>Bs. {{ $detalle->mon_pago }}</td>
+						        	<td>Bs. {{ $detalle->mon_pago }},00</td>
 						        </tr>			        
 						      </thead>
 
@@ -99,24 +95,16 @@
 
 				</div>
 
-			</div>
+				<div>
 
-			</form>
+					<div class="span12">
 
-			<div class="row-fluid">		
-
-				<div class="span12">
-
-					<strong>Concepto(s)</strong>
-
-					<hr class="bs-docs-separator">
-
-					<div class="well">
+						<h4 align="center">Detalle Concepto(s)</h4>
 
 						<table class="table table-hover">
 
 							<thead>
-								<tr>
+								<tr class="well">
 									<th>Descripción</th>
 									<th>Monto</th>
 								</tr>
@@ -126,13 +114,13 @@
 								@foreach($recibo as $rec)
 									<tr>
 										<td>{{ $rec->nom_conc }}</td>
-										<td>Bs. {{ $rec->mon_ctas }}</td>
+										<td>Bs. {{ $rec->mon_ctas }},00</td>
 									</tr>
 									<?php $total = $total + $rec->mon_ctas; ?>
 								@endforeach
 									<tr>
-										<th>Total</th>
-										<td>Bs. {{ $total; }}</td>
+										<th><div align="center">Total pago</div></th>
+										<td>Bs. {{ $total; }},00</td>
 									</tr>
 							</tbody>
 
@@ -142,18 +130,33 @@
 
 				</div>
 
-			</div>
+				<a href="{{ URL::to('admin/recibos/print'); }}" class="btn btn-success" target="_blank">Imprimir <i class="icon-print icon-white"></i></a>
+				<a href="#myModal" class="btn btn-danger" role="button" data-toggle="modal">Anular <i class="icon-remove-sign icon-white"></i></a>
 
-			<a href="{{ URL::to('admin/recibos/print'); }}" class="btn btn-success" target="_blank">Imprimir <i class="icon-print icon-white"></i></a>
-			<a href="{{ URL::to('admin/recibos/generar/3'); }}" class="btn btn-danger">Anular <i class="icon-remove-sign icon-white"></i></a>
+			</form>
 
 		</div>
-
-		</form>
 
 	</div>
 
 </div>
 
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Confirmar anular</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p class="error-text">¿Realmente desea anular este recibo?</p>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-danger" data-dismiss="modal">Anular</button>
+    </div>
+    
+</div>
 
 @endsection

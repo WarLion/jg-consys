@@ -10,9 +10,7 @@
 
 		<h3 align="center">Recibo de Pago</h3>
 
-		<h4><strong>Datos</strong></h4> 
-
-		<hr class="bs-docs-separator">
+		<h4>Datos</h4>
 		
 		<div>
 
@@ -61,7 +59,7 @@
 				      <thead>
 				        <tr>
 				        	<td><strong>Monto</strong></td>
-				        	<td>Bs. {{ $recibo_print->mon_pago }}</td>
+				        	<td>Bs. {{ $recibo_print->mon_pago }},00</td>
 				        </tr>
 				      </thead>
 
@@ -88,9 +86,7 @@
 
 		<div class="span12">
 
-			<h4><strong>Concepto(s)</strong></h4>
-
-			<hr class="bs-docs-separator">
+			<h4 align="center">Detalle Concepto(s)</h4>
 
 			<table class="table table-hover">
 
@@ -105,13 +101,13 @@
 					@foreach($rec_conceptos as $rec)
 						<tr>
 							<td>{{ $rec->nom_conc }}</td>
-							<td>Bs. {{ $rec->mon_ctas }}</td>
+							<td>Bs. {{ $rec->mon_ctas }},00</td>
 						</tr>
 						<?php $total = $total + $rec->mon_ctas; ?>
 					@endforeach
 						<tr>
-							<th><div align="center">Total a pagar</div></th>
-							<td>Bs. {{ $total; }}</td>
+							<th><div align="center">Total pago</div></th>
+							<td>Bs. {{ $total; }},00</td>
 						</tr>
 				</tbody>
 

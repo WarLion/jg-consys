@@ -24,14 +24,14 @@
 		    <table class="table table-hover">
 
 				<thead>
-					<tr>
+					<tr class="well">
 					  <th>Correlativo</th>
 					  <th>Parcela</th>
 					  <th>Monto</th>
 					  <th>Tipo</th>
 					  <th>Fecha</th>
 					  <th>Estado</th>
-					  <th>Opciones</th>
+					  <th>Ver</th>
 					</tr>
 				</thead>
 
@@ -42,10 +42,10 @@
 			        	<tr>
 							<td>{{ '00'.$rcb->id }}</td>
 							<td>{{ $rcb->parcela_nro }}</td>
-							<td>{{ $rcb->monto }}</td>
+							<td>Bs. {{ $rcb->monto }},00</td>
 							<td>{{ $rcb->descripcion }}</td>
 							<td>{{ $rcb->fecha }}</td>
-							<td><i class="icon-check"></i></td>
+							<td><i class="tip icon-check" data-toggle="tooltip" data-placement="right" title="Correcto"></i></td>
 							<td>{{ HTML::link('admin/recibos/detalle?id='.$rcb->id,'Detalle') }}</td>
 						</tr>
 						@endforeach
@@ -71,5 +71,16 @@
 
 </div>
 
+@endsection
+
+@section('postscript')
+
+<script type="text/javascript">
+
+	$(function() {
+		$(".tip").tooltip();
+	});
+
+</script>
 
 @endsection

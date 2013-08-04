@@ -25,7 +25,7 @@
 
 			<div class="row-fluid">
 
-				<p><strong>Resumen</strong></p> 
+				<h4 align="center">Resumen</h4> 
 
 				<hr class="bs-docs-separator">
 
@@ -105,16 +105,12 @@
 
 			<div>&nbsp;</div>
 
-			<strong>Detalle</strong>
-
-			<hr class="bs-docs-separator">			
-
-			<div class="well">
+			<h4 align="center">Detalle</h4>
 
 			    <table class="table table-hover">
 
 				     <thead>
-				        <tr>
+				        <tr class="well">
 				          <th>Concepto</th>
 				          <th>Monto</th>
 				        </tr>
@@ -123,20 +119,18 @@
 					<tbody>
 						@for($x=1; $x<=$num_con; $x++)
 						<tr>
-						  	<td><?php echo $nombre_con[$x]['nombre'] ?></td>
-						  	<td><?php echo $nombre_con[$x]['monto'].',00' ?></td>
+						  	<td>{{ $nombre_con[$x]['nombre'] }}</td>
+						  	<td>Bs. {{ $nombre_con[$x]['monto'].',00' }}</td>
 						</tr>
 						@endfor
 			      	<tbody>
 			        <tr>
-						<td><strong>Total</strong></td>
-						<td colspan="2">{{ $total_conceptos.',00' }}</td>
+						<td><div align="center"><strong>Total a pagar</strong></div></td>
+						<td colspan="2">Bs. {{ $total_conceptos.',00' }}</td>
 			        </tr>			        
 			      </tbody>
 
 			    </table>
-
-			</div>
 
 			<p><strong>A la fecha {{ $fecha }} usted adeuda Bs. {{ $adeuda.',00' }}</strong></p><br>
 
