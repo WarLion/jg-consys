@@ -29,8 +29,7 @@
 			          <th>Parcela</th>
 			          <th>Propietario</th>
 			          <th>Monto</th>
-			          <th>Opciones</th>
-			          <th style="width: 36px;"></th>
+			          <th>Acciones</th>
 			        </tr>
 			      </thead>
 
