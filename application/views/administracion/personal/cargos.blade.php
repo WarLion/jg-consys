@@ -44,15 +44,13 @@
 
 					<div class="span6">
 
-						<div class="well">
-
 							<table class="table table-hover">
 
 							  <thead>
-								<tr>
+								<tr class="well">
 								  <th>#</th>
 								  <th>Descripción</th>
-								  <th>Opciones</th>
+								  <th>Acciones</th>
 								</tr>
 							  </thead>
 
@@ -62,7 +60,7 @@
 								        	<tr>
 												<td>{{ $x++; }}</td>
 												<td>{{ $crg->descripcion }}</td>
-												<td>{{ HTML::link('admin/personal/detalle','Detalle') }}</td>
+												<td>{{ HTML::link('admin/personal/detalle','Eliminar') }}</td>
 											</tr>
 										@endforeach
 									@else
@@ -75,9 +73,6 @@
 							  </tbody>
 
 							</table>
-
-						</div>
-
 					</div>
 					
 				</div>

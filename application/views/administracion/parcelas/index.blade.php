@@ -23,14 +23,14 @@
 		    <table class="table table-hover">
 
 		      <thead>
-		        <tr>
+		        <tr class="well">
 		          <th>#</th>
 		          <th>Parcela</th>
 		          <th>Calle</th>
 		          <th>Alicuota</th>
 		          <th>Metros</th>
 		          <th>Condición</th>
-		          <th>Opciones</th>
+		          <th>Ver</th>
 		        </tr>
 		      </thead>
 

@@ -67,72 +67,48 @@
 
 				<div class="row-fluid">
 
-					<strong>Calles</strong>
-
-					<hr class="bs-docs-separator">
+					<h4>Calles</h4>
 
 					<div class="row-fluid">
 
-						<div class="well">
+						<table class="table table-hover">
 
-							<table class="table table-hover">
+						  <thead>
+							<tr class="well">
+							  <th>#</th>
+							  <th>Nombre</th>
+							  <th>Mts - largo</th>
+							  <th>Mts - ancho</th>
+							  <th>Acciones</th>
+							</tr>
+						  </thead>
 
-							  <thead>
-								<tr>
-								  <th>#</th>
-								  <th>Nombre</th>
-								  <th>Mts - largo</th>
-								  <th>Mts - ancho</th>
-								  <th>Opciones</th>
-								</tr>
-							  </thead>
-
-								<tbody>
-									@if(!empty($calles))
-							        	@foreach($calles as $cal)
-								        	<tr>
-												<td>{{ $x++; }}</td>
-												<td>{{ $cal->nombre }}</td>
-												<td>{{ $cal->mtslargo }}</td>
-												<td>{{ $cal->mtsancho }}</td>
-												<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
-											</tr>
-										@endforeach
-									@else
+							<tbody>
+								@if(!empty($calles))
+						        	@foreach($calles as $cal)
 							        	<tr>
-											<td>---</td>
-											<td>---</td>
-											<td>---</td>
-											<td>---</td>
-											<td>---</td>
+											<td>{{ $x++; }}</td>
+											<td>{{ $cal->nombre }}</td>
+											<td>{{ $cal->mtslargo }}</td>
+											<td>{{ $cal->mtsancho }}</td>
+											<td>{{ HTML::link('','Modificar') }}</td>
 										</tr>
-									@endif									
-							  </tbody>
+									@endforeach
+								@else
+						        	<tr>
+										<td>---</td>
+										<td>---</td>
+										<td>---</td>
+										<td>---</td>
+										<td>---</td>
+									</tr>
+								@endif									
+						  </tbody>
 
-							</table>
-
-						</div>
+						</table>
 						
 					</div>
 
-				</div>
-
-				<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h3 id="myModalLabel">Delete Confirmation</h3>
-					</div>
-					
-					<div class="modal-body">
-						<p class="error-text">Are you sure you want to delete the user?</p>
-					</div>
-					
-					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-						<button class="btn btn-danger" data-dismiss="modal">Delete</button>
-					</div>
-					
 				</div>
 
 
@@ -144,6 +120,24 @@
 
 	</div>
 
+</div>
+
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Confirmar eliminar</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p class="error-text">¿Desea eliminar esta deuda?</p>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+    </div>
+    
 </div>
 
 

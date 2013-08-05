@@ -22,7 +22,7 @@
 		    <table class="table table-hover">
 
 		      <thead>
-		        <tr>
+		        <tr class="well">
 		          <th>#</th>
 		          <th>Usuario</th>
 		          <th>Parcela</th>
@@ -31,7 +31,7 @@
 		          <th>Grupo</th>
 		          <th>Fecha</th>
 		          <th>Estado</th>
-		          <th>Opciones</th>
+		          <th>Acciones</th>
 		        </tr>
 		      </thead>
 

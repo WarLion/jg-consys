@@ -23,7 +23,7 @@
 		    <table class="table table-hover">
 
 		      <thead>
-		        <tr>
+		        <tr class="well">
 		          <th>#</th>
 		          <th>Cédula</th>
 		          <th>Nombre(s)</th>
@@ -32,7 +32,7 @@
 		          <th>Cargo</th>
 		          <th>Fecha Ingreso</th>
 		          <th>Estado</th>
-		          <th>Opciones</th>
+		          <th>Acciones</th>
 		        </tr>
 		      </thead>
 

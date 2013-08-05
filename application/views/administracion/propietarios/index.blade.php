@@ -22,14 +22,14 @@
 		    <table class="table table-hover">
 
 		      <thead>
-		        <tr>
+		        <tr class="well">
 		          <th>#</th>
 		          <th>Cédula</th>
 		          <th>Parcela</th>
 		          <th>Nombre(s) y Apellido(s)</th>
 		          <th>Tlf. Casa</th>
 		          <th>Correo Electrónico</th>
-		          <th>Opciones</th>
+		          <th>Acciones</th>
 		        </tr>
 		      </thead>
 

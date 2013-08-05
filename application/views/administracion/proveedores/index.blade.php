@@ -24,14 +24,14 @@
 		    <table class="table table-hover">
 
 				<thead>
-					<tr>
+					<tr class="well">
 					  <th>#</th>
 					  <th>RIF</th>
 					  <th>Nombre(s)</th>
 					  <th>Teléfono</th>
 					  <th>Correo Electrónico</th>
 					  <th>Fecha</th>
-					  <th>Opciones</th>
+					  <th>Acciones</th>
 					</tr>
 				</thead>
 
