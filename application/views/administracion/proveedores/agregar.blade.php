@@ -21,8 +21,6 @@
 
 			<form action="{{ URL::to('admin/proveedores/agregar') }}" method="post" class="form-modules">
 
-				<div class="well">
-
 					<div class="row-fluid">
 
 						<div class="span6">
@@ -79,8 +77,6 @@
 						</div>
 
 					</div>
-
-				</div>
 
 				<input type="submit" class="btn btn-success" name="add" value="Agregar">
 
