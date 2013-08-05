@@ -46,19 +46,46 @@
 						</li>
 
 						<li class="divider-vertical"></li>
-						<li><a href="{{ URL::to('admin/parcelas'); }}"><i class="icon-home"></i> Parcelas</a></li>
+						<li class="dropdown"><a href="{{ URL::to('admin/parcelas'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-home"></i> Parcelas <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ URL::to('admin/parcelas'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+								<li><a href="{{ URL::to('admin/parcelas/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+								<li><a href="{{ URL::to('admin/parcelas/calles'); }}"><i class="icon-road"></i>&nbsp; Calles</a></li>
+							</ul>
+						</li>
 
 						<li class="divider-vertical"></li>
-						<li><a href="{{ URL::to('admin/propietarios'); }}">{{ HTML::image('img/propietarios.png') }} Propietarios</a></li>
+						<li class="dropdown"><a href="{{ URL::to('admin/propietarios'); }}" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/propietarios.png') }} Propietarios <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ URL::to('admin/propietarios'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+								<li><a href="{{ URL::to('admin/propietarios/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+							</ul>
+						</li>
 
 						<li class="divider-vertical"></li>
-						<li><a href="{{ URL::to('admin/usuarios'); }}"><i class="icon-user"></i> Usuarios</a></li>
+						<li class="dropdown"><a href="{{ URL::to('admin/usuarios'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Usuarios <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ URL::to('admin/usuarios'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+								<li><a href="{{ URL::to('admin/usuarios/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+							</ul>
+						</li>
 
 						<li class="divider-vertical"></li>
-						<li><a href="{{ URL::to('admin/personal'); }}"><i class="icon-briefcase"></i> Personal</a></li>
+						<li class="dropdown"><a href="{{ URL::to('admin/personal'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase"></i> Personal <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ URL::to('admin/personal'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+								<li><a href="{{ URL::to('admin/personal/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+								<li><a href="{{ URL::to('admin/personal/cargos'); }}"><i class="icon-briefcase"></i>&nbsp; Cargos</a></li>
+							</ul>
+						</li>
 
 						<li class="divider-vertical"></li>
-						<li><a href="{{ URL::to('admin/proveedores'); }}">{{ HTML::image('img/proveedores.png') }} Proveedores</a></li>
+						<li class="dropdown"><a href="{{ URL::to('admin/proveedores'); }}" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/proveedores.png') }} Proveedores <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ URL::to('admin/proveedores'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+								<li><a href="{{ URL::to('admin/proveedores/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+							</ul>
+						</li>
 
 					</ul>
 

@@ -10,15 +10,6 @@
 
 			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Bancos -</span> <snap style="color:#51a351; font-size:23px;">Recibos</snap></p> <hr />
 
-			<div class="btn-toolbar">
-
-				<a href="{{ URL::to('admin/recibos/generar'); }}" class="btn"><i class="icon-file"></i> Generar</a>
-				<a href="{{ URL::to('admin/recibos'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-				<a href="{{ URL::to('admin/recibos/bancos'); }}" class="btn"><i class="icon-briefcase"></i> Bancos</a>
-				<a href="{{ URL::to('admin/recibos/formaspay'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Formas de pago</a>
-				
-			</div>
-
 			<div>&nbsp;</div>
 
 			<form class="form-modules">

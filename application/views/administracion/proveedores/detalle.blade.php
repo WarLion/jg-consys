@@ -10,15 +10,6 @@
 
 			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Detalle -</span> <snap style="color:#51a351; font-size:23px;">Proveedores</snap></p> <hr />
 
-			<div class="btn-toolbar">
-
-			    <a href="{{ URL::to('admin/proveedores/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
-			    <a href="{{ URL::to('admin/proveedores'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    
-			</div>
-
-			<hr>
-
 			<form class="form-modules">
 
 				<div class="well">

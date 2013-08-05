@@ -10,14 +10,6 @@
 
 			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Calles -</span> <snap style="color:#51a351; font-size:23px;">Parcelas</snap></p> <hr />
 
-			<div class="btn-toolbar">
-
-			    <a href="{{ URL::to('admin/parcelas/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
-			    <a href="{{ URL::to('admin/parcelas'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <a href="{{ URL::to('admin/parcelas/calles'); }}" class="btn"><i class="icon-road"></i> Calles</a>
-			    
-			</div>
-
 			<div>&nbsp;</div>
 
 			<form action="{{ URL::to('admin/parcelas/calles') }}" method="post" class="form-modules">
