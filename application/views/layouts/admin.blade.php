@@ -12,82 +12,90 @@
 
 <body>
 
-<div class="container"> 
+<div id="wrap">
 
-	<div class="navbar">
+	<div id="main">
 
-		<div class="navbar-inner">
+		<div class="container"> 
 
-			<div class="container-fluid">
+			<div class="navbar">
 
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
+				<div class="navbar-inner">
 
-				<a class="brand logo-consys" href="{{ URL::to('admin'); }}" name="top">
-					{{ HTML::image('img/consys/logo_consys.png') }}
-				</a>
+					<div class="container-fluid">
 
-				<div class="nav-collapse in collapse" style="height: auto;">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
 
-					<ul class="nav">
+						<a class="brand logo-consys" href="{{ URL::to('admin'); }}" name="top">
+							{{ HTML::image('img/consys/logo_consys-w.png') }}
+						</a>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/admin.png') }} Administración <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li>{{ HTML::link('admin/ctasxcobrar','Cuentas por Cobrar') }}</li>
-								<li>{{ HTML::link('admin/ctasxpagar','Cuentas por Pagar') }}</li>
-								<li>{{ HTML::link('admin/recibos','Recibos') }}</li>
-								<li>{{ HTML::link('admin/conceptos','Conceptos') }}</li>
-								<li>{{ HTML::link('admin/reportes','Reportes') }}</li>
-								<li>{{ HTML::link('admin/estadisticas','Estadísticas') }}</li>
+						<div class="nav-collapse in collapse" style="height: auto;">
+
+							<ul class="nav">
+
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/consys/admin-w.png') }} Administración <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li>{{ HTML::link('admin/ctasxcobrar','Cuentas por Cobrar') }}</li>
+										<li>{{ HTML::link('admin/ctasxpagar','Cuentas por Pagar') }}</li>
+										<li>{{ HTML::link('admin/recibos','Recibos') }}</li>
+										<li>{{ HTML::link('admin/conceptos','Conceptos') }}</li>
+										<li>{{ HTML::link('admin/reportes','Reportes') }}</li>
+										<li>{{ HTML::link('admin/estadisticas','Estadísticas') }}</li>
+									</ul>
+								</li>
+
+								<li class="divider-vertical"></li>
+								<li class="dropdown"><a href="{{ URL::to('admin/parcelas'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-home icon-white"></i> Parcelas <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ URL::to('admin/parcelas'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+										<li><a href="{{ URL::to('admin/parcelas/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+										<li><a href="{{ URL::to('admin/parcelas/calles'); }}"><i class="icon-road"></i>&nbsp; Calles</a></li>
+									</ul>
+								</li>
+
+								<li class="divider-vertical"></li>
+								<li class="dropdown"><a href="{{ URL::to('admin/propietarios'); }}" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/consys/propietarios-w.png') }} Propietarios <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ URL::to('admin/propietarios'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+										<li><a href="{{ URL::to('admin/propietarios/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+									</ul>
+								</li>
+
+								<li class="divider-vertical"></li>
+								<li class="dropdown"><a href="{{ URL::to('admin/usuarios'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Usuarios <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ URL::to('admin/usuarios'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+										<li><a href="{{ URL::to('admin/usuarios/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+									</ul>
+								</li>
+
+								<li class="divider-vertical"></li>
+								<li class="dropdown"><a href="{{ URL::to('admin/personal'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase icon-white"></i> Personal <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ URL::to('admin/personal'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+										<li><a href="{{ URL::to('admin/personal/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+										<li><a href="{{ URL::to('admin/personal/cargos'); }}"><i class="icon-briefcase"></i>&nbsp; Cargos</a></li>
+									</ul>
+								</li>
+
+								<li class="divider-vertical"></li>
+								<li class="dropdown"><a href="{{ URL::to('admin/proveedores'); }}" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/consys/proveedores-w.png') }} Proveedores <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ URL::to('admin/proveedores'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
+										<li><a href="{{ URL::to('admin/proveedores/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
+									</ul>
+								</li>
+
 							</ul>
-						</li>
 
-						<li class="divider-vertical"></li>
-						<li class="dropdown"><a href="{{ URL::to('admin/parcelas'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-home"></i> Parcelas <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ URL::to('admin/parcelas'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
-								<li><a href="{{ URL::to('admin/parcelas/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
-								<li><a href="{{ URL::to('admin/parcelas/calles'); }}"><i class="icon-road"></i>&nbsp; Calles</a></li>
-							</ul>
-						</li>
+						</div>
 
-						<li class="divider-vertical"></li>
-						<li class="dropdown"><a href="{{ URL::to('admin/propietarios'); }}" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/propietarios.png') }} Propietarios <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ URL::to('admin/propietarios'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
-								<li><a href="{{ URL::to('admin/propietarios/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
-							</ul>
-						</li>
-
-						<li class="divider-vertical"></li>
-						<li class="dropdown"><a href="{{ URL::to('admin/usuarios'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Usuarios <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ URL::to('admin/usuarios'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
-								<li><a href="{{ URL::to('admin/usuarios/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
-							</ul>
-						</li>
-
-						<li class="divider-vertical"></li>
-						<li class="dropdown"><a href="{{ URL::to('admin/personal'); }}" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase"></i> Personal <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ URL::to('admin/personal'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
-								<li><a href="{{ URL::to('admin/personal/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
-								<li><a href="{{ URL::to('admin/personal/cargos'); }}"><i class="icon-briefcase"></i>&nbsp; Cargos</a></li>
-							</ul>
-						</li>
-
-						<li class="divider-vertical"></li>
-						<li class="dropdown"><a href="{{ URL::to('admin/proveedores'); }}" class="dropdown-toggle" data-toggle="dropdown">{{ HTML::image('img/proveedores.png') }} Proveedores <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="{{ URL::to('admin/proveedores'); }}"><i class="icon-eye-open"></i>&nbsp; Ver - Editar</a></li>
-								<li><a href="{{ URL::to('admin/proveedores/agregar'); }}"><i class="icon-plus-sign"></i>&nbsp; Agregar</a></li>
-							</ul>
-						</li>
-
-					</ul>
+					</div>
 
 				</div>
 
@@ -95,46 +103,32 @@
 
 		</div>
 
+	
+		@yield('content')
+
 	</div>
 
 </div>
 
-@yield('content')
+<div id="footer">
 
-<div class="section">
+	<div class="container">
 
-	<div class="container"> 
+		<div class="row-fluid">
 	
-		<div class="row">
+			<p>
+				&copy; 2013 <strong>JG-Consys</strong> - Sistema Administrativo de Condominios
+			</p>
 
-			<div class="span12">
-
-				<div class="footer">
-
-					<hr />
-
-					<div class="row show-grid">
-						
-						<div class="span5" data-original-title="" title="">
-							&copy; 2013 <strong>JG-Consys
-							<br />Todos los derechos reservados.
-						</div>
-
-						<div class="span7" data-original-title="" title="">
-							<div class="text-right">Sistema Desarrollado por: <strong>{{ HTML::mailto('juliet.garcia@outlook.com','Juliet Garcia' ) }}</strong></div>
-						</div>
-						
-					</div>
-
-				</div> 
-				
-			</div>
+			<p>
+				Sistema desarrollado por: <a href="mailto:juliet.garcia@outlook.com"><strong>Juliet Garcia</strong></a> - Todos los derechos reservados.
+			</p>
 
 		</div>
 
 	</div>
 
-</div>
+</div> 
 
 	{{ Asset::scripts() }}
 
