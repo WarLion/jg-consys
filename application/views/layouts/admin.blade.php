@@ -18,7 +18,7 @@
 
 		<div class="container"> 
 
-			<div class="navbar">
+			<div class="navbar navbar-fixed-top">
 
 				<div class="navbar-inner">
 
@@ -30,7 +30,7 @@
 							<span class="icon-bar"></span>
 						</a>
 
-						<a class="brand logo-consys" href="{{ URL::to('admin'); }}" name="top">
+						<a class="brand logo-consys" href="{{ URL::to('admin'); }}" style="padding: 7px 20px 5px 80px;" name="top">
 							{{ HTML::image('img/consys/logo_consys-w.png') }}
 						</a>
 
