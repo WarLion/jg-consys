@@ -302,12 +302,12 @@ Route::filter('consulta', function()
 Route::filter('admin', function()
 {
 	// Styles
-	Asset::add('bootstrap','css/bootstrap.min.css');
-	Asset::add('bootstrap-responsive','css/bootstrap-responsive.min.css');
-	Asset::add('style_custom','css/style_custom.css');
+	Asset::add('bootstrap','consys/css/bootstrap.min.css');
+	Asset::add('bootstrap-responsive','consys/css/bootstrap-responsive.min.css');
+	Asset::add('style_custom','consys/css/style_custom.css');
 	//Asset::add('docs','css/docs.css');
 
 	// Javascripts files
-	Asset::add('jquery','js/jquery.js');
-	Asset::add('bootstrap','js/bootstrap.min.js');
+	Asset::add('jquery','consys/js/jquery.js');
+	Asset::add('bootstrap','consys/js/bootstrap.min.js');
 });
