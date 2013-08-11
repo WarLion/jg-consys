@@ -15,46 +15,6 @@ a:hover, a:focus {
 
 /*++ Administration System ++*/
 
-/* Admin-Login */
-.login-center {
-	width: 450px;
-	margin: 0 auto 0 auto;
-}
-
-#login-title-center {
-	width: 100px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#padre {
-	width:500px;
-    height:500px;
-    margin:0 auto;
-    display:table;
-}
-#hijo {
-	display:table-cell;
-    vertical-align:middle;
-}
-
-/* Register */
-
-#register-title-center {
-	width: 200px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.register-form {
-	overflow: auto;
-	width: 1150px;
-}
-
-.register-btn-success {
-	width: 550px;
-}
-
 .form-modules .control-label {
 	float: left;
 	padding-top: 5px;
@@ -88,6 +48,16 @@ a:hover, a:focus {
 .logo-consys {
 	width:100px; 
 	height:20px;
+}
+
+/* navbar */
+.nav-pills>.active>a, .nav-pills>.active>a:hover, .nav-pills>.active>a:focus {
+	background-color: #535353;
+}
+
+
+.nav-collapse .nav>li>a:hover, .nav-collapse .nav>li>a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
+background-color: #3e933e;
 }
 
 /* Hack para el pie de pagina */
