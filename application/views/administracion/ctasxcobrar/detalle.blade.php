@@ -8,12 +8,12 @@
 
 		<div class="span12">
 
-			<div class="btn-toolbar">
+			<h3 align="left"><span style="color:#51a351;">Cuentas por Cobrar</span> - Detalle</h3> <hr />
 
-			    <a href="{{ URL::to('admin/ctasxcobrar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
-			    <a href="{{ URL::to('admin/ctasxcobrar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    
-			</div>
+			<ul class="nav nav-pills">
+				<li class="active"><a href="{{ URL::to('admin/ctasxcobrar/agregar'); }}"><i class="icon-plus-sign"></i> Agregar</a></li>
+				<li class="active"><a href="{{ URL::to('admin/ctasxcobrar'); }}"><i class="icon-eye-open"></i> Ver</a></li>
+			</ul>
 
 			<div>&nbsp;</div>
 

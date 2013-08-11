@@ -8,16 +8,13 @@
 
 		<div class="span12">
 
-			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Pagos -</span> <snap style="color:#51a351; font-size:23px;">Cuentas por Pagar</snap></p> <hr />
+			<h3 align="left"><span style="color:#51a351;">Cuentas por Pagar</span> - Pagos</h3> <hr />
 
-			<div class="btn-toolbar">
-
-			    <a href="{{ URL::to('admin/ctasxpagar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
-			    <a href="{{ URL::to('admin/ctasxpagar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    <!--<a href="{{ URL::to('admin/ctasxpagar/documento'); }}" class="btn"><i class="icon-file"></i> Tipos de Documento</a>-->
-			    <a href="{{ URL::to('admin/ctasxpagar/pagos'); }}" class="btn">{{ HTML::image('img/pagos.png') }} Pagos</a>
-			    
-			</div>
+			<ul class="nav nav-pills">
+				<li class="active"><a href="{{ URL::to('admin/ctasxpagar/agregar'); }}"><i class="icon-plus-sign"></i> Agregar</a></li>
+				<li class="active"><a href="{{ URL::to('admin/ctasxpagar'); }}"><i class="icon-eye-open"></i> Ver</a></li>
+				<li class="active"><a href="{{ URL::to('admin/ctasxpagar/pagos'); }}"><i class="icon-ok-sign"></i> Pagos</li>
+			</ul>
 
 			<div>&nbsp;</div>
 

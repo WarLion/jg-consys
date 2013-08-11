@@ -8,7 +8,7 @@
 
 		<div class="span12">
 
-			<p style="width: 400px; margin: 0 auto 0 auto;"><span style="font-size:23px;">Agregar -</span> <snap style="color:#51a351; font-size:23px;">Personal</snap></p> <hr />
+			<h3 align="left"><span style="color:#51a351;">Personal</span> - Agregar</h3> <hr />
 
 			<div>&nbsp;</div>
 

@@ -8,6 +8,8 @@
 
 		<div class="span12">
 
+			<h3 align="left"><span style="color:#51a351;">Conceptos</span></h3> <hr />
+
 			<div>&nbsp;</div>
 
 			<form class="form-modules">

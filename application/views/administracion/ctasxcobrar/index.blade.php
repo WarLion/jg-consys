@@ -8,16 +8,16 @@
 
 		<div class="span12">
 
-			<p style="width: 400px; margin: 0 auto 0 auto;"><snap style="color:#51a351; font-size:23px;">Cuentas por Cobrar</snap></p> <hr />
 
-			<div class="btn-toolbar">
+			<h3 align="left" style="color:#51a351; ">Cuentas por Cobrar</h3>
 
-			    <a href="{{ URL::to('admin/ctasxcobrar/agregar'); }}" class="btn"><i class="icon-plus-sign"></i> Agregar</a>
-			    <a href="{{ URL::to('admin/ctasxcobrar'); }}" class="btn"><i class="icon-eye-open"></i> Ver</a>
-			    
-			</div>
 
-			<div>&nbsp;</div>
+			<hr />
+
+			<ul class="nav nav-pills">
+				<li class="active"><a href="{{ URL::to('admin/ctasxcobrar/agregar'); }}"><i class="icon-plus-sign"></i> Agregar</a></li>
+				<li class="active"><a href="{{ URL::to('admin/ctasxcobrar'); }}"><i class="icon-eye-open"></i> Ver</a></li>
+			</ul>
 
 			<form action="{{ URL::to('admin/ctasxcobrar/detalle') }}" method="post">
 
