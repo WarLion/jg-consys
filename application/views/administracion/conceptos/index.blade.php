@@ -16,60 +16,66 @@
 
 				<div class="row-fluid">
 
-					<div class="span6">
+					<div class="control-group">
 
-						<div class="well"> 
+						<div class="span6">
 
-							<div class="control-group">
+							@if(!empty($message))
+								<div class="alert alert-success">{{ $message }}</div>
+							@endif
 
-								<label class="control-label-right" for="inputCodigo"><strong>Código</strong></label>
-								<div class="controls">
+							<label class="control-label-right" for="inputCodigo"><strong>Código</strong></label>
+							<div class="controls">
 
-									<input type="text" id="codigo" name="codigo" placeholder="Código">
+								<input type="text" id="codigo" name="codigo" placeholder="Código">
 
-								</div>
+							</div>
 
-								<label class="control-label-right" for="inputDescripcion"><strong>Descripción</strong></label>
-								<div class="controls">
+							<label class="control-label-right" for="inputDescripcion"><strong>Descripción</strong></label>
+							<div class="controls">
 
-									<input type="text" id="descripcion" name="descripcion" placeholder="Descripción">
-
-								</div>
-
-								<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
-								<div class="controls">
-
-									<input type="text" id="monto" name="monto" placeholder="Monto">
-
-								</div>
-
-								<label class="control-label-right" for="inputCodigo"><strong>Tipo</strong></label>
-								<div class="controls">
-
-									<select>
-
-										<option>Ingreso</option>
-										<option>Egreso</option>
-
-									</select>
-
-								</div>
+								<input type="text" id="descripcion" name="descripcion" placeholder="Descripción">
 
 							</div>
 
 						</div>
 
-						<button type="submit" class="btn btn-success">Agregar</button>
+						<div class="span6">
 
+							<label class="control-label-right" for="inputMonto"><strong>Monto</strong></label>
+							<div class="controls">
+
+								<input type="text" id="monto" name="monto" placeholder="Monto">
+
+							</div>
+
+							<label class="control-label-right" for="inputCodigo"><strong>Tipo</strong></label>
+							<div class="controls">
+
+								<select>
+
+									<option>Ingreso</option>
+									<option>Egreso</option>
+
+								</select>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div align="center">
+						<div class="large-button">
+							<button type="submit" class="btn btn-block btn-success">Agregar</button>
+						</div>
 					</div>
 
 				</div>
 
 				<hr>
 
-				<strong>Lista de Conceptos</strong>
-
-				<hr class="bs-docs-separator">
+				<h4>Lista de Conceptos</h4>
 
 				<div class="row-fluid"> 
 
@@ -80,18 +86,27 @@
 						  <thead>
 							<tr>
 							  <th>#</th>
+							  <th>Código</th>
 							  <th>Descripción</th>
-							  <th>Opciones</th>
-							  <th style="width: 36px;"></th>
+							  <th>Monto</th>
+							  <th>Acciones</th>
 							</tr>
 						  </thead>
 
 						  <tbody>
-							<tr>
-							  <td>0001</td>
-							  <td>ENERO 2009</td>
-							  <td><a href="#myModal" role="button" data-toggle="modal"><i class="icon-edit"></i></a>  <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a></td>
-							</tr>                   
+						  	@foreach($conceptos as $cnp)
+								<tr>
+								<?php $x++ ?>
+								  <td>{{ $x; }}</td>
+								  <td>{{ $cnp->codigo }}</td>
+								  <td>{{ $cnp->nombre }}</td>
+								  <td>Bs. {{ $cnp->monto }},00</td>
+								  <td>
+								  		<a href="#myModal" role="button" class="tip" data-toggle="tooltip" data-placement="right" title="Modificar"><i class="icon-edit"></i></a>  
+								  		<a href="#myModal" role="button" class="tip" data-toggle="tooltip" data-placement="right" title="Eliminar"><i class="icon-remove"></i></a>
+								  </td>
+								</tr>
+							@endforeach
 						  </tbody>
 
 						</table>
@@ -126,5 +141,17 @@
 
 </div>
 
+
+@endsection
+
+@section('postscript')
+
+<script type="text/javascript">
+
+	$(function() {
+		$(".tip").tooltip();
+	});
+
+</script>
 
 @endsection
