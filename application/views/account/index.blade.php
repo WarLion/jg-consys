@@ -6,6 +6,8 @@
 
 	<div class="row">
 
+		<div class="text-right" align="right"><a href="" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
+
 		<div class="span12">
 
 			<p class="lead">Estado de Cuenta</strong></p>
@@ -18,32 +20,7 @@
 
 			<div>&nbsp;</div>
 
-			<h4>Deuda vigente</h4><br />
-			<div class="well">
-
-				<table class="table table-hover no-margin">
-
-					<thead>
-						<tr>
-							<th>Fecha de emisión</th>
-							<th>Fecha de Vencimiento</th>
-							<th>Total (Bs)</th>
-						</tr>
-					</thead>
-
-					<tbody>					
-						<tr>
-							<td>01-07-2013</td>
-							<td>30-07-2013</td>
-							<td>160,00</td>
-						</tr>
-					</tbody>
-
-				</table>
-
-			</div>
-
-			<h4>Deuda vencida</h4><br />
+			<h4 align="center">Detalle de la Deuda</h4><br />
 			<div class="well">
 				<table class="table table-hover no-margin">
 					<thead>
@@ -59,7 +36,7 @@
 							<th colspan="3">Cuota Ordinaria</th>
 						</tr>
 						<tr>
-							<td>Condominio</td>
+							<td><span style="margin-left:20px"></span>Condominio</td>
 							<td>420,00</td>
 							<td><a href="#">Detalle</a></td>
 						</tr>
@@ -68,17 +45,17 @@
 							<th colspan="3">Cuota(s) Extraordinaria(s)</th>
 						</tr>
 						<tr>
-							<td>Proyecto Sistema de Seguridad 2008</td>
+							<td><span style="margin-left:20px"></span>Proyecto Sistema de Seguridad 2008</td>
 							<td>80,00</td>
 							<td><a href="#">Detalle</a></td>
 						</tr>
 						<tr>
-							<td>Proyecto de Mejoras 2010</td>
+							<td><span style="margin-left:20px"></span>Proyecto de Mejoras 2010</td>
 							<td>50,00</td>
 							<td><a href="#">Detalle</a></td>
 						</tr>
 						<tr>
-							<td>Actualización de Doc. Constitutivo 2011</td>
+							<td><span style="margin-left:20px"></span>Actualización de Doc. Constitutivo 2011</td>
 							<td>120,00</td>
 							<td><a href="#">Detalle</a></td>
 						</tr>
@@ -92,7 +69,7 @@
 							<td colspan="3"></td>
 						</tr>
 						<tr>
-							<td>Sub-Total Deuda Vencida</td>
+							<td>Sub-Total Deuda</td>
 							<td>670,00</td>
 							<td></td>
 						</tr>
@@ -106,11 +83,6 @@
 							<td>0,00</td>
 							<td></td>
 						</tr>
-						<tr>
-							<td>Total Deuda Vencida</td>
-							<td>670,00</td>
-							<td></td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -120,7 +92,7 @@
 					<thead>
 						<tr>
 							<th width="702">Total a pagar (Bs)</th>
-							<th>830,00</th>
+							<th>670,00</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -128,7 +100,7 @@
 			</div>
 
 			<p>
-				<a href="#" class="btn btn-primary">Descargar en PDF</a>
+				<a href="#" class="btn btn-primary">Guardar en PDF</a>
 				<a href="{{ URL::to('cuenta/pagos') }}" class="btn btn-primary">Ver Reporte de Pagos</a>
 			</p>
 

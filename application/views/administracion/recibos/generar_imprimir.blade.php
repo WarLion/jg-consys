@@ -73,7 +73,7 @@
 								<thead>
 									<tr>
 										<td><strong>Correlativo</strong></td>
-										<td>{{ '00'.$correlativo }}</td>
+										<td>007</td>
 									</tr>
 								</thead>
 
@@ -123,9 +123,14 @@
 
 			    </table>
 
-			<p><strong>A la fecha {{ $fecha }} usted adeuda Bs. {{ $adeuda.',00' }}</strong></p><br>
+				<p><strong>A la fecha {{ $fecha }} usted adeuda Bs. {{ $adeuda.',00' }}</strong></p><br>
 
-			<input type="submit" name="procesar" value="Procesar" class="btn btn-success">
+				<div align="center">
+					<div class="large-button">
+						<!--<input type="submit" name="procesar" value="Procesar" class="btn btn-block btn-success">-->
+						<a href="{{ URL::to('admin/recibos/generar/print') }}" target="_blank" class="btn btn-block btn-success">Procesar</a>
+					</div>
+				</div>
 
 			</form>
 

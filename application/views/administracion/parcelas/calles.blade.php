@@ -18,38 +18,38 @@
 
 					<div class="span6">
 
-						{{ $message }}
+						@if(!empty($message))
+							<div class="alert alert-success">{{ $message }}</div>
+						@endif
 
-						<div class="well"> 
+						<div class="control-group">
 
-							<div class="control-group">
+							<label class="control-label-right" for="inputCalle"><strong>Nombre</strong></label>
+							<div class="controls">
 
-								<label class="control-label-right" for="inputCalle"><strong>Nombre</strong></label>
-								<div class="controls">
+								<input type="text" id="calle" name="calle" placeholder="Nombre de la calle">
 
-									<input type="text" id="calle" name="calle" placeholder="Nombre de la calle">
+							</div>
 
-								</div>
+							<label class="control-label-right" for="inputMtsLargo"><strong>Mts - largo</strong></label>
+							<div class="controls">
 
-								<label class="control-label-right" for="inputMtsLargo"><strong>Mts - largo</strong></label>
-								<div class="controls">
+								<input type="text" id="mtslargo" name="mtslargo" placeholder="Mts - largo">
 
-									<input type="text" id="mtslargo" name="mtslargo" placeholder="Mts - largo">
+							</div>
 
-								</div>
+							<label class="control-label-right" for="inputMtsAncho"><strong>Mts - ancho</strong></label>
+							<div class="controls">
 
-								<label class="control-label-right" for="inputMtsAncho"><strong>Mts - ancho</strong></label>
-								<div class="controls">
-
-									<input type="text" id="mtsancho" name="mtsancho" placeholder="Mts - ancho">
-
-								</div>
+								<input type="text" id="mtsancho" name="mtsancho" placeholder="Mts - ancho">
 
 							</div>
 
 						</div>
 
-						<button type="submit" class="btn btn-success">Agregar</button>
+						
+						<button type="submit" class="btn btn-success">   Agregar   </button>
+							
 
 						<div>&nbsp;</div>
 
@@ -69,8 +69,6 @@
 							<tr class="well">
 							  <th>#</th>
 							  <th>Nombre</th>
-							  <th>Mts - largo</th>
-							  <th>Mts - ancho</th>
 							  <th>Acciones</th>
 							</tr>
 						  </thead>
@@ -81,8 +79,6 @@
 							        	<tr>
 											<td>{{ $x++; }}</td>
 											<td>{{ $cal->nombre }}</td>
-											<td>{{ $cal->mtslargo }}</td>
-											<td>{{ $cal->mtsancho }}</td>
 											<td>{{ HTML::link('','Modificar') }}</td>
 										</tr>
 									@endforeach

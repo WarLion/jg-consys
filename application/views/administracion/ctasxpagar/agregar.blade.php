@@ -13,14 +13,16 @@
 			<ul class="nav nav-pills">
 				<li class="active"><a href="{{ URL::to('admin/ctasxpagar/agregar'); }}"><i class="icon-plus-sign"></i> Agregar</a></li>
 				<li class="active"><a href="{{ URL::to('admin/ctasxpagar'); }}"><i class="icon-eye-open"></i> Ver</a></li>
-				<li class="active"><a href="{{ URL::to('admin/ctasxpagar/pagos'); }}"><i class="icon-ok-sign"></i> Pagos</li>
+				<li class="active"><a href="{{ URL::to('admin/ctasxpagar/pagos'); }}"><i class="icon-ok-sign"></i> Pagos</a></li>
 			</ul>
 
 			<div>&nbsp;</div>
 
 			<form action="{{ URL::to('admin/ctasxpagar/agregar') }}" method="post" class="form-modules">
 
-				{{ $message }}
+				@if(!empty($message))
+						<div class="alert alert-success">{{ $message }}</div>
+				@endif
 
 				<div class="control-group">
 
@@ -106,7 +108,11 @@
 
 				</div>
 
-				<input type="submit" class="btn btn-success" name="agregar" value="Agregar">
+				<div align="center">
+					<div class="large-button">
+						<input type="submit" class="btn btn-block btn-success" name="agregar" value="Registrar">						
+					</div>
+				</div>
 
 				<div>&nbsp;</div>
 

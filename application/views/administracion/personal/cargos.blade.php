@@ -16,7 +16,7 @@
 
 				<div class="control-group">
 
-					<label class="control-label" for="inputCargo"><strong>Cargo</strong></label>
+					<label class="control-label" for="inputCargo"><strong>Nombre del Cargo</strong></label>
 					<div class="controls">
 
 						<input type="text" id="cargo" name="cargo" placeholder="Cargo">

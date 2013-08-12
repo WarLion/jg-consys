@@ -19,6 +19,14 @@
 
 			<form action="{{ URL::to('admin/ctasxcobrar/agregar') }}" method="post" class="form-modules">
 
+			@if(!empty($add))
+				<div class="alert alert-success">El concepto de la deuda, se ha registrado correctamente.</div>			
+			@endif
+
+			@if(isset($search) && empty($propietario))
+				<div class="alert alert-warning">El número de parcela no existe, por favor, verifique la parcela a buscar.</div>
+			@endif
+
 				<div class="control-group">
 
 					<label class="control-label" for="inputParcela"><strong>Parcela</strong></label>
@@ -27,8 +35,8 @@
 						<input type="text" id="parcela" name="parcela" placeholder="Parcela">
 						<input type="hidden" id="parcela" name="hidden_parcela" value="{{ $txtParcela }}">
 
-						<button type="submit" class="btn btn-success">Buscar</button>
-						<button type="submit" class="btn btn-success">Todos</button>
+						<button type="submit" class="btn btn-success" name="search">Buscar</button>
+						<!--<button type="submit" class="btn btn-success">Todos</button>-->
 
 					</div>
 
@@ -126,11 +134,15 @@
 
 				</div>
 
-				@if(!empty($conceptos))
-					<input type="submit" class="btn btn-success" name="add" value="Agregar">
-				@else
-					<input type="submit" class="btn btn-success" name="add" value="Agregar" disabled>
-				@endif
+				<div align="center">
+					<div class="large-button">
+						@if(!empty($conceptos))
+							<input type="submit" class="btn btn-block btn-success" name="add" value="Registrar">
+						@else
+							<input type="submit" class="btn btn-block btn-success" name="add" value="Registrar" disabled>
+						@endif
+					</div>
+				</div>
 
 			</form>
 

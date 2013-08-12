@@ -6,6 +6,8 @@
 
 	<div class="row">
 
+		<div class="text-right" align="right"><a href="" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
+
 		<div class="span12">
 
 			<p class="lead">Reporte de Pagos Realizados</strong></p>
@@ -98,7 +100,7 @@
 			</div>
 
 			<p>
-				<a href="#" class="btn btn-primary">Descargar en PDF</a>
+				<a href="#" class="btn btn-primary">Guardar en PDF</a>
 			</p>
 
 		</div>

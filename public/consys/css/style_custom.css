@@ -15,6 +15,17 @@ a:hover, a:focus {
 
 /*++ Administration System ++*/
 
+#padre {
+	width:500px;
+    height:500px;
+    margin:0 auto;
+    display:table;
+}
+#hijo {
+	display: table-cell;
+	vertical-align: middle;
+}
+
 .form-modules .control-label {
 	float: left;
 	padding-top: 5px;
@@ -41,6 +52,18 @@ a:hover, a:focus {
 	margin-left: 0px;
 }
 
+.btn-success {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #5bb75b;
+	border-color: #51a351 #51a351 #387038;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.large-button {
+	width: 300px;
+}
+
 .select-large {
 	width: 360px;
 }
@@ -55,7 +78,6 @@ a:hover, a:focus {
 	background-color: #535353;
 }
 
-
 .nav-collapse .nav>li>a:hover, .nav-collapse .nav>li>a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus {
 background-color: #3e933e;
 }
@@ -68,7 +90,7 @@ http://www.cssstickyfooter.com*/
 * {
 	margin: 0;
 	padding: 0;
-}/*Quitamos unas propiedades que por defecto traen los navegadores y las ponemos en â€œ0â€*/
+}/*Quitamos unas propiedades que por defecto traen los navegadores y las ponemos en “0�?*/
 
 html, body {
 	height: 100%;

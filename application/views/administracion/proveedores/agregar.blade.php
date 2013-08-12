@@ -16,7 +16,9 @@
 
 						<div class="span6">
 
-							{{ $message; }}
+							@if(!empty($message))
+								<div class="alert alert-success">{{ $message }}</div>
+							@endif
 
 							<div class="control-group">
 
@@ -69,7 +71,11 @@
 
 					</div>
 
-				<input type="submit" class="btn btn-success" name="add" value="Agregar">
+					<div align="center">
+						<div class="large-button">	
+							<input type="submit" class="btn btn-block btn-success" name="add" value="Agregar">
+						</div>
+					</div>
 
 			</form>
 

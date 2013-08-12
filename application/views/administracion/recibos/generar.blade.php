@@ -130,7 +130,11 @@
 
 				<div>&nbsp;</div>
 
-				<button type="submit" class="btn btn-success">Continuar <i class="icon-circle-arrow-right icon-white"></i></button>
+				<div align="center">
+					<div class="large-button">
+						<button type="submit" class="btn btn-block btn-success">Continuar <i class="icon-circle-arrow-right icon-white"></i></button>
+					</div>
+				</div>
 
 			</form>
 				

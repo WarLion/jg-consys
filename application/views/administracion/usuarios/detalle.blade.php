@@ -101,8 +101,12 @@
 
 				</div>
 
-				<a href="{{ URL::to('#'); }}" class="btn btn-success">Actualizar <i class="icon-refresh icon-white"></i></a>
-				<a href="{{ URL::to('#'); }}" class="btn btn-danger">Desactivar <i class="icon-remove icon-white"></i></a>
+				<div align="center">
+					<div class="large-button">
+						<div class="btn-group"><a href="{{ URL::to('#'); }}" class="btn btn-success">Actualizar <i class="icon-refresh icon-white"></i></a></div>
+						<div class="btn-group"><a href="{{ URL::to('#'); }}" class="btn btn-danger">Desactivar <i class="icon-remove icon-white"></i></a></div>
+					</div>
+				</div>
 
 			</form>
 

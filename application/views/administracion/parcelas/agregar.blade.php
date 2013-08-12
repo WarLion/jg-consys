@@ -16,13 +16,13 @@
 
 				<div class="row-fluid">
 
-					<div class="span6">
+						@if(!empty($message))
+							<div class="alert alert-success">{{ $message }}</div>
+						@endif
 
-						{{ $message; }}
+						<div class="control-group">
 
-						<div class="well"> 
-
-							<div class="control-group">
+							<div class="span6">
 
 								<label class="control-label-right" for="inputParcela"><strong>Nro. Parcela</strong></label>
 								<div class="controls">
@@ -49,6 +49,10 @@
 
 								</div>
 
+							</div>
+
+							<div class="span6">
+
 								<label class="control-label-right" for="inputAlicuota"><strong>Alicuota (%)</strong></label>
 								<div class="controls">
 
@@ -70,9 +74,11 @@
 
 						</div>
 
-						<button type="submit" class="btn btn-success">Agregar</button>
-
-					</div>
+						<div align="center">
+							<div class="large-button">
+								<button type="submit" class="btn btn-block btn-success">Agregar</button>
+							</div>
+						</div>
 
 				</div>
 

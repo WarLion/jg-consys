@@ -6,9 +6,10 @@
 
 	<div class="row">
 
+		<div class="span5"><p class="lead">Bienvenido(a) <strong>DUQUE, JULIA</strong></p></div>
+		<div class="text-right" align="right"><a href="" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
+			
 		<div class="span12">
-
-			<p class="lead">Bienvenido(a) <strong>DUQUE, JULIA</strong></p>
 
 			<ul id="portfolio" class="thumbnails">
 
@@ -16,11 +17,11 @@
 
 					<div class="thumbnail"><br />
 
-						<a href="{{ URL::to('#') }}">{{ HTML::image('img/dashboard/user.png') }} </a>
+						<a href="{{ URL::to('usuario') }}">{{ HTML::image('img/dashboard/user.png') }} </a>
 					  
 						<div class="caption">
 
-							<h3>{{ HTML::link('#','Datos personales') }}</h3>
+							<h3>{{ HTML::link('usuario','Datos personales') }}</h3>
 							<a class="btn btn-primary" href="#">Ver</a>
 
 						</div>

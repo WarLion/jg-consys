@@ -19,7 +19,7 @@
 		          <th>#</th>
 		          <th>Parcela</th>
 		          <th>Calle</th>
-		          <th>Alicuota</th>
+		          <!--<th>Alicuota</th>-->
 		          <th>Metros</th>
 		          <th>Condición</th>
 		          <th>Ver</th>
@@ -33,7 +33,6 @@
 							<td>{{ $x++; }}</td>
 							<td>{{ $prc->nro }}</td>
 							<td>{{ $prc->calle }}</td>
-							<td>{{ $prc->alicuota }}</td>
 							<td>{{ $prc->mts }}</td>
 							<td>{{ $prc->habitada }}</td>
 							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>

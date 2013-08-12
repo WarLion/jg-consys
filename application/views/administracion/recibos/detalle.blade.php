@@ -126,8 +126,8 @@
 
 				</div>
 
-				<a href="{{ URL::to('admin/recibos/print'); }}" class="btn btn-success" target="_blank">Imprimir <i class="icon-print icon-white"></i></a>
-				<a href="#myModal" class="btn btn-danger" role="button" data-toggle="modal">Anular <i class="icon-remove-sign icon-white"></i></a>
+				<div class="btn-group"><a href="{{ URL::to('admin/recibos/print'); }}" class="btn btn-success" target="_blank">Imprimir <i class="icon-print icon-white"></i></a></div>
+				<div class="btn-group"><a href="#myModal" class="btn btn-danger" role="button" data-toggle="modal">Anular <i class="icon-remove-sign icon-white"></i></a></div>
 
 			</form>
 
