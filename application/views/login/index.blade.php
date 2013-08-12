@@ -26,7 +26,7 @@
 
 		    <div class="control-group">		      
 				<div class="controls">
-					<button type="submit" class="btn btn-small">Entrar</button>
+					<a href="{{ URL::to('dashboard') }}" class="btn btn-small">Entrar</a>
 				</div>
 		    </div>
 
