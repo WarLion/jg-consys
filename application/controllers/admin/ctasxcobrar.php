@@ -18,7 +18,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 			->join('tadm_agrupar','tadm_agrupar.parcela_nro','=','tadm_ctasxcobrar.parcela_nro')
 			->join('tadm_propietarios','tadm_agrupar.propietarios_ci','=','tadm_propietarios.ci')
 			->group_by('tadm_ctasxcobrar.parcela_nro')
-			->order_by('tadm_ctasxcobrar.parcela_nro', 'desc')
+			->order_by('monto', 'desc')
 			->get();
 
 		return View::make('administracion.ctasxcobrar.index')
@@ -95,6 +95,7 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 		$txtParcela = 		Input::get('parcela');
 		$hidden_parcela = 	Input::get('hidden_parcela');
 		$add = 				Input::get('add');
+		$search = 			Input::get('search');
 
 		// Para mostrar conceptos en el select
 		$conceptos = DB::table('tadm_conceptos')->get(array('codigo','nombre','monto'));
@@ -138,7 +139,9 @@ class Admin_Ctasxcobrar_Controller extends Base_Controller {
 			->with('txtParcela',$txtParcela)
 			->with('propietario',$propietario)
 			->with('ctasxcobrar',$ctasxcobrar)
-			->with('sum_monto',$sum_monto);
+			->with('sum_monto',$sum_monto)
+			->with('search',$search)
+			->with('add',$add);
 	}
 
 	public function post_detalle()
