@@ -22,6 +22,14 @@ class Admin_print_Controller extends Base_Controller {
 			->with('total',$total);
 	}
 
+	public function get_recibos_generar()
+	{
+		$title = 'Recibos - Sistema Administrativo JG-Consys';
+
+		return View::make('administracion.prints.recibos_generar')
+			->with('title',$title);
+	}
+
 	public function post_recibos()
 	{
 		
