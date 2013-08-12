@@ -328,6 +328,7 @@ class Admin_CtasxPagar_Controller extends Base_Controller {
 		$monto 			= Input::get('monto');
 		$fecha 			= date("d-m-Y H:i:s");
 		$selectMontos	= Input::get();
+		$efectivo		= Input::get('efectivo');
 
 		// Si no se ha seleccionado ningun concepto...
 		if(empty($monto))
