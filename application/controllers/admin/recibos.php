@@ -226,6 +226,9 @@ class Admin_recibos_Controller extends Base_Controller {
 			$total_conceptos 	= Session::get('total_conceptos');
 			$num_con 			= Session::get('num_con');
 			$conceptos 			= Session::get('conceptos');
+			$nombre_con 		= Session::get('nombre_con');
+			$fecha				= date("d-m-Y");
+			$title 				= 'Recibos - Sistema Administrativo JG-Consys';
 
 			if(!empty($generarPay['efectivo']))
 			{
@@ -237,6 +240,14 @@ class Admin_recibos_Controller extends Base_Controller {
 									'partida'		=> 'ingreso',
 									'fecha'			=> $fecha,
 									'monto'			=> $total_conceptos));
+
+				return View::make('administracion.prints.recibos_generar')
+					->with('generarPay',$generarPay)
+					->with('total_conceptos',$total_conceptos)
+					->with('num_con',$num_con)
+					->with('conceptos',$conceptos)
+					->with('nombre_con',$nombre_con)
+					->with('title',$title);
 			}
 
 			if(!empty($generarPay['deposito']))
@@ -378,6 +389,7 @@ class Admin_recibos_Controller extends Base_Controller {
 			Session::put('generarPay',$generarPay);
 			Session::put('num_con',$num_con);
 			Session::put('total_conceptos',$total_conceptos);
+			Session::put('nombre_con',$nombre_con);
 
 			return View::make('administracion.recibos.generar_imprimir')
 				->with('title',$title)
