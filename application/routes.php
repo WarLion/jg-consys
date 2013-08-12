@@ -67,6 +67,9 @@ Route::group(array('before' => 'consulta'), function()
 	Route::post('informar','inform@index');
 	Route::get('informar','inform@index');
 
+	Route::post('usuario','personal@index');
+	Route::get('usuario','personal@index');
+
 });
 
 Route::group(array('before' => 'admin'), function()
@@ -84,6 +87,9 @@ Route::group(array('before' => 'admin'), function()
 	// print
 	Route::post('admin/recibos/print','admin/print@recibos');
 	Route::get('admin/recibos/print','admin/print@recibos');
+
+	Route::post('admin/recibos/generar/print','admin/print@recibos_generar');
+	Route::get('admin/recibos/generar/print','admin/print@recibos_generar');
 
 	// index
 	Route::post('admin','admin/administracion@index');
