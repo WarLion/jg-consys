@@ -7,7 +7,7 @@
 	<div class="row">
 
 		<div class="span5"><p class="lead">Bienvenido(a) <strong>DUQUE, JULIA</strong></p></div>
-		<div class="text-right" align="right"><a href="" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
+		<div class="text-right" align="right"><a href="{{ URL::to('login') }}" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
 			
 		<div class="span12">
 
