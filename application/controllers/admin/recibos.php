@@ -241,13 +241,13 @@ class Admin_recibos_Controller extends Base_Controller {
 									'fecha'			=> $fecha,
 									'monto'			=> $total_conceptos));
 
-				return View::make('administracion.prints.recibos_generar')
+				/*return View::make('administracion.prints.recibos_generar')
 					->with('generarPay',$generarPay)
 					->with('total_conceptos',$total_conceptos)
 					->with('num_con',$num_con)
 					->with('conceptos',$conceptos)
 					->with('nombre_con',$nombre_con)
-					->with('title',$title);
+					->with('title',$title);*/
 			}
 
 			if(!empty($generarPay['deposito']))
