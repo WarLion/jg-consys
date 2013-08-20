@@ -6,7 +6,7 @@
 
 	<div class="row">
 
-		<div class="text-right" align="right"><a href="" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
+		<div class="text-right" align="right"><a href="{{ URL::to('login') }}" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
 
 		<div class="span12">
 

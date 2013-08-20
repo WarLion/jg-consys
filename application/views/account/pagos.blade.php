@@ -6,7 +6,7 @@
 
 	<div class="row">
 
-		<div class="text-right" align="right"><a href="" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
+		<div class="text-right" align="right"><a href="{{ URL::to('login') }}" class="btn btn-primary" type="button">Cerrar Sesión</a></div>
 
 		<div class="span12">
 
@@ -20,7 +20,6 @@
 
 			<div>&nbsp;</div>
 
-			<h4>Deuda vigente</h4><br />
 			<div class="well">
 
 				<table class="table table-hover no-margin">
@@ -100,7 +99,7 @@
 			</div>
 
 			<p>
-				<a href="#" class="btn btn-primary">Guardar en PDF</a>
+				<a href="http://localhost/_my/jg-sigcon/public/downloads/Pagos - 12_08_2013.pdf" target="_blank" class="btn btn-primary">Guardar en PDF</a>
 			</p>
 
 		</div>
