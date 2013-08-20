@@ -62,7 +62,8 @@
 					</tr>
 				@endif
 
-		      	@if(!empty($us_anonimo))
+		      	
+
 		        	@foreach($us_anonimo as $user)
 		        		@if($user->activo == 1) 
 		        			<?php $estado = "Activo"; ?>
@@ -81,19 +82,7 @@
 							<td>{{ HTML::link('admin/usuarios/detalle','Detalle') }}</td>
 						</tr>
 					@endforeach
-				@else
-		        	<tr>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
-					</tr>
-				@endif
+				
 		      </tbody>
 
 		    </table>
